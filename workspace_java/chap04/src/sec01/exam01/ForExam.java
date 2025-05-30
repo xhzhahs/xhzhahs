@@ -8,25 +8,25 @@ public class ForExam {
 		for (int i=1; i<=100; i++) { 
 			// for (int i=1; 
 			//      i<=100; 
-			//      i++) ()의 문장은 사실상 각각 한 문장이다.
+			//      i++) ()�쓽 臾몄옣�� �궗�떎�긽 媛곴컖 �븳 臾몄옣�씠�떎.
 			sum = sum +i;
 		}
-		System.out.println("1~100의 합: "+ sum);
+		System.out.println("1~100�쓽 �빀: "+ sum);
 		
 //		int sum = 0;
 //		int i = 1;
 //		for (    ; i<=100; i++) { 
 //			sum = sum +i;
 //		}
-//		System.out.println("1~100의 합: "+ sum);
+//		System.out.println("1~100�쓽 �빀: "+ sum);
 //		
 //		int sum = 0;
 //		int i;
 //		for ( i = 1; i<=100; i++) { 
 //			sum = sum +i;
 //		}
-//		System.out.println("1~100의 합: "+ sum); 
-//		위 코드들은 같은 코드
+//		System.out.println("1~100�쓽 �빀: "+ sum); 
+//		�쐞 肄붾뱶�뱾�� 媛숈� 肄붾뱶
 		
 		int sum0 = 0;
 		for (int i = 1; i<=100; i = i + 2) { 
@@ -34,7 +34,7 @@ public class ForExam {
 		}
 		System.out.println(sum0);
 		
-		// 1씩 증가하는 것을 10번 하려고 할 때 
+		// 1�뵫 利앷��븯�뒗 寃껋쓣 10踰� �븯�젮怨� �븷 �븣 
 		int sum1 = 0;
 		sum1 = sum1 + 1;
 		sum1 = sum1 + 1;
@@ -45,10 +45,10 @@ public class ForExam {
 		sum1 = sum1 + 1;
 		sum1 = sum1 + 1;
 		sum1 = sum1 + 1;
-		sum1 = sum1 + 1;
+		sum1 = sum1 + 1;   
 		System.out.println(sum1);
 		
-		// for문으로 변경
+		// for臾몄쑝濡� 蹂�寃�
 		sum1 = 0;
 		for(int i=1; i<=10; i++) {
 			sum1 = sum1 + 1;
@@ -60,12 +60,12 @@ public class ForExam {
 			sum1 = sum1 + 1;
 		}
 		
-		// 1~5까지 합 구하기 
+		// 1~5源뚯� �빀 援ы븯湲� 
 		/*
 		for (int i = 1; i<=5; i = i + 1) { 
 			sum = sum +i;
 		}
-		분해해 보자.
+		遺꾪빐�빐 蹂댁옄.
 		 */
 		
 		int i = 1;
@@ -81,19 +81,19 @@ public class ForExam {
 		i++;
 		
 		/*
-		 * 반복문 만드는 원리
-		 1. 반복되는 것 찾기
-		  	ctrl + c, v 했을 때 바뀌지 않는 것
-		 2. 반복되지 않는 것에서 규칙(패턴) 찾기
-		  	변수를 활용해서 더 이상 바뀌지 않게 만들기
-		 3. 시작 조건 파악
-		 4. 종료 조건 파악	
+		 * 諛섎났臾� 留뚮뱶�뒗 �썝由�
+		 1. 諛섎났�릺�뒗 寃� 李얘린
+		  	ctrl + c, v �뻽�쓣 �븣 諛붾�뚯� �븡�뒗 寃�
+		 2. 諛섎났�릺吏� �븡�뒗 寃껋뿉�꽌 洹쒖튃(�뙣�꽩) 李얘린
+		  	蹂��닔瑜� �솢�슜�빐�꽌 �뜑 �씠�긽 諛붾�뚯� �븡寃� 留뚮뱾湲�
+		 3. �떆�옉 議곌굔 �뙆�븙
+		 4. 醫낅즺 議곌굔 �뙆�븙	
 		 
-		 for : 반복 횟수를 아는 경우
-		 while : 반복 횟수를 모르는 경우
+		 for : 諛섎났 �슏�닔瑜� �븘�뒗 寃쎌슦
+		 while : 諛섎났 �슏�닔瑜� 紐⑤Ⅴ�뒗 寃쎌슦
 		 */
 		
-		// 구구단 2단을 출력하시오
+		// 援ш뎄�떒 2�떒�쓣 異쒕젰�븯�떆�삤
 
 		int x2 = 0;
 		for(int i2 =1; i2<=9; i2++) {
@@ -101,7 +101,7 @@ public class ForExam {
 			System.out.println("2 x "+ i2 +" = "+ x2);
 		}
 		
-		// 2~10까지 중 짝수만 출력
+		// 2~10源뚯� 以� 吏앹닔留� 異쒕젰
 		/* 
 		 * int i3 = 2;
 		 
@@ -124,7 +124,7 @@ public class ForExam {
 			System.out.println(i3);
 		}
 	
-		// 10~1까지 출력
+		// 10~1源뚯� 異쒕젰
 		/* 
 		 * int i4 = 10;
 		 
@@ -146,18 +146,18 @@ public class ForExam {
 			System.out.println(i4);
 		}
 				
-		// 1~10까지 다음과 같이 출력
-		// 1: 홀수
-		// 2: 짝수
+		// 1~10源뚯� �떎�쓬怨� 媛숈씠 異쒕젰
+		// 1: ���닔
+		// 2: 吏앹닔
 		for(int i5 = 1; i5<=10; i5++) {
 			if(i5 % 2 == 0) {
-				System.out.println(i5 +": 짝수");
+				System.out.println(i5 +": 吏앹닔");
 			} else {
-				System.out.println(i5 +": 홀수");
+				System.out.println(i5 +": ���닔");
 			}
 		}
 		
-		// 1~10까지 3개씩 옆으로 찍기
+		// 1~10源뚯� 3媛쒖뵫 �쁿�쑝濡� 李띻린
 		for(int i6 = 1; i6 <= 10; i6++) {
 			if(i6 % 3 == 0) {
 				System.out.println(i6);
@@ -167,7 +167,7 @@ public class ForExam {
 		}
 		
 		/* 
-		 * 다른 방법1
+		 * �떎瑜� 諛⑸쾿1
 		 * for(int i6 = 1; int6 <= 10; int6 += 3) {
 		 * 		if(int6 != 10) {
 		 * 			System.out.println(i6+ " "+(i6+1) +" "+ (i6+2));
@@ -177,7 +177,7 @@ public class ForExam {
 		 * }
 		 */
 		/*
-		 * 다른 방법2
+		 * �떎瑜� 諛⑸쾿2
 		 * int i6 =1;
 		 * for(int i6 =1; i6 <= 10; i6++) {
 		 * 		System.out.print(i6+ " ");
@@ -189,27 +189,27 @@ public class ForExam {
 		
 		System.out.println();
 		
-		// 1부터 100까지 홀수의 개수
+		// 1遺��꽣 100源뚯� ���닔�쓽 媛쒖닔
 	
 		int count = 0;
 		for(int i7 = 1; i7 <= 100; i7++) {
 			if(i7 % 2 != 0) {
-			count = count +1;	// count++;로 쓰기 가능
+			count = count +1;	// count++;濡� �벐湲� 媛��뒫
 			}
 		}
-		System.out.println("홀수는 "+ count+ "개 입니다");
+		System.out.println("���닔�뒗 "+ count+ "媛� �엯�땲�떎");
 		
 		
-		// 구구단 전체 출력 (2단부터 9단까지)
+		// 援ш뎄�떒 �쟾泥� 異쒕젰 (2�떒遺��꽣 9�떒源뚯�)
 		for(int d = 2; d <=9; d++) {
-			System.out.println(d + "단");
+			System.out.println(d + "�떒");
 			for(int i8 = 1; i8<=9; i8++) {
 				System.out.println(d+ " x "+ i8+ " = "+ (d * i8));
 			}
 			System.out.println();
 		}
 		
-		// 구구단 단별로 한줄로 출력
+		// 援ш뎄�떒 �떒蹂꾨줈 �븳以꾨줈 異쒕젰
 		for(int d = 2; d <=9; d++) {
 			for(int i8 = 1; i8<=9; i8++) {
 				System.out.print(d+ " x "+ i8+ " = "+ (d * i8)+ " ");
@@ -217,15 +217,15 @@ public class ForExam {
 			System.out.println();
 		}
 		
-		// 두~세단씩 옆으로 출력
-		System.out.println("문제-------------------------");
+		// �몢~�꽭�떒�뵫 �쁿�쑝濡� 異쒕젰
+		System.out.println("臾몄젣-------------------------");
 		for(int k = 2; k <=9; k+=2) {
 			for(int i8 = 1; i8<=9; i8++) {
 				System.out.println(k+ " x "+ i8+ " = "+ (k * i8)+ " "+k+ " x "+ i8+ " = "+ (k * i8)+ " ");
 			}
 		}
-		// 풀이
-		System.out.println("문제풀이-------------------------");
+		// ���씠
+		System.out.println("臾몄젣���씠-------------------------");
 		for(int k=2; k<=9; k+=2) {
 			for(int j = 2; j<=9; j++) {
 				System.out.print(k+ " x "+ j+ " = "+ (k * j)+ " ");
@@ -237,7 +237,7 @@ public class ForExam {
 			
 		}
 
-		// 피라미드 찍기
+		// �뵾�씪誘몃뱶 李띻린
 		/*
 		....+....
 		...+++...
@@ -246,7 +246,7 @@ public class ForExam {
 		+++++++++ 
 		 */
 		
-		// 0단계: + 5번 찍기
+		// 0�떒怨�: + 5踰� 李띻린
 		/*
 			 +
 			 +
@@ -265,8 +265,8 @@ public class ForExam {
 		}
 		
 		String mark = "+";
-		// 1단계
-		// +++++ 출력
+		// 1�떒怨�
+		// +++++ 異쒕젰
 		System.out.print(mark);
 		System.out.print(mark);
 		System.out.print(mark);
@@ -278,21 +278,21 @@ public class ForExam {
 		}
 		System.out.println();
 		
-		// 2단계
-		// +.+.+.+.+. 출력
+		// 2�떒怨�
+		// +.+.+.+.+. 異쒕젰
 		String space = ".";
 		for(int j=1; j<=5; j++) {
 			System.out.print(mark + space);
 		}
 		System.out.println();
-		// 다른방법
+		// �떎瑜몃갑踰�
 		for(int j=1; j<=5; j++) {
 			System.out.print(mark);
 			System.out.print(space);
 		}
 		System.out.println();
 		
-		// 3단계
+		// 3�떒怨�
 		/*
 			 +++++
 			 +++++
@@ -305,7 +305,7 @@ public class ForExam {
 			System.out.println();
 		}
 		
-		// 4단계
+		// 4�떒怨�
 		/*
 			11111
 			22222
@@ -319,7 +319,7 @@ public class ForExam {
 			}
 			System.out.println();
 		}
-		// 5단계
+		// 5�떒怨�
 		/*
 			 1
 			 22
@@ -335,7 +335,7 @@ public class ForExam {
 			System.out.println();
 		}
 		
-		// 6단계
+		// 6�떒怨�
 		/*
 			+
 			++
@@ -350,7 +350,7 @@ public class ForExam {
 			System.out.println();
 		}
 		
-		// 7단계
+		// 7�떒怨�
 		/*
 			11111
 			2222
@@ -365,7 +365,7 @@ public class ForExam {
 			System.out.println();
 		}
 		
-		// 8단계
+		// 8�떒怨�
 			/*
 				+....
 			    ++...
@@ -383,7 +383,7 @@ public class ForExam {
 			System.out.println();
 		}
 		
-		// 9단계
+		// 9�떒怨�
 		/*
 			....+
 		    ...++
@@ -402,7 +402,7 @@ public class ForExam {
 		}
 		
 		
-		// 10단계
+		// 10�떒怨�
 		/*
 			....+
 		    ...+++
@@ -424,7 +424,7 @@ public class ForExam {
 		}
 		
 		
-		// 11단계
+		// 11�떒怨�
 		/*
 			....+....
 		    ...+++...
@@ -449,9 +449,9 @@ public class ForExam {
 		}
 		
 		
-		// 12단계
-		// 입력받은 줄 수대로 출력
-		// 예를 들어 3이면
+		// 12�떒怨�
+		// �엯�젰諛쏆� 以� �닔��濡� 異쒕젰
+		// �삁瑜� �뱾�뼱 3�씠硫�
 		/*
 			..+..
 		    .+++.
