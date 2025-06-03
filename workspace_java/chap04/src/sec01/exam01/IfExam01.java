@@ -1,6 +1,6 @@
 package sec01.exam01;
 
-public class IfExam {
+public class IfExam01 {
 
 	public static void main(String[] args) {
 

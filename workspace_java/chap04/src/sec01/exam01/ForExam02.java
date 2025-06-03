@@ -1,6 +1,8 @@
 package sec01.exam01;
 
-public class ForExam {
+import java.util.Scanner;
+
+public class ForExam02 {
 
 	public static void main(String[] args) {
 
@@ -365,6 +367,14 @@ public class ForExam {
 			System.out.println();
 		}
 		
+		// 다른 방법
+		for(int q=5; q>=1; q--) {
+			for(int j=1; j<=q; j++) {
+				System.out.print(6-q);
+			}
+			System.out.println();
+		}
+		
 		// 8단계
 			/*
 				+....
@@ -378,6 +388,17 @@ public class ForExam {
 				System.out.print(mark);
 			}
 			for(int t=4; t>=q; t--) {
+				System.out.print(space);
+			}
+			System.out.println();
+		}
+		
+		// 다른 방법
+		for(int q=1; q<=5; q++) {
+			for(int j=1; j<=q; j++) {
+				System.out.print(mark);
+			}
+			for(int t=1; t<=5-q; t++) {
 				System.out.print(space);
 			}
 			System.out.println();
@@ -400,7 +421,16 @@ public class ForExam {
 			}
 			System.out.println();
 		}
-		
+		// 다른 방법
+		for(int q=1; q<=5; q++) {
+			for(int j=1; j<=5-q; j++) {
+				System.out.print(space);
+			}
+			for(int t=1; t<=q; t++) {
+				System.out.print(mark);
+			}
+			System.out.println();
+		}
 		
 		// 10단계
 		/*
@@ -418,6 +448,20 @@ public class ForExam {
 				System.out.print(mark);
 			}
 			for(int j=2; j<=q; j++) {
+				System.out.print(mark);
+			}
+			System.out.println();
+		}
+		
+		// 다른 방법
+		for(int q=1; q<=5; q++) {
+			for(int j=1; j<=5-q; j++) {
+				System.out.print(space);
+			}
+			for(int t=1; t<=q; t++) {
+				System.out.print(mark);
+			}
+			for(int j=1; j<=q-1; j++) {
 				System.out.print(mark);
 			}
 			System.out.println();
@@ -448,7 +492,22 @@ public class ForExam {
 			System.out.println();
 		}
 		
-		
+		// 다른 방법
+		for(int q=1; q<=5; q++) {
+			for(int j=1; j<=5-q; j++) {
+				System.out.print(space);
+			}
+			for(int t=1; t<=q; t++) {
+				System.out.print(mark);
+			}
+			for(int j=1; j<=q-1; j++) {
+				System.out.print(mark);
+			}
+			for(int j=1; j<=5-q; j++) {
+				System.out.print(space);
+			}
+			System.out.println();
+		}
 		// 12단계
 		// 입력받은 줄 수대로 출력
 		// 예를 들어 3이면
@@ -474,7 +533,144 @@ public class ForExam {
 			System.out.println();
 		}
 		
+		// 다른 방법
+//		Scanner scan = new Scanner(System.in);
+//		System.out.print("총 몇줄?");
+//		int max = scan.nextInt();
+//		
+//		for(int q=1; q<=max; q++) {
+//			for(int j=1; j<=max-q; j++) {
+//				System.out.print(space);
+//			}
+//			for(int t=1; t<=q; t++) {
+//				System.out.print(mark);
+//			}
+//			for(int j=1; j<=q-1; j++) {
+//				System.out.print(mark);
+//			}
+//			for(int j=1; j<=max-q; j++) {
+//				System.out.print(space);
+//			}
+//			System.out.println();
+//		}
+//		문제 1
+//		주사위 2개를 굴려서 나올 수 있는 모든 조합을 출력한다
+//		[1,1] [1,2]
+
+		for(int x=1; x<=6; x++) {
+			for(int y=1; y<=6; y++) {
+				System.out.print("("+ x+ ","+ y+ ")");
+			}
+			System.out.println();
+		}
 		
+		
+//		문제 2
+//		주사위 2개의 합 별로 나올 수 있는 조합
+//		합2 : [1,1]
+//		합3 : [1,2] [2,1]
+		
+		for(int s=2; s<=12; s++) {
+			System.out.println("합: "+ s);
+			for(int x=1; x<=6; x++) {
+				for(int y=1; y<=6; y++) {
+					if(x+y == s) {
+						System.out.print("("+ x+ ","+ y+ ")");
+					}
+				}
+			}
+			System.out.println();
+		}
+		
+//		문제 3
+//		합 별 조합의 수 출력
+		
+		for(int s=2; s<=12; s++) {
+			System.out.println("합: "+ s);
+			int cnt = 0;
+			for(int x=1; x<=6; x++) {
+				for(int y=1; y<=6; y++) {
+					if(x+y == s) {
+						System.out.print("("+ x+ ","+ y+ ")");
+						cnt++;
+					}
+				}
+			}
+			System.out.println("총 개수: "+ cnt);
+			System.out.println();
+		}
+		
+//		문제 4
+//		순서에 관계 없이 중복 제거
+//		합2 : [1,1]
+//		합3 : [1,2]와 [2,1]는 같음
+		
+		for(int s=2; s<=12; s++) {
+			System.out.println("합: "+ s);
+			for(int x=1; x<=6; x++) {
+				for(int y=1; y<=6; y++) {
+					if(x+y == s && x<=y) {
+						System.out.print("("+ x+ ","+ y+ ")");
+					}
+				}
+			}
+			System.out.println();
+		}
+		
+		// 문제 5
+        // 입력받은 정수에 따라 다음과 같이 출력
+        /* 3
+         * 00 01 02
+         * 10 11 12
+         * 20 21 22
+         */
+        /* 4
+         * 00 01 02 03
+         * 10 11 12 13
+         * 20 21 22 23
+         * 30 31 32 33
+         */
+        int z = 3;
+		for(int x=0; x<=z-1; x++) {
+			for(int y=0; y<=z-1; y++) {
+				System.out.print(x+""+ y+ " ");
+			}
+			System.out.println();
+		}
+		
+        // 문제 6
+        // 입력받은 정수에 따라 다음과 같이 출력
+        // (정사각형)
+        /* 3
+         * +++
+         * +.+
+         * +++
+         */
+        /* 5
+         * +++++
+         * +...+
+         * +...+
+         * +...+
+         * +++++
+         */
+		
+		int a = 10;
+		for(int x=1; x<=a; x++) {
+			System.out.print(mark);
+		}
+		System.out.println();
+		for(int x=1; x<=a-2; x++) {
+			System.out.print(mark);
+			for(int y=1; y<=a-2; y++) {
+				System.out.print(space);
+				}	
+			System.out.println(mark);
+			}
+		for(int x=1; x<=a; x++) {
+			System.out.print(mark);
+		}
+		System.out.println();
+
 		
 		
 	}
