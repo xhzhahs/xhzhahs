@@ -37,7 +37,7 @@ public class BreakExam04 {
 				}
 			}
 		}
-		
+		System.out.println("-------------문제-------------");
 		// 총 5명이 순차적으로 게임 시작
 		for(int i=1; i<=5; i++) {
 	    // 한명 당 주사위 3번씩 던지기
@@ -49,9 +49,10 @@ public class BreakExam04 {
 				if(num2 == 6) {
 					break;
 				}
+				
 			}
 		}
-		
+		System.out.println("-------------------------");
 		// 한명이라도 6이 나오면 전체 게임 종료
 		boolean isStop = false; // 그런 사건이 있었는지?
 		// 총 5명이 순차적으로 게임 시작

@@ -604,15 +604,23 @@ public class ForExam02 {
 //		순서에 관계 없이 중복 제거
 //		합2 : [1,1]
 //		합3 : [1,2]와 [2,1]는 같음
-		
+		System.out.println("문제 4번-----------");
 		for(int s=2; s<=12; s++) {
 			System.out.println("합: "+ s);
 			for(int x=1; x<=6; x++) {
 				for(int y=1; y<=6; y++) {
 					if(x+y == s && x<=y) {
-						System.out.print("("+ x+ ","+ y+ ")");
+						System.out.printf("(%d, %d)", x, y);
 					}
 				}
+			}
+			System.out.println();
+		}
+		
+		// 다른 방법
+		for(int x=1; x<=6; x++) {
+			for(int y=x; y<=6; y++) {
+					System.out.printf("(%d, %d)", x, y);
 			}
 			System.out.println();
 		}
@@ -633,7 +641,7 @@ public class ForExam02 {
         int z = 3;
 		for(int x=0; x<=z-1; x++) {
 			for(int y=0; y<=z-1; y++) {
-				System.out.print(x+""+ y+ " ");
+				System.out.printf("%d%d ", x, y);
 			}
 			System.out.println();
 		}
@@ -671,8 +679,28 @@ public class ForExam02 {
 		}
 		System.out.println();
 
+		//  다른 방법
 		
-		
+		int b = 10;
+		// 한 줄마다
+		for(int x=1; x<=b; x++) {
+			// 한 칸마다
+			for(int y=1; y<=b; y++) {
+				// 처음과 마지막 줄
+				if(x ==1 || x == b) {
+					System.out.print(mark);
+				} else {
+					// 다른 줄에서
+					// 처음과 마지막 칸
+					if(y == 1 || y == b) {
+						System.out.print(mark);
+					} else {
+						System.out.print(space);
+					}
+				}
+			}	
+			System.out.println();
+		} 
 	}
 
 }
