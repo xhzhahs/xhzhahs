@@ -110,6 +110,26 @@ public class WhileExam03 {
 		// 방법 1 if 가위가 가위를 만나면 비긴다 else if 바위를 만나면 진다 else 이긴다 
 		
 		// 방법 2 if 가위가 보를 만나거나 바위가 가위를 만나거나 보가 바위를 만나면 이긴다
+		int game = -1;
+		while(game != 0) {
+			
+			System.out.println("1:가위, 2:바위, 3:보, 0:종료");
+			
+			int zone = (int)(Math.random() * 3) + 1;
+			game = scan.nextInt();
+			
+			if(game == zone) {
+				System.out.println("비겼습니다.");
+			} else if((game == 1 && zone == 3)||(game == 2 && zone == 1)||(game == 3 && zone == 2)) {
+				System.out.println("이겼습니다.");
+			} else if((game == 3 && zone == 1)||(game == 1 && zone == 2)||(game == 2 && zone == 3)) {
+				System.out.println("졌습니다.");
+			} else if(game == 0) {
+				System.out.println("종료합니다");
+			} else {
+				System.out.println("잘못입력하셨습니다. 다시 입력하세요");
+			}
+		}
 		
 //		문제 4,
 //		은행에서
@@ -122,22 +142,47 @@ public class WhileExam03 {
 		while(run) {
 			
 			System.out.println("1:예금, 2:출금, 3: 잔고확인, 4:종료");
-			money = scan.nextInt();
 			
-			if(money == 1 || money == 2) {
-				System.out.println("금액을 입력하세요");
-				money = scan.nextInt();
-			} else if(money == 3) {
-				System.out.printf("잔고는 %d원 입니다", money);
-				money = scan.nextInt();
-			} else if(money == 4) {
-				break;
-			} else {
-				System.out.println("입력을 확인하세요");
-				money = scan.nextInt();
-			}
-		}
-		System.out.println("종료합니다");
+			int menu = scan.nextInt();
+			
+			switch (menu) {
+            case 1:
+                System.out.print("금액: ");
+                int p = scan.nextInt();
+                if(p <= 0) {
+                	System.out.println("잘못입력하셨습니다.");
+                } else {
+                	money = money + p;
+                }
+                break;
+
+            case 2:
+                System.out.print("금액:");
+                int m = scan.nextInt();
+                if(m <= 0) {
+                	System.out.println("잘못입력하셨습니다.");
+                } else if(m>money) {
+                	System.out.println("잔액이 부족합니다.");
+                } else {
+                	money = money - m;
+                }
+                break;
+
+            case 3:
+                System.out.println("잔고:" + money);
+                break;
+
+            case 4:
+                run = false;
+                break;
+
+            default:
+                System.out.println("잘못된 선택입니다.");
+                break;
+        }
+    }
+		System.out.println("프로그램 종료");
+
 		
 		
 		

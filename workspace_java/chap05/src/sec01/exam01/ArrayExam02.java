@@ -1,5 +1,7 @@
 package sec01.exam01;
 
+import java.util.Scanner;
+
 public class ArrayExam02 {
 
 	public static void main(String[] args) {
@@ -275,13 +277,30 @@ public class ArrayExam02 {
 		System.out.println();
 		
 		// 문제 8
-		// 임시비밀번호 생성 ( 랜덤 사용 )
+		// 임시비밀번호 생성 ( 랜덤 사용 ) 몇자리? 8자리?
 		// 8-1 : 숫자만 생성
 		// 8-2 : 소문자만 생성
 		// 8-3 : 숫자 2개 이상, 대/소문자 각 1개 이상
 		System.out.println("---------문제 8----------");
 		
+		int[] password0 = new int[8];
+		// 8-1
+		for(int i = 0; i < 8; i++) {
+			password0[i] = (int)(Math.random() * 10); 
+			System.out.print(password0[i]+" ");
+		}	
+		System.out.println();
 		
+		// 8-2
+		// a = 97,  z = 122 / 총 26개 Math.random() * 26 = 0 - 25까지 출력
+		char[] password1 = new char[8];
+		for(int i = 0; i < 8; i++) {
+			password1[i] = (char)((Math.random() * 26) +'a'); 
+			System.out.print(password1[i]+" ");
+		}	
+		System.out.println();
+		
+		// 8-3
 		
 		
 		// 문제 9
@@ -290,31 +309,101 @@ public class ArrayExam02 {
 		// 메뉴 : "1. 예약 2. 모든 좌석 현황 3. 잔여좌석 0.종료"
 		// 만약1 : 예약이 가능하다면 " n번 자리 예약 했습니다."
 		// 만약2 : 예약이 불가능하다면 " 이미 예약 되어 있습니다."
-		System.out.println("---------문제 9----------");
-		
+//		System.out.println("---------문제 9----------");
+//		Scanner scan = new Scanner(System.in);
+//		
+//		boolean run = true;
+//		int[] seat = new int[10];
+//		
+//		while(run) {
+//			
+//			System.out.println("1:예약, 2:모든 좌석 현황, 3: 잔여좌석, 0:종료");
+//			
+//			int r = scan.nextInt();
+//			
+//			
+//			
+//			switch (r) {
+//			 case 1:
+//				 System.out.println("좌석선택: ");
+//				 for(int i = 0; i < seat.length; i++) {
+//					 System.out.print(seat[i]+ " ");
+//				 }
+//				 System.out.println();
+//				 System.out.println("1~10번 중 원하는 좌석을 선택하세요.");
+//				
+//				 int p = scan.nextInt();
+//
+//				 if(p < 1 || p > 10) {
+//						System.out.println("잘못된 입력입니다");
+//				} else if (seat[p-1] == 1) {
+//					System.out.println("이미 예약 되어 있습니다.");
+//				} else if (p != 0) {
+//					seat[p-1] = 1; 
+//					System.out.println(p+ "번 좌석 예약되었습니다.");
+//				}
+//				 break;
+//				 
+//			 case 2:
+//				 System.out.println("모든 좌석 현황");
+//				 for(int i = 0; i < seat.length; i++) {
+//					 System.out.print(seat[i]+ " ");
+//				 }
+//				 System.out.println();
+//				 break;
+//			 case 3:
+//				 int cnt = 0;
+//				 for(int i = 0; i < seat.length; i++) {
+//					 if(seat[i] == 0) {
+//						 cnt++;
+//					 }
+//				 }
+//				 System.out.println("잔여 좌석: "+ cnt);
+//				 break;
+//			 case 0:
+//				 run = false;
+//				 break;
+//				 
+//			default:
+//				System.out.println("잘못된 입력입니다.");
+//				break;
+//			
+//			}
+//		}
 		
 		//문제 10
 		// 로또 6개 생성. 단, 중복 없이
 				
 		System.out.println("---------문제 10----------");
 		// 6개의 숫자를 뽑을 것이다.
-		// 먼저 한개를 뽑는다.
+		// 먼저 한개를 뽑고 저장
 		// 그 다음 숫자를 뽑는다.
-		// 만약 중복된 숫자라면 다시 뽑는다.
-		// 중복은 앞순서의 수와 같을 경우
+		// 만약 저장된 숫자와 중복된 숫자라면 다시 뽑는다.
 		
-		boolean re = false;	
-		int[] lotto1 = new int[6];
+		int[] lotto = new int[6];
 		
-		int lotto = (int)(Math.random()*45)+ 1;
-		int lotto0 = (int)(Math.random()*45)+ 1;
-		
-		for(int i = 1; i <= 6; i++) {
-			if(lotto == lotto0) {
-				re = true;
-				break;
+		// 6개 뽑기
+		for(int i = 0; i < 6; i++) {
+			int lot = (int)(Math.random()*45)+ 1;
+	
+			boolean same = false;	
+			// 중복아니다.
+			
+			// 중복되었는가
+			for(int j = 0; j < i; j++) {
+				if(lotto[j] == lot) {
+					same = true;
+					break; // 중복되었다면 종료
+				}
 			}
-			System.out.print(lotto+ " ");
+			
+			if(same == true) {
+				i--;
+			} else {
+				lotto[i] = lot; // 중복아니면 배열에 저장
+				System.out.print(lot+ " ");
+			}
+			
 		}
 		
 		
