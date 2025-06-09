@@ -281,7 +281,7 @@ public class ArrayExam02 {
 		// 8-1 : 숫자만 생성
 		// 8-2 : 소문자만 생성
 		// 8-3 : 숫자 2개 이상, 대/소문자 각 1개 이상
-		System.out.println("---------문제 8----------");
+		System.out.println("---------문제 8-1---------");
 		
 		int[] password0 = new int[8];
 		// 8-1
@@ -293,6 +293,7 @@ public class ArrayExam02 {
 		
 		// 8-2
 		// a = 97,  z = 122 / 총 26개 Math.random() * 26 = 0 - 25까지 출력
+		System.out.println("---------문제 8-2---------");
 		char[] password1 = new char[8];
 		for(int i = 0; i < 8; i++) {
 			password1[i] = (char)((Math.random() * 26) +'a'); 
@@ -405,8 +406,6 @@ public class ArrayExam02 {
 			}
 			
 		}
-		
-		
 		System.out.println();
 		
 		

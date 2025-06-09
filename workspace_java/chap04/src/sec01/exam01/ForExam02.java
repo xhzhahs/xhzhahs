@@ -203,8 +203,10 @@ public class ForExam02 {
 		
 		
 		// 구구단 전체 출력 (2단부터 9단까지)
+		// 2단부터 9단까지 입력할거야.
 		for(int d = 2; d <=9; d++) {
 			System.out.println(d + "단");
+			// 2 * 1 = 2 이런식으로 입력할거야. 
 			for(int i8 = 1; i8<=9; i8++) {
 				System.out.println(d+ " x "+ i8+ " = "+ (d * i8));
 			}
