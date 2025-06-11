@@ -1,6 +1,6 @@
 package sec04.exam03_return;
 
-public class CarExam {
+public class CarExam01 {
 
 	public static void main(String[] args) {
 
@@ -20,8 +20,9 @@ public class CarExam {
 			car.run();
 		}
 		
-		
-		
+		Car2 c2 = new Car2();
+		c2.setGas(5);
+		c2.run();
 		
 		
 		

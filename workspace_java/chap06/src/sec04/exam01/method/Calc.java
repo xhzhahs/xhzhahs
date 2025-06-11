@@ -97,7 +97,7 @@ public class Calc { // 여기서 실행할 수 없음. CalcExam 파일에서 실
 	
 	// 가변인자, 전개연산자, spread op
 	// 내부에서는 배열로 취급
-	int sum2(int ... values) {
+//	int sum2(int ... values) {
 		
 	}
 	
