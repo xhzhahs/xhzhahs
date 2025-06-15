@@ -53,11 +53,13 @@ public class GameExam {
 		}
 		*/
 			
-		Game game = new Game(true);
-		game.start(10, 20);
-		
-		
-		
+//		Game game = new Game(true); // 디버깅모드로 확인
+//		
+//		Game game1 = new Game(); // 게임모드
+//		game1.start(10, 20);
+//		
+//		
+//		
 		
 		
 		
