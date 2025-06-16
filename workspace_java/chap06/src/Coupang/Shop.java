@@ -16,9 +16,8 @@ public class Shop {
 	String address; // 쇼핑몰 주소
 	String category; // 업종
 	
-	Shop(String n, String a) {
-		name = n;
-		address = a;
+	Shop(String category) {
+		this.category = category;
 		
 		init();
 	}

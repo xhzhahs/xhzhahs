@@ -6,7 +6,7 @@ public class CoupangExam {
 
 		
 		/*
-	 	상품 		: Product
+	 	상품 	: Product
 		쇼핑몰 	: Shop 
 		사용자	: User
 		
@@ -15,13 +15,17 @@ public class CoupangExam {
 		
 	    */
 	
-	Shop shop = new Shop("바람나라", "대구");
+	Shop shop = new Shop("가전");
 	shop.print();
 	
-	Cart cart = new Cart();
-	cart.put("선풍기");
-	cart.show();
-		
+	Coupang c = new Coupang();
+	c.print();
+	
+	
+//	Cart cart = new Cart();
+//	cart.put("선풍기");
+//	cart.show();
+//		
 		
 		
 		
