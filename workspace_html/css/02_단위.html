@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 해당 디스플레이에서 절대적인 값 */
+        #pixel .box1{
+            font-size: 16px;
+            background-color: rgb(255,0,0);
+        }
+        #pixel .box1 .box2{
+            font-size: 30px;
+            background-color: rgba(05,0,255,0.5);
+        }
+        #pixel .box1 .box2 .box3{
+            font-size: 5px;
+            
+        }
+
+        #percent .box1{
+            font-size: 150%;
+            background-color: #a47864;
+        }
+        #percent .box1 .box2{
+            font-size: 150%;
+            background-color: #0000ffff;
+        }
+        #percent .box1 .box2 .box3{
+            font-size: 150%;
+        }
+        /* em은 %와 같음. 100% == 1em */
+        /* 보통 글씨에 사용 함 */
+        #em .box1{
+            font-size: 1em;
+            border: 1px solid red;
+            margin: 10px;
+        }
+        #em .box1 .box2{
+            font-size: 1.5em;
+            border: 1px solid red;
+            margin: 10px;
+        }
+        /* rem : root em  최상단의 글씨 크기*/
+        #em .box1 .box2 .box3{
+            font-size: 1rem;
+            border: 1px solid red;
+            margin: 10px;
+        }
+
+        #v1, #v2, #v3, #v4 {
+            border: 1px solid green;
+            margin: 10px;
+        }
+        /* 
+            vh는 브라우저 높이(viewport의 height)
+            화면의 높이를 1/100로 쪼갠 크기
+         */
+        #v1 {
+            height: 100vh;
+        }
+        /*
+            vw는 브라우저 너비 (viewport의 width)
+            화면의 너비르 1/100로 쪼갠 크기
+        */
+        #v2 {
+            width: 100vw;
+        }
+        /* 
+            viewport의 너비와 높이 중 작은값
+            viewport에서 좁은 곳을 1/100로 쪼갠 크기
+
+            viewport의 너비와 높이 중 큰 값
+            viewport에서 넓은 곳을 1/100로 쪼갠 크기
+        */
+        #v3 {
+            height: 100vmin;
+        }
+        #v4 {
+            height: 100vmax;
+        }
+    </style>
+</head>
+<body>
+기본글씨 abc ABC 123 16px   
+    <div id="pixel">
+        <div class="box1">
+            abc ABC 123 한글 16px
+            <div class="box2">
+                abc ABC 123 한글 30px
+                <div class="box3">
+                    abc ABC 123 한글 16px
+                 </div>
+            </div>
+        </div>
+    </div>
+    <div id="percent">
+        <div class="box1">
+            150%
+            <div class="box2">
+                150%
+                <div class="box3">
+                    150%
+                 </div>
+            </div>
+        </div>
+    </div>
+    <div id="em">
+        <div class="box1">
+            150%
+            <div class="box2">
+                150%
+                <div class="box3">
+                    150%
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="v1">vh</div>
+    <div id="v2"></div>
+    <div id="v3"></div>
+    <div id="v4"></div>
+
+</body>
+</html>

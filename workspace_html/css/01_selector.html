@@ -4,140 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- link rel="stylesheet" css파일과 연결해줌 -->
+    <link rel="stylesheet" href="asset/01_selector.css"
     <style>
-        /* css 주석 */
-
-        /*
-         전체 선택자 = *
-         모두 해당
-         우선순위가 가장 낮다.
-         */
-
-         /* 색상 선택 */
-        * {
-            color: red;
-        }
-
-        /* tag 선택자 */
-        /* h2인 글씨들만 해당 */
-        h2 {
-            font-size: 400%;
-            color: blue;
-        }
-
-        /* id 선택자 우선순위가 높음*/
-        /* 
-            #으로 시작
-            id가 a1인 글씨만 해당
-            한개만 쓰는 것이 좋다.
-        */
-        #a1 {
-            color: rgb(0, 0, 0);
-        }
-
-        /* class 선택자 */
-        /* 
-            .으로 시작
-            class가 c1인 글씨만 해당
-            여러개 선택 가능
-        */
-        .c1 {
-            background-color: green;
-        }
-        /* class만 가능 글씨 크기 키워줌 */
-        .bigText {
-            font-size: 30px;
-        }
-
-        /* id가 div인 글씨만 해당 */
-        #div1 {
-            background-color: grey;
-        }
-
-        /* 마우스 올렸을 때 */
-        #div1:hover {
-            background-color: yellow;
-        }
-        /* 클릭 했을 때 */
-        #div1:active {
-            color: black;
-            font-size: 20px;
-        }
-        /* focus는 클릭했을 때만 변경 */
-        .text1:focus {
-            background-color: yellow;
-        }
-
-        /* 누군가의 첫번째 자식 */
-        li:first-child{
-            color: blue;
-        }
-
-        ul:first-child{
-            font-size: 30px;
-        }
-
-        /* 실제 등장하는 요소 중 첫번째 */
-        ul:first-of-type {
-            text-decoration: underline;
-        }
-        /* 
-            table tr에 적용
-            nth는 몇번째라는 의미
-            2n은 짝수만 적용
-            2n-1은 홀수번째만 적용 
-        */
-        tr:nth-child(2n-1) {
-            background-color: yellow;
-        }
-
-        /*
-            before , after
-            꼭 content가 들어가야함.
-            항상 그 글씨 앞이나 뒤에 content 내용이 들어가게 함. 
-            content는 선택이 안됨. 문신같은 존재
-         */
-        h3:after {
-            content: "AFTER";
-            font-size: 10px;
-            color: black;
-        }
-        h3:before {
-            content: "BEFORE";
-            font-size: 10px;
-            color: black;
-        }
-
-        /* 다중 선택자 */
-        /* li {
-            테두리
-            border: 1px solid red;
-        }
-        h3 {
-            border: 1px solid red;
-        } */
-         /* , 사용으로 동시에 선택 가능 */
-        li, h3, #div1 {
-            border: 1px solid red;
-        }
-
-        /* > : 바로 아래 자식 요소만 */
-        /* ol > li 는 ol의 바로 아래 자식 li만 해당 */
-        #ol > li {
-            color: black;
-        }
-
-        /* >대신 띄어쓰기 사용은 자손들 모두를 대상으로 적용 */
-        #ol li {
-            border: 1px solid black;
-        }
+        /* 여기에 css코드 적는다. */
     </style>
 </head>
 <body>
     <!-- title은 마우스를 올리면 말풍선처럼 나온다. -->
     <h1 title="안녕?">hello world</h1>
     <h2>부제목</h2>
-    <ul>
+    <ul class="b">
         <li class="c1 bigText">li 1</li>
         <li id="a1" class="c1">li 2</li>
         <li>li 3</li>
@@ -149,8 +26,8 @@
     <input type="text" class="text1">
     <hr>
     <ul>
-        <li>1</li>
-        <li>2</li>
+        <li class="a b">1</li>
+        <li class="a">2</li>
         <li>3</li>
         <li>4
             <ul>
@@ -187,11 +64,22 @@
         <li>2</li>
         <li>
             <ol>
-                <li>3-1</li>
-                <li>3-2</li>
-                <li>3-3</li>
+                <li data-seq="title_1">3-1</li>
+                <li data-seq="title_2">3-2</li>
+                <li data-seq="3_title">3-3</li>
             </ol>
         </li>
     </ol>
+    
+    <a href="http://naver.com" id="naver">http://naver.com</a><br>
+    <a href="https://google.com">https://google.com</a><br>
+
+    <!-- div와 span 별 의미가 없다 -->
+    <input type="checkbox">
+    <span>체크</span>
+
+    <br>
+    <span id="s1">span</span>
+
 </body>
 </html>

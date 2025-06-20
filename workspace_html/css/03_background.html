@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* backgroun-image는 배경에 사진을 넣는다. */
+        #black {
+            height: 400px;
+            border : 1px solid red;
+
+            /* 배경에 이미지 넣기 */
+            /* background-image: url(https://cdn.pixabay.com/photo/2024/02/26/19/39/monochrome-image-8598798_1280.jpg); */
+            background-image: url(https://media.discordapp.net/attachments/1371367430357778432/1385507481190400100/Spongebob-Christmas-PNG-Picture.png?ex=685651e5&is=68550065&hm=c5e79c2b6f5dad92764cf123b4609b063e4317c01c60a198ff03473e79cdc629&=&format=webp&quality=lossless), url(https://i.namu.wiki/i/QyfxOrFi-3UtJPaKQI_ZsrbI072EPxQd-v9oxQUURmS63s8jjskMH3E3aiPgP1jRGgL6fRhInntd-6Nubb6D7g.webp);
+           
+            /* repeat은 반복 */
+            background-repeat: /*repeat-x*/ /*repeat-y*/ no-repeat;
+            /* background-size: 200px 300px; */
+            /* background-size: 100% 50%; */
+            /* background-size: 100% 100%; */
+            /* 사이즈에 꽉차게 크기 조절 */
+            background-size: contain;
+            /* 가운데 정렬 */
+            background-position: center;
+        }
+
+        #back2 p{
+            height: 200vh;
+        }
+        #back2 {
+            height: 200vh;
+            background-image: url(https://i.namu.wiki/i/QyfxOrFi-3UtJPaKQI_ZsrbI072EPxQd-v9oxQUURmS63s8jjskMH3E3aiPgP1jRGgL6fRhInntd-6Nubb6D7g.webp);
+            
+            background-size: cover;
+            /* attachment 배경에 고정시켜놓기 스크롤시에도 뒤에 고정됨*/
+            background-attachment: fixed;
+
+            overflow: auto;
+        }
+        #back3 {
+            /* background-color: #ffaabb; */
+            background-color: #fab;
+        }
+
+        #back4  {
+            height: 100px;
+
+            /*
+                background : color || image || repeat || attachment || position
+                여러개 할 때 이런식으로 사용가능
+            */
+            background: #808 url(https://media.discordapp.net/attachments/1371367430357778432/1385507481190400100/Spongebob-Christmas-PNG-Picture.png?ex=685651e5&is=68550065&hm=c5e79c2b6f5dad92764cf123b4609b063e4317c01c60a198ff03473e79cdc629&=&format=webp&quality=lossless)
+                        no-repeat center
+        }
+    </style>
+</head>
+<body>
+    <p id="black">
+        Backgroun image<br>
+        Backgroun image<br>
+        Backgroun image<br>
+        Backgroun image
+    </p>
+
+    <div id="back2">
+        <p>글자글자</p>
+    </div>
+
+    <div id="back3">
+        <p>글싸 하나</p>
+    </div>
+
+    <div id="back4">
+        아무글씨
+    </div>
+</body>
+</html>
