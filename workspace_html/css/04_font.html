@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>font</title>
+    <link rel="stylesheet" href="asset/04_font.css">
+</head>
+<body>
+    <div id="p1">
+        글씨를 적어라
+        <div>
+            자식 div
+        </div>
+    </div>
+    <a id="a1" href="naver.com">네이버</a>
+    <br>
+    <div>
+        <input type="checkbox"><span>복습</span><br>
+        <input type="checkbox"><span>예습</span><br>
+    </div>
+    <div class="size">
+        font-size
+    </div>
+    <div class="style">
+        font-size
+    </div>
+    <em>em</em><!-- 기본적으로 기울어진 글씨다. em태그는 기본적으로 강조의미로 컴퓨터가 인식한다. -->
+    <div class="fw-100">100</div>
+    <div class="fw-400">400</div>
+    <div class="fw-900">900</div>
+    <div class="fw-2000">2000</div>
+    <div class="fw-bold">fw-bold</div>
+    <strong>strong</strong>
+    <h1>h1</h1>
+    <div class="fake-h1">fake h1</div>
+    <hr>
+    <div class="align-right">align-right</div>
+    <div class="align-center">align-center</div>
+    <div class="align-left">align-left</div>
+    <div class="align-justify">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse delectus quidem aliquid, quae aspernatur suscipit accusantium fuga sint inventore praesentium maiores dicta repudiandae dolorem et repellendus laboriosam culpa laborum pariatur.
+    </div>
+    <a href="asdf" class="align-right">a 태그</a><!-- 공간이 태그만큼이어서 정렬할 땅이 없다. -->
+    <div class="align-right"><!-- div는 블럭이므로 페이지를 다 사용 -->
+        <a href="asdf">a 태그</a>
+    </div>
+    <div class="spacing">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui doloribus, consequatur ducimus ex repudiandae ipsum. Voluptas est rem eius possimus doloremque! Ea iure hic quibusdam recusandae repellendus deleniti atque reprehenderit!
+    </div>
+    <div class="lh">
+        첫번째 줄<br>
+        두번째 줄
+    </div>
+    <div class="middle">
+        세로 방향 중앙 정렬
+    </div>
+    <!-- title로 작성하면 마우스를 올려놓았을 때 네모 박스로 보인다. -->
+    <div class="nowrap" title="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, officia labore consequatur nemo odio a corrupti laboriosam quisquam voluptates, doloremque dignissimos saepe quis fugit eveniet ex ipsum assumenda ut blanditiis.">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, officia labore consequatur nemo odio a corrupti laboriosam quisquam voluptates, doloremque dignissimos saepe quis fugit eveniet ex ipsum assumenda ut blanditiis.
+    </div>
+
+    <div class="text word-wrap"> <!-- 띄어쓰기 하면 class가 2개다 -->
+        abcdefghigklmnopqrstuvwxyz
+        abcd
+        abcdfdsafewagasfweagawsfa
+        abcdfdsafewagasfweagawsfa
+        abcdfdsafewagasfweagawsfa
+        abcdfdsafewagasfweagawsfa
+        abcd abcd abcd abcd abcd abcd abcd abcd
+    </div>
+     <div class="text word-break"> <!-- 띄어쓰기 하면 class가 2개다 -->
+        abcdefghigklmnopqrstuvwxyzabcdefghijk
+        abcd
+        abcddsgasfdsavgeffewagdbhfdagdsasgbefs
+        abcddsgasfdsavgeffewagdbhfdagdsasgbefs
+        abcddsgasfdsavgeffewagdbhfdagdsasgbefs
+        abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd abcd 
+    </div>
+</body>
+</html>

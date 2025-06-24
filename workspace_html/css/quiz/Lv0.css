@@ -1,0 +1,41 @@
+body {
+    background-image: url(https://html5up.net/uploads/demos/tessellate/images/header.jpg);
+    background-size: cover;
+    color: white;
+    text-align: center;
+    background-repeat: no-repeat;
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 35px;
+    margin-top: 160px;
+    font-weight: 200;
+}
+.content {
+    font-size: 21px;
+}
+.link {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px dotted white;
+}
+.link:hover {
+    border-bottom: none;
+}
+.link1 {
+    color: white;
+    text-decoration: none;
+}
+.box:hover {
+    background-color: rgb(255,255,255,0.3);
+}
+.box {
+    border: 1px solid white;
+    width: 20%;
+    line-height: 50px;
+    border-radius: 5px;
+    margin: 40px auto;
+    background-color: rgb(255,255,255,0.15)
+}
+
