@@ -50,8 +50,10 @@ div {
 }
 .absolute-bottom {
     /* 
-        보무중에 relative(없으면 body) 기준으로 이동
+        absolute
+        부모중에 relative(없으면 body) 기준으로 이동
         원래 가지고 있던 공간은 없어진다.
+        block을 inline블럭처럼 바꿔준다.
     */
     position: absolute;
     bottom: 10px;
@@ -76,6 +78,12 @@ div {
     position: relative;
     
 }
+/* 
+    z-index는 
+    position이 늦게 나오는것이 제일 위로 나오지만 
+    z-index로 순서를 정할 수 있음.
+    숫자가 높을수록 위로 나온다.
+*/
 .rel:hover {
     z-index: 999;
 }

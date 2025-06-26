@@ -2,6 +2,16 @@ body {
     border: 1px solid black;
     margin: 0px;
 }
+
+/* 
+    block은 한 줄을 전부 차지한다.
+
+    inline은 내 공간만큼만 차지한다.
+    하지만 inline은 width, height가 적용이 되지 않는다.
+    margin, padding은 좌우만 적용된다.
+    이미지는 inline처럼 적용된다. 
+*/
+
 .first {
     border: 1px solid red;
     /* margin은 border를 기준으로 바깥공간 */
