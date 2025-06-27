@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #img1 {
+            opacity: 0.2;
+        }
+        #img2 {
+            /*
+                opacity:0;과 동일
+                공간은 차지하지만 보이지 않는다.
+            */
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div>위</div>
+    <div>
+        <img id="img1" 
+            src="https://cdn.discordapp.com/attachments/1371367430357778432/1385507481190400100/Spongebob-Christmas-PNG-Picture.png?ex=685ee3a5&is=685d9225&hm=f74c5fffedaec5f1380185adb777689dc4713c60aedcf9e1747a309ed91291d1&">
+    </div>
+    <div>아래</div>
+    <hr>
+    <div>위</div>
+    <div>
+        <img id="img2" 
+            src="https://cdn.discordapp.com/attachments/1371367430357778432/1385507481190400100/Spongebob-Christmas-PNG-Picture.png?ex=685ee3a5&is=685d9225&hm=f74c5fffedaec5f1380185adb777689dc4713c60aedcf9e1747a309ed91291d1&">
+    </div>
+    <div>아래</div>
+</body>
+</html>
