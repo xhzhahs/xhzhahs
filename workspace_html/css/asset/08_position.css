@@ -79,7 +79,7 @@ div {
     
 }
 /* 
-    z-index는 
+    z-index는 position일 때만 가능
     position이 늦게 나오는것이 제일 위로 나오지만 
     z-index로 순서를 정할 수 있음.
     숫자가 높을수록 위로 나온다.
@@ -108,4 +108,52 @@ div {
 
     top: -25px;
     left: 50px;
+}
+
+ul.main {
+    background-color: yellow;
+}
+/* ul.sub */
+ul.main + ul {
+    background-color: aqua;
+    position: relative;
+    top: -17px;
+    left: 10px;
+
+    display: none;
+}
+ul.main:hover + .sub{
+    display: block;
+}
+ul.main + ul:hover {
+    display: block;
+}
+
+.c1 {
+    position: absolute;
+    top: 10px;
+    left: 200px;
+}
+.p1 {
+    position: relative;
+}
+
+.p2 {
+    margin-top: 50px;
+    width: 200px;
+    height: 200px;
+
+    position: relative;
+}
+.c2 {
+    width: 100px;
+    height: 100px;
+
+    position: absolute;
+    /* 
+        calc는 수식 사용 가능
+        px, % 다 사용가능하다
+    */
+    top: calc( (200px/2) - (100px/2));
+    left: calc( (200px/2) - (100px/2));
 }

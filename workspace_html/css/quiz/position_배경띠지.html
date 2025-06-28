@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .center {
+            /* border: 1px solid black; */
+            text-align: center;
+            padding: 40px;
+
+        }
+        .middle {
+            background-color: bisque;
+            width: 300px;
+            height: 700px;
+            margin: -40px auto;
+            position: absolute;
+            left: 700px;
+            z-index: -1;
+        }
+        .left {
+            box-sizing: border-box;
+            /* border: 1px solid red; */
+            text-align: right;
+            width: 500px;
+            height: 700px;
+            display: inline-block;
+        }
+        .l2 {
+            margin: 30px 0;
+        }
+        .right {
+            box-sizing: border-box;
+            /* border: 1px solid blue; */
+            text-align: left;
+             width: 500px;
+            height: 700px;
+            margin: 0 0 0 30px;
+            vertical-align: top;
+            display: inline-block;
+        }
+        .r2 {
+            background-color: #292d33;
+            width: 400px;
+            height: 300px;
+            text-align: left;
+            color: white;
+            padding: 40px;
+            margin: 30px 0;
+        }
+        .r2 .content {
+            font-size: 40px;
+            line-height: 45px;
+        }
+        .r2 .from {
+            font-size: 18px;
+            line-height: 70px;
+        }
+        .r2 .from span {
+            border-bottom: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <div class="middle"></div>
+        <div class="left">
+            <div class="l1">
+                <img width="450px" height="380px"
+                    src="https://images01.nicepage.com/c461c07a441a5d220e8feb1a/4583c5e5778759d5bf354095/dfggdf-min.jpg">
+            </div>
+            <div class="l2">
+                <img width="180px" height="150px" 
+                    src="	https://images01.nicepage.com/c461c07a441a5d220e8feb1a/ea6de3a355c35c3fb5e2e8fb/gfgg.jpg">
+            </div>
+        </div>    
+        <div class="right">
+            <div class="r1">
+                <img width="180px" height="150px" 
+                    src="https://images01.nicepage.com/c461c07a441a5d220e8feb1a/fe2b4f4f73b2545cb746601b/spirituality-religion-hands-folded-prayer-holy-bible-church-concept-faith_1150-148781.jpg">
+            </div>
+            <div class="r2">
+                <div class="content">We believe a<br>community of<br>diversity and<br>acceptance starts in a<br>safe and inclusive<br>place of worship.</div>
+                <div class="from">Images from <span>Freepik</span></div> 
+            </div>
+        </div>    
+    </div>
+</body>
+</html>
