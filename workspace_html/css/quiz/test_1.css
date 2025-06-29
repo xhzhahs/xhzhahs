@@ -9,6 +9,7 @@ body {
     top: 0;
     z-index: 99;
     display: flex;
+    justify-content: space-between;
 }
 .header .a1 {
     /* float: left; */
@@ -32,6 +33,13 @@ body {
 .search {
     border: 1px solid rgb(242,242,242);
     height: 80px;
+}
+.box {
+    border: 1px solid rgb(242,242,242);
+    background-color: rgb(242,242,242,0);
+    font-size: 18px;
+    height: 35px;
+    margin: 20px 0;
 }
 .h1 {
     position: relative;
@@ -123,15 +131,19 @@ body {
     font-weight: 350;
     line-height: 25px;
 }
-.left {
+.page3 {
+    display: flex;
+    justify-content: space-between;
+}
+/* .left {
     float: left;
     margin: 0 34px 0 0;
 }
 .right{
     float: right;
     margin: 0;
-}
-.content.right{
+} */
+/* .content.right{
     float: right;
     margin: 0 0 0 34px;
 }
@@ -139,7 +151,7 @@ body {
     content: "";
     display: block;
     clear: both;
-}
+} */
 .page4 {
     background-image: url(https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/992eb4a786e9521ea39ea995/pexelsphoto940302.jpeg);
     background-size: cover;
