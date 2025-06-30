@@ -103,13 +103,15 @@ body {
 .page3 {
     text-align: center;
     margin: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .p3 {
     box-sizing: border-box;
     border: 5px solid black;
     width: 290px;
     height: 300px;
-
     /* margin: 20px 0 20px 20px;
 
     vertical-align: top;
@@ -119,7 +121,6 @@ body {
     border: none;
     width: 290px;
     height: 300px;
-    /* margin: 20px 20px 20px 0; */
 }
 .p3.content {
     font-size: 24px;
@@ -130,10 +131,6 @@ body {
     font-size: 16px;
     font-weight: 350;
     line-height: 25px;
-}
-.page3 {
-    display: flex;
-    justify-content: space-between;
 }
 /* .left {
     float: left;
