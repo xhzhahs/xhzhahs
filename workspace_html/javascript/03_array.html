@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            배열은 변수의 집합
+            한번에 몽땅 만들어서 index로 관리할 수 있는 변수의 집합
+        */
+
+        // 배열 변수를 만드는 가장 쉬운 방법
+        let arr = [];
+        // 배열 변수를 만드는 두번째 방법
+        let arr2 = new Array();
+
+        // 값을 미리 알고 있을 때
+        arr = [1, 2, 3]; // 값에 문자와 함수도 들어갈 수 있다.
+        arr = new Array(1,2,3);
+
+        console.log('arr[0] : ', arr[0]);
+        arr[0] = 10;
+        console.log('arr[0] : ', arr[0]);
+
+        console.log(arr);
+        console.log('arr : ', arr); // console.log(arr)과 똑같이 결과가 나옴
+        console.log('arr : '+ arr); // []를 제외하고 값만 출력됨
+
+        arr[10] = 10;
+        console.log('arr :', arr);
+        console.log('arr[20] :', arr[20]);
+
+        // index에는 변수가 올 수 있고
+        // js의 변수는 아무거나 넣을 수 있다.
+        // 아래의 경우 배열의 길이에 영향을 주지 않는다.
+        arr["name"] = "민수";
+        console.log('arr :', arr);
+        console.log('arr["name"] :', arr["name"]);
+
+        console.log('arr :', arr.length);
+
+        const str = "휴먼교육센터";
+        console.log('str[0] :', str[0]); // 글씨를 배열로 보고 첫번째 글자를 출력
+    
+        for(let i=0; i<str.length; i++) {
+            console.log(str[i]);
+        }
+
+        let 중식 = ['짜장면', '짬뽕', '탕수육', '짬짜면'];
+        let 양식 = ['피자', '파스타', '돈까스'];
+        let 파스타 = ['까르보나라', '봉골레', '토마토', '로제', '오일'];
+        let 음식 = [중식, 양식, 파스타]; // []안에 ''를 쓰지 않으면 변수다.
+        for(let i=0; i<음식.length; i++) {
+            for(let j=0; j<음식[i].length; j++) {
+                
+                console.log(음식[i][j]);
+            }
+        }
+    
+        arr = [1,2,3,4];
+
+        // js에서 배열을 ArrayList처럼 메소드 사용하기
+
+        // 마지막에 하나 추가 .push
+        arr.push(5);
+        console.log(arr);
+        
+        // 맨 처음에 하나 추가 .unshift
+        arr.unshift(0);
+        console.log(arr);
+
+        // 맨 처음것 하나를 빼서 돌려주기
+        // 원본이 바뀜
+        let s = arr.shift();
+        console.log(arr);
+        console.log('shift', s);
+
+        // 맨 마지막것 하나를 빼서 돌려주기
+        let pop = arr.pop();
+        console.log(arr);
+        console.log('pop', pop);
+        
+        // 원본을 뒤집어 줌
+        arr.reverse();
+        console.log(arr);
+        
+        arr = [7,3,9,5,7,4];
+        
+        // 정렬해줌. 오름차순만 지원
+        // 내림차순하려면 sort 후 reverse 해주기
+        arr.sort();
+        console.log(arr);
+        
+        // 정렬하는 방법
+        // return x-y는 오름차순 정렬
+        // return y - x는 내림차순 정렬
+        arr = [7,3,9,5,7,4];
+        arr.sort(function(x,y) {
+            return y - x
+        });
+        console.log(arr);
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

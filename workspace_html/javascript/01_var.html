@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 한줄 주석
+        /*
+            범위 주석
+        */
+        console.log('hello world');
+
+        // 변수 var를 사용
+        // 변수 선언 1
+        var a = 10;
+        console.log('a : '+ a);
+
+        // 변수 선언 2
+        // 변수를 사용하지 않아도 되지만 쓰는게 좋다.
+        b = 20;
+        console.log('b : '+ b);
+
+        // 변수 선언 3
+        let c = 30;
+        console.log('c : '+ c);
+
+        // 변수 선언 4
+        // java의 fianl 개념
+        // const에 한번 넣으면 다른 것을 넣을 수 없다.
+        const d = 40; 
+        console.log('d : '+ d);
+
+        // 에러가 나면 다음은 진행되지 않는다.
+        // d = 50;
+        // console.log('d : '+ d);
+        
+        // 정해지지 않은 것을 선언하여 에러
+        // console.log(e);
+
+        // var는 재선언이 가능
+        // 변수 없이도 재선언 가능
+        var a= 20;
+        console.log('a : '+ a);
+        b = 30;
+
+        // let과 const는 재선언이 불가능
+        // let c = 30;
+        // const d = 50;
+
+        // 자바스크립트에서는 변수에 숫자나 문자 제약없이 넣을 수 있다.
+        c = "문자";
+        console.log('c : '+ c);
+
+        // typeof는 변수에 담긴것의 타입을 알려줌
+        console.log(typeof c);
+        c = 1;
+        console.log(typeof c);
+
+        let f = 1;
+        let g = "1";
+        console.log( f == g ); // 값의 비교
+        console.log( f === g ); // 값과 타입 비교
+
+        // undefined = 자료형이 정의되지 않음
+        let h;
+        console.log(h);
+
+        // 형 변환이 되어 연산된다.
+        console.log( 1.5 + 2 );
+
+        console.log( g + 2 );
+        
+        console.log( g * 2 );
+        /*
+            String a = "1";
+            int b = (int)a;
+            b = Integer.parseInt(a)
+        */  
+        console.log( Number(g) + 2 ); // 숫자를 살려주는 것이다.
+        console.log( parseInt(8.5 + 2) ); // 문자를 int로 변환
+
+        h = "이것";
+        console.log( h * 2 ); // NaN: Not a Number
+        console.log( isNaN(h * 2 ) ); // NaN인가?
+
+        console.log( 5/0 );
+        console.log( isFinite(5/0) ); // 무한인가?
+
+        // alert을 쓰면 그 시점부터 자바스크립트가 멈춘다.
+        // 그래서 그 후에 것들은 나오지 않는다.
+        console.log("이전");
+        alert("alert\n엔터");
+        console.log("이후");
+
+        // confirm 확인여부를 묻는다.
+        const result1 = confirm("진짜 할거야?"); // 확인, 취소 선택가능
+        // console.log('result1 : ', result1); + 대신 , 사용가능
+        console.log('result1 : ', result1);
+
+        // prompt 입력창이 뜬다.
+        const result2 = prompt('비번을 입력하세요'); // 취소 시 null
+        console.log('result2: ', result2);
+
+        console.log('입력한 글씨는 '+ result2 + '입니다');
+
+        // `는 홀따옴표가 아니라 ~ 버튼에 있는 것이다.
+        console.log(`입력한 글씨는 ${result2} 입니다`); // `를 사용하면 간단하게 만들수 있다. 엔터도 적용가능
+
+        // 강제로 에러발생 시킴
+        console.error("에러");
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

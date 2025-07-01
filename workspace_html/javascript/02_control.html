@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 구구단 출력
+        for(let i=2; i<=9; i++) {
+            for(let j=1; j<=9; j++) {
+                if(i%2 == 1){
+
+                    console.log(i + '*' + j +' = '+ i*j )
+                }
+            }
+        }
+
+        // document.write는 잘 쓰지 않는다.
+        const temp = 32;
+        if(temp) {
+            document.write('참 입니다.');
+        } else {
+            document.write('거짓 입니다.');
+        }
+        /*
+            js에서의 참(true)은 거짓이 아닌 것
+            즉 !거짓
+            거짓 : false, 0, undefined, null, NaN
+            나머지는 모두 참이다.
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
