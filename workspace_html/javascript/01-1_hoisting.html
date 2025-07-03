@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            호이스팅
+            - 소스를 인터프리터로 전달할 때 한번 정리가 발생한다.
+            - var 변수는 함수의 최상단으로 올라간다.
+            - 아무것도 쓰지 않는 변수는 파일의 최상단으로 올라가니 주의하자.
+        */
+        d= 30;   // 호이스팅
+                 // 아무것도 안쓴 선언은 최상단 영역으로 호이스팅 됨
+
+
+        /*
+            일등 객체 first class object
+            - 변수는 어떤 것도 담을 수 있다. 심지어 함수까지도
+            - 전달 인자나 return으로 함수도 전달할 수 있게 된다.
+        */
+        
+        // 선언된 적이 없다 not defined
+        // console.log("a :", a);
+
+        // 초기화 전에 호출했기 때문에 에러
+        // console.log(f);  // before initialization
+        // let f = 5;
+
+        function test() {
+            var b;  // 호이스팅
+                    // var는 함수 최상단으로 호이스팅 됨
+
+
+            if(true) {
+                // var b = 10; // 호이스팅 발생
+                b = 10; 
+                // let c = 20; // let은 java의 지역변수 개념
+                
+                d= 30;  // 호이스팅 발생
+                        // 전역변수(전체지역) 변수로 선언되어 함수를 벗어나 script 최상단으로 호이스팅 됨
+            }
+            console.log('b:', b);
+            // console.log('c:', c); // 선언된 적이 없다.
+            
+            console.log('d:', d);
+        }
+        test();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
