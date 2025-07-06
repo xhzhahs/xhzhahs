@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let str = '오늘 저녁 때 저녁 뭐 먹지?';
+
+        console.log('str.length :', str.length);
+
+        // indexOf
+        // 전달인자와 동일한 글씨가 있는 경우
+        //      첫번째 만나는 요소의 첫 index를 돌려 줌
+        // 동일한 글씨가 없을 경우 -1
+        console.log( str.indexOf('저녁') );
+        console.log( str.indexOf('점심') );
+
+        // replace
+        // 첫번째 전달인자를 두번째 전달인자로 바꿔 줌
+        // 기본적으로 처음 만나는 것만 한번 바꿔 줌
+        let str2 = str.replace('저녁', '회식');
+        console.log(str);
+        console.log(str2);
+        
+        let str3 = str.replace(/저녁/g, '회식');
+        console.log(str);
+        console.log(str3);
+        
+        // 시작, 끝 바로 앞
+        let str4 = str.substring(2, 7);
+        console.log(str);
+        console.log(str4);
+        
+        // 시작, 몇 개
+        let str5 = str.substr(3, 4);
+        console.log(str);
+        console.log(str5);
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
