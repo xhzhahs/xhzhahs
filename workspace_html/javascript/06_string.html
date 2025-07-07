@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 어떤 이메일이라도 id를 출력하도록
+        let mail = "0420ara@naver.com";
+        // @를 찾는다 : indexOf
+        let idx = mail.indexOf('@');
+        let id = mail.substring(0, idx);
+        console.log(id);
+        // @로 나눈다 : split
+        let mails = mail.split('@');
+        console.log(mails[0]);
+
+        // 2번
+        // 메일 주소 앞 두자리를 제외한 id는 *처리
+        // 0420ara@naver.com >> 04*****@naver.com
+        let showCnt = 2;
+        let id2 = mail.substr(0,showCnt);
+        let count = id.length - showCnt;
+        
+        for(let i=0; i<count; i++) {
+            id2 += '*'
+        }
+        id2 += mail.substring(idx);
+        console.log(id2);
+
+        // 3번
+        // 인터넷 주소 중 2차 도메인 출력
+        // comic.naver.com 에서 naver
+        // human.or.kr에서 or
+
+        // indexOf 사용
+        let domain = "comic.naver.com";
+        let dot1 = domain.indexOf('.');
+        // console.log( dot1 );        
+        domain = domain.substring(dot1 + 1);
+        // console.log( domain );        
+        let dot2 = domain.indexOf('.');
+        domain = domain.substring(0, dot2);
+        console.log( domain );
+
+        // split 사용
+        let m = "comic.naver.com";
+        let sp = m.split('.');
+        console.log(sp[1]);
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>
