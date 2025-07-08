@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        fn1();  // 호이스팅되어서 실행됨
+        function fn1() {
+            console.log('fn1 실행');
+
+            fn2();
+
+            console.log('fn2 호출 끝'); // 맨 마지막에 호출됨
+        }
+        function fn2() {
+            console.log('fn2 실행');
+
+            fn3();
+            fn3();
+            
+            console.log('중간에 낀 것1');    // 사실은 비동기. 컴퓨터가 빨라서 순서대로 나온 것 뿐이다.
+            
+            setTimeout( function() {    // 언제 나올지 모름. 비동기
+                console.log('중간에 낀 것2'); // 정해진 시간이 지난 이후  
+            }, 0 );                         // 컴퓨터가 여유있는 가장 빠른 시간에 출력해줌
+            
+            fn3();
+            fn3();
+
+        }
+        function fn3() {
+            console.log('fn3 실행');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
