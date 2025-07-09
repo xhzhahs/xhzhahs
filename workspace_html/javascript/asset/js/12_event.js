@@ -137,6 +137,10 @@ function bind() {
         }
 
     })
+
+    document.querySelector('#pw').addEventListener('click',btnClick);
+    // 클릭이벤트 빼기 ( removeEventListener )
+    document.querySelector('#pw').removeEventListener('click',btnClick);
 }
 
 function btnClick(){
