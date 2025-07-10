@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./asset/js/quiz.js"></script>
+    <style>
+        .menu {
+            border: 1px solid red;
+            display: inline-flex;
+            justify-content: space-between;
+
+            height: 100px;
+            width: 100px;
+            
+        }
+    </style>
+</head>
+<body>
+     <div>
+        피자 토핑
+        <hr>
+        <input type="checkbox" class="chk_all">전체선택<br>
+        
+        <input type="checkbox" class="chk" value="페퍼로니">페퍼로니
+        <input type="checkbox" class="chk" value="베이컨">베이컨
+        <input type="checkbox" class="chk" value="치즈">치즈
+        <input type="checkbox" class="chk" value="파인애플">파인애플
+        <input type="checkbox" class="chk" value="버섯">버섯
+        <input type="checkbox" class="chk" value="옥수수">옥수수
+        <br>
+        <input type="button" value="선택">
+    </div>
+
+    <div>
+        토핑 : <span id="topping"></span>
+    </div>
+    <hr>
+    <h1>1번</h1>
+    <input type="text" id="name" name="name" placeholder="이름을 입력하세요">
+    <input type="button" id="sign" value="신청">
+    <div class="list"></div>
+    <hr>
+    <h1>2번</h1>
+    <div>주문 정보</div>
+    <div>
+            <div>이름 :
+                <input type="text" class="name">
+            </div>
+            <div>주소 :
+                <input type="text" class="address">
+            </div>
+            <div>연락처 :
+                <input type="text" class="number">
+            </div>
+        </div>
+        <hr>
+        <div>배송정보</div>
+        <input type="checkbox" id="same"> 주문 정보와 같음
+        <div>
+            <div>이름 : <span class="s_name"></span></div>
+            <div>주소 : <span class="s_address"></span></div>
+            <div>연락처 : <span class="s_number"></span></div>
+    </div>
+    <hr>
+    <h1>3번</h1>
+    <div class="third">
+        <div class="menu"> 1번 메뉴</div>
+        <div class="menu"> 2번 메뉴</div>
+        <div class="menu"> 3번 메뉴</div>
+        <div class="menu"> 4번 메뉴</div>
+        <div class="menu"> 5번 메뉴</div>
+    </div>
+</body>
+</html>

@@ -1,10 +1,15 @@
 let view
+isDown = false;
 window.onload = function() {
     view = document.querySelector("#view");
 
     const cursor = document.querySelector("#cursor");
     cursor.style.top = '-1000px';
     cursor.style.left = '-1000px';
+    
+    const drag = document.querySelector("#drag");
+    drag.style.top = '0px';
+    drag.style.left = '0px';
 
     bind();
 }
@@ -62,6 +67,29 @@ function bind() {
     
     // 드래그 앤 드랍 만들기
     
+    document.querySelector('#drag').addEventListener('mousedown', function(evt){
+        isDown = true;
+        
+        // 마우스 좌표
+        mouseX = evt.pageX;
+        mouseY = evt.pageY;
+    })
+    document.querySelector('#drag').addEventListener('mouseup', function(){
+        isDown = false;
 
+    })
+    document.querySelector('#drag').addEventListener('mousemove', function(evt){
+        if(isDown){
+
+            console.log('evt.offsetY', evt.offsetY)
+            const drag = document.getElementById('drag');
+    
+            drag.style.top = (parseInt(drag.style.top) + (evt.pageY - mouseY)) + 'px';
+            drag.style.left = (parseInt(drag.style.left) + (evt.pageX - mouseX)) + 'px';
+    
+            mouseX = evt.pageX
+            mouseY = evt.pageY
+        }
+    })
     
 }
