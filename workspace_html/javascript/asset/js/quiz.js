@@ -94,6 +94,8 @@ function bind() {
 
         const list = document.querySelector('.list');
 
+        // innerHTML보다 append 사용이 더 좋다. 기억하기
+
         list.innerHTML += document.querySelector('#name').value + '<br>';
 
         
@@ -121,17 +123,107 @@ function bind() {
 
     // 3번
     // 메뉴가 여러 개일때 선택한 메뉴만 특이하게 보이게
+    
+    // 클릭 되면 .sub 를 지워준다. 그러면 목록이 보일 것이다.
+    // classList.toggle = 이미 있으면 지워주고 없으면 넣어줌
+    const tab = document.querySelectorAll('.menu');
+    const sub_tab = document.querySelectorAll('.sub_1');
+    console.log( tab )
+    console.log( sub_tab )
+    for(let i=0; i<tab.length; i++) {
+        tab[i].addEventListener('click', function(){
+            isClicked = tab[i].classList.contains('sub')
+            for(let j=0; j<tab.length; j++){
+                
+                tab[j].classList.remove('sub')
+                sub_tab[j].classList.remove('sub')
+            }
+            if(isClicked) {
+                
+                tab[i].classList.remove('sub')
+                sub_tab[i].classList.remove('sub')
+                document.querySelector('.third_1').classList.add('subtab')
+                // console.log(isClicked)
+            } else {
+                tab[i].classList.add('sub')
+                sub_tab[i].classList.add('sub')
+                document.querySelector('.third_1').classList.remove('subtab')
+
+            }
+          
+        })
+    }
+    
+    
+    // 4-0 번
+    // 썸네일 클릭 또는 mouseover 시 큰 그림 변경 및 유지
+
+    // 일단 썸네일에 마우스 올리면 따라다니는 반투명 네모 만들기
+    const nemo = document.querySelector('.nemo');
+    nemo.style.top = '0px'
+    nemo.style.left = '0px'
+    let mouseX = 0;
+    let mouseY = 0;
+    document.querySelector('.thumb').addEventListener('mouseover', function(evt){
+        
+        console.log('마우스들어옴')
+        console.log(mouseX,mouseY)
+        console.log(parseInt(nemo.style.top),parseInt(nemo.style.left))
+        console.log(nemo.style.top,nemo.style.left)
+        nemo.classList.remove('subtab');
+        // 마우스 좌표
+        mouseX = evt.pageX;
+        mouseY = evt.pageY;
+        nemo.style.top = evt.offsetY + 'px';
+        nemo.style.left = evt.offsetX + 'px';
+    })
+    document.querySelector('.thumb').addEventListener('mousemove', function(evt){
+        
+        // absolute가 스크롤에 관계없이 작용해야하므로 page 를 사용해야한다.
+        nemo.style.top = (parseInt(nemo.style.top) + (evt.pageY - mouseY)) + 'px';
+        nemo.style.left = (parseInt(nemo.style.left) + (evt.pageX - mouseX)) + 'px';
+        mouseX = evt.pageX
+        mouseY = evt.pageY
+    })
+    document.querySelector('.thumb').addEventListener('mouseout', function(){
+        document.querySelector('.nemo').classList.add('subtab')        
+    })
 
     // 4번
-    // 썸네일 클릭 도는 mouseover 시 큰 그림 변경 및 유지
+    const small= document.querySelectorAll('.small img');
+    const big = document.querySelectorAll('.big img');
+    for(let i=0; i<small.length; i++) {
+        small[i].addEventListener('click', function(){
+            for(let j=0; j<big.length; j++){
+                big[j].classList.add('subtab')
+                console.log('클릭됨')
+            }
+            big[i].classList.remove('subtab')
+        })
+        console.log(small,big)
+    } 
 
     // 5번 
     // 피자 주문 시스템
     // 사이즈, 토핑, 도우를 선택한 정보 한번에 표시
+    document.querySelector('#button').addEventListener('click', function(){
+        const list = document.querySelector('#list')
+        const size = document.querySelector('[name=size]:checked')
+        
+        const bread = document.querySelector('#bread')
+        list.innerText = '사이즈 : ' + size.value + '\n' +'도우 : ' + bread.value+ '\n' +'토핑 : '
+    
+        const list_chk = document.querySelectorAll('.chk:checked')
+        for(let i=0; i< list_chk.length; i++) {
+
+            list.innerText += list_chk[i].value + ',';
+        }
+    })
+
 
     // 6번
     // TODO
-    // 추가 버튼 클리 : input 내용 추가
+    // 추가 버튼 클릭 : input 내용 추가
     // 할일 체크하면 할일 글씨 취소선
     // 할일 삭저하면 할일 삭제
     // 전체선택 구현
