@@ -229,5 +229,74 @@ function bind() {
     // 전체선택 구현
     // 선택취소 구현
 
+    // id가 add인 것을 클릭했을 때
+    document.querySelector('#add').addEventListener('click', function(){
+        const todo = document.querySelector('#todo').value
+        const wrap = document.querySelector('.todo-wrap')
 
+        // div를 추가한다.
+        const div = document.createElement('div')
+        // 추가한 div에 todo class를 추가한다.
+        div.classList.add('todo')
+        // innerHTML은 코드를 넣어도 적용된다.
+        div.innerHTML = `
+                <input type="checkbox" class="chk">
+                <span>${todo}</span> 
+                <input type="button" class="del" value="삭제">
+        `
+        // 마지막 자식요소로 추가된다.
+        wrap.append(div)
+
+        // 추가후 빈칸으로 만들기
+        document.querySelector('#todo').value = ''
+
+        // div의 class가 del인 것을 클릭했을 때
+        // document.querySelectorAll로 잡으면 마지막을 제외한 목록들은 여러번 실행되게 됨.
+        // 아래 방법이 훨씬 좋은 방법
+        div.querySelector('.del').addEventListener('click', function(event){
+            console.log('test')
+
+            // event가 발생한 현재와 자식요소까지 출력
+            console.log(event.target)
+            // event.target의 부모까지 출력
+            console.log(event.target.parentNode)
+            // 그 부모 삭제
+            // confirm은 확인창을 띄워줌
+            const isDel = confirm('삭제하시겠습니까?')
+            if(isDel){
+                // 확인을 누르면 삭제
+                event.target.parentNode.remove()
+            }
+        })
+
+    })
+
+    document.querySelector('#del_chk').addEventListener('click', function(){
+
+        // 타입이 체크박스인 애들중에 id가 all이 아니고 체크된 것들 
+        const chks = document.querySelectorAll('[type=checkbox]:not(#all):checked')
+        console.log(chks)
+
+        // 부모 지우기
+        // 방법1
+        for(let i=0; i<chks.length; i++) {
+            chks[i].parentNode.remove()
+        }
+        // // 방법2
+        // for(let c of chks){
+        //     c.parentNode.remove()
+        // }
+        // // 방법3
+        // chks.forEack(function(c){
+        //     c.parentNode.remove()
+        // })
+        // // 방법4
+        // chks.forEack(c => c.parentNode.remove())
+
+        // 같은 부모의 del 버튼 클릭
+        // for(let i=0; i<chks.length; i++){
+        //     chks[i].parentNode.querySelector('del').click()
+        // }
+
+    })
 }

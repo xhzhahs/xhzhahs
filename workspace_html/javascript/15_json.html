@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 배열 : 값을 순서로 관리하는 것
+        const array = [];
+
+        // json : 값을 key로 관리하는 것, 넣은 순서는 보장하지 않는다.
+        // 순서보장 원할 시 배열로 관리
+
+
+        // json 선언
+        let json = {}
+        const k3 = 'v2'
+
+        // 자바스크립트 한정으로
+        // ''를 사용해도 되고
+        // key는 아예 안써도 된다.
+        // key는 유일하게 관리된다. -> 중복되지 않는다.
+        json = {
+            "key": "value",
+            "num": 123,
+            'k1': 'v1',
+            k2: k3,
+            k4: array,
+            k5: function(){
+                console.log('함수 실행')
+            },
+            k6: {
+                c1: 'c_v1',
+                c2: 'c_v2'
+            }
+        }
+        console.log('json: ', json)
+        console.log('json: ' + json)
+
+        // 값 접근하여 꺼내기
+        // 방법 1. 배열처럼 접근
+        json['key']
+        console.log("json['key']: ", json['key'])
+        
+        // 방법 2. 프로퍼티처럼 접근 (자바스크립트에서만 가능)
+        json.key
+        console.log("json.key: ", json.key)
+        
+        json.k6.c1
+        console.log("json.k6.c1: ", json.k6.c1)
+        console.log("json['k6']['c1']: ", json['k6']['c1'])
+        const k = 'k6';
+        console.log("json['k6']['c1']: ", json[k]['c1'])
+        
+        json.k4.push(1)
+        json.k4.push(2)
+        console.log('json.k4: ', json.k4)
+
+        json.k5()
+
+
+        // key가 있으면 값을 덮어쓰고
+        // key가 없으면 추가한다.
+        json.key = 'value2' // 키가 있어서 덮어씀
+        console.log('json.key :', json.key)
+        
+        json.key2 = 'key2'
+        console.log('json.key2 :', json.key2)   // key2 추가해줌
+        console.log('json.key3 :', json.key3)   // 키가 없어서 undefined
+
+        console.log('json.k4.lengt : ', json.k4.lengt)
+        json.k4.lengt = 5;
+        console.log('json.k4.lengt : ', json.k4.lengt)
+        console.log('json.k4 : ', json.k4.lengt)
+
+
+        // 네트워크는 모든 걸 문자로 전송해야 한다.
+        // JSON.stringify()은 json에 있는 내용들을 글씨로 만들어줌
+        // 단, 값이 함수인 것은 제외
+        const str = JSON.stringify(json)
+        console.log('str : ', str)
+
+        // JSON.parse()는 다시 json으로 돌려줌
+        const json2 = JSON.parse(str)
+        console.log('jason2: ', json2)
+
+        // JSON.parse('asdf')   // json 형식이 아니기 때문에 오류
+
+        const arrJson = [{
+            empno: '7788',
+            ename: 'Scott'
+        }, {
+            empno: '1234',
+            ename: 'Allen'
+        }]
+
+        const emp = JSON.stringify(arrJson)
+        console.log(emp)
+
+        console.log(JSON.parse(emp))
+
+        // for in은 index를 뽑아줌
+        // json에서 index는 key
+        console.log('---------- for in --------')
+        for(let k in json){
+            console.log('k : ', k, json[k]) // 값도 나오게 하기
+        }
+
+        // json의 모든 key를 배열로 가져오기
+        const keys = Object.keys(json)
+        console.log('key: ', keys)
+
+        // key 삭제
+        delete json.k4
+        delete json['k4']
+        console.log(json)
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 400vh;
+        }
+        .quiz {
+            border: 1px solid orange;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 10px;
+
+        }
+        #quiz3 ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        #quiz3 ul li {
+            border:1px solid red;
+            width: 60px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+        }
+        #quiz3 ul li.active {
+            text-decoration: underline;
+            font-weight: 700;
+            background: tomato;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            quiz1();
+            quiz2();
+            quiz3();
+        })
+
+        // ### 1번
+        // 신청 버튼 누르면 input의 글씨가 아래에 쌓인다
+        function quiz1() {
+            document.querySelector('#apply')
+                .addEventListener('click', function () {
+                    const name = document.querySelector('#name')
+                    console.log(name.value) // 쓴 글씨
+
+                    const list = document.querySelector('#quiz1 .list')
+                    list.innerHTML = list.innerHTML + name.value + '<br>'
+                })
+        }
+
+        // ### 2번
+        // '주문정보와 같음' 버튼을 누르면 주문자의 정보가 배송 정보로 복사됨
+        function quiz2() {
+            document.querySelector('#chk')
+                .addEventListener('click', function (event) {
+                    // event.target
+                    // event.currentTarget
+                    // this
+                    console.log(this.checked)
+                    
+                    const name1 = document.querySelector('#name1')
+                    const tel1 = document.querySelector('#tel1')
+                    const addr1 = document.querySelector('#addr1')
+
+                    const name2 = document.querySelector('#name2')
+                    const tel2 = document.querySelector('#tel2')
+                    const addr2 = document.querySelector('#addr2')
+                    
+                    if(this.checked){
+                        name2.value = name1.value
+                        tel2.value = tel1.value
+                        addr2.value = addr1.value
+                    } else {
+                        name2.value = ''
+                        tel2.value = ''
+                        addr2.value = ''
+                    }
+            })
+        }
+        // ### 3번
+        // 메뉴가 여러개일 때 선택한 메뉴'만' 특이하게 보이게
+        function quiz3() {
+            document.querySelector('#quiz3 ul')
+                .addEventListener('click', function(event){
+                    console.log('event.target : ', event.target)
+                    console.log('event.currentTarget : ', event.currentTarget)
+
+                    const lis = document.querySelectorAll('#quiz3 ul li')
+                    lis.forEach(function(li){
+                        li.classList.remove('active')
+                    })
+
+                    lis.forEach(li => li.classList.remove('active'))
+
+                    event.target.classList.add('active')
+            })
+        }
+        
+    </script>
+</head>
+
+<body>
+    <h1>문제 풀이</h1>
+    <div class="quiz" id="quiz1">
+        <h2>문제 1</h2>
+        <div>
+            <input type="text" id="name">
+            <input type="button" id="apply" value="신청">
+            <fieldset>
+                <legend>신청자 목록</legend>
+                <div class="list"></div>
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="quiz" id="quiz2">
+        <h2>문제 2</h2>
+        <div>
+            <div>
+                <h3>주문자 정보</h3>
+                이름 : <input type="text" id="name1"><br>
+                연락처 : <input type="text" id="tel1"><br>
+                주소 : <input type="text" id="addr1"><br>
+            </div>
+            <div>
+                <h3>배송지 정보</h3>
+                <input type="checkbox" id="chk">주문정보와 같음<br>
+                이름 : <input type="text" id="name2"><br>
+                연락처 : <input type="text" id="tel2"><br>
+                주소 : <input type="text" id="addr2"><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz" id="quiz3">
+        <h2>문제 3</h2>
+        <div>
+            <ul>
+                <li>메뉴1</li>
+                <li class="">메뉴2</li>
+                <li>메뉴3</li>
+                <li>메뉴4</li>
+                <li>메뉴5</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

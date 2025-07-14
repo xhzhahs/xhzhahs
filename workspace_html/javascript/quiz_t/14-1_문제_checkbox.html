@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--
+    문제 1
+        여러개의 checkbox이 있을 때
+        ! 선택 버튼을 클릭하면
+        ! 선택한 토핑의 값을 따로 출력
+
+    문제2
+        전체 선택을 구현하시오
+        문제2-1
+            전체 선택 체크 시 모두 선택
+            전체 선택 체크 해제 시 모두 선택 해제
+        문제2-2
+            전체 선택 후 하나라도 해제되면 전제 선택도 해제
+            전체 선택이 해제 된 경우에도 모든 요소 선택 시 전체 선택 체크
+-->
+
+    <div>
+        피자 토핑
+        <hr>
+        <input type="checkbox" class="chk_all">전체선택<br>
+
+        <input type="checkbox" class="chk" value="페페로니">페페로니(2000)
+        <input type="checkbox" class="chk" value="베이컨" data-price="1000">베이컨(4조각 1000)
+        <input type="checkbox" class="chk" value="치즈">치즈
+        <input type="checkbox" class="chk" value="파인애플">파인애플
+        <input type="checkbox" class="chk" value="버섯">버섯
+        <input type="checkbox" class="chk" value="옥수수">옥수수
+        <br>
+        <input type="button" value="선택">
+    </div>
+    <div>
+        토핑 : <span id="topping"></span>
+    </div>
+
+    <script>
+        document.querySelector('[type=button]').addEventListener('click', function(){
+            // 선택한 토핑의 값을 따로 출력
+            // 1. 선택한 토핑들을 가져오기
+            // let list_chk = document.querySelectorAll('.chk:checked')
+            
+            let topping = document.querySelector('#topping')
+            
+            let list_chk = document.querySelectorAll('.chk')
+            for(let i=0; i<list_chk.length; i++){
+                // console.log(i, list_chk[i].checked)
+                if(list_chk[i].checked == true){
+                    console.log(list_chk[i].value)
+                    // 2. 값을 출력
+                    topping.innerText += list_chk[i].value + ', '
+                }
+            }
+        })
+
+        // 전체 선택 구현
+        // 전체 선택 체크 시 모두 선택
+        // 전체선택 변경 또는 클릭 했을 "때"
+        document.querySelector('.chk_all').addEventListener('click', function(){
+            // 전체 선택 체크라면
+            let list_chk = document.querySelectorAll('.chk')
+            if(document.querySelector('.chk_all').checked){
+                // 모두 선택
+                for(let i=0; i<list_chk.length; i++){
+                    list_chk[i].checked = true;
+                }
+            } else {
+                // 모두 해제
+                for(let i=0; i<list_chk.length; i++){
+                    list_chk[i].checked = false;
+                }
+            }
+        })
+
+        // 문제2-2
+        //     전체 선택 후 하나라도 해제되면 전제 선택도 해제
+        let list_chk = document.querySelectorAll('.chk')
+        // list_chk.addEventListener('click', ()=>{})
+        for(let i=0; i<list_chk.length; i++){
+            list_chk[i].addEventListener('click', function(){
+                if( !list_chk[i].checked ){
+                    // 내가 선택 해제 되었다면
+                    document.querySelector('.chk_all').checked = false;
+                } else if (list_chk[i].checked){
+                    // 전체 선택이 해제 된 경우에도 모든 요소 선택 시 전체 선택 체크
+                    
+                    // 내가 선택 선택 되었다면
+                    // 전체 개수와 체크된 개수를 비교해서
+                    // 같은면 전체선택 체크
+                    let list_chk_y = document.querySelectorAll('.chk:checked')
+                    if( list_chk.length == list_chk_y.length ) {
+                        document.querySelector('.chk_all').checked = true;
+                    }
+                }
+            })
+        }
+
+    
+
+
+    </script>
+</body>
+</html>
