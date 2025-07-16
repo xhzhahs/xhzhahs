@@ -234,7 +234,7 @@ function bind() {
         const todo = document.querySelector('#todo').value
         const wrap = document.querySelector('.todo-wrap')
 
-        // div를 추가한다.
+        // div를 생성한다.
         const div = document.createElement('div')
         // 추가한 div에 todo class를 추가한다.
         div.classList.add('todo')

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(function(){
+            init()
+            // console.log( $('h1') )
+            bind()
+        })
+        function init(){
+            // querySelevtor는 없고 querySelevtorAll만 있다.
+            // 그래서 배열 형태로 저장 
+            const list_h1 = $('h1') //document.querySelectorAll과 같음
+            console.log(list_h1)    // jQuery 배열 객체
+            console.log(list_h1[0]) // 순수 pure javascript
+
+            console.log( $('human') )   // 없으면 0개짜리 배열
+
+            // querySelectorAll 에 해당
+            // text()는 innerText와 같음
+            $('h1').text('싹다 변경')   // innerText와 같음
+
+            // innerHTML과 같음
+            $('h1').html('<a href="javasript:void(0)">a tag</a>')   // #(id로 이동) 대신 javasript:void(0)쓰는 것이 더 좋다.
+
+            console.log($('#parent'))
+
+            // class 추가
+            $('#parent').addClass('c1')
+            $('#parent').addClass('c2 c3')  // 2개 넣어도 들어감
+
+            // class 제거
+            $('#parent').removeClass('c1 c2')
+
+            // class 있으면 제거, 없으면 추가
+            $('#parent').toggleClass('c2')
+
+            // 있는가 true or false
+            $('#parent').hasClass('c2')
+            console.log($('#parent').hasClass('c2'))
+
+            // getAttribute와 같음
+            // 속성의 값 가져오기
+            // 전달인자가 한개
+            let human = $('#chk').attr('data-human')
+            console.log(human)
+            
+            // setAttribute와 같음
+            // 전달인자가 두개
+            // 속성이 있다면 덮어쓰기, 없다면 추가
+            $('#chk').attr('data-human', '123')
+            $('#chk').attr('data-game', '윷놀이')
+
+            // data() : data-속성명에서 속성명만 사용할 수 있다.
+            console.log($('#chk').data('game'))
+
+            // 개발자도구에서 안보이는 속성 추가
+            // html에 추가가 되진않지만 콘솔에서는 출력됨
+            $('#chk').data('dinner', '치킨')
+            console.log($('#chk').data('dinner'))
+
+            // removeAttribute와 같음 속성 삭제
+            $('#chk').removeAttr('data-game')
+
+            // $()안에 html 태그를 넣으면 
+            // createElement 해줌
+            $('<div>자식2</div>')
+            let child2 = $('<div class="child2">자식2</div>')    // 이렇게도 가능
+            console.log( child2[0] )
+
+            // 자식의 마지막에 요소 추가
+            $('#parent').append(child2)
+            
+            // 자식 요소에 첫번째에 추가
+            $('#parent').prepend('<div class="child2">자식2</div>')
+            
+            // 형제 요소에 추가
+            $('#parent').after('<div class="child2">parent2</div>')
+            $('#parent').before('<div class="child2">parent3</div>')
+            
+            // 빈칸으로 만들기
+            // $('#parent')[0].innerHTML = ""
+            // $('#parent').html('')
+            $('#parent').empty()
+            
+            // 코드 삭제
+            // 부모요소라면 자식요소까지 삭제됨
+            $('#parent').remove()
+
+            // css 적용하기
+            $('#input1').css('backgroundColor', 'yellow')
+            
+            // DOM의 적용된 실제 css 값 읽기
+            console.log($('#input1').css('backgroundColor'))
+            console.log($('#input1').css('fontSize'))
+            console.log($('#input1').css('width'))
+            console.log($('#input1').width())   // 이렇게도 가져올 수 있다.
+            
+            // 너비를 300px로 지정
+            $('#input1').width(300) // px만 사용 가능
+        }
+
+        function bind(){
+            // $('#btn').click(function(){})    // 이렇게도 사용가능하지만 아래처럼 사용하는게 더 좋다.
+            $('#btn1').on('click', function(event){
+                console.log( this === event.currentTarget )
+
+                // value값 출력
+                // $('#input1')[0].value
+                $('#input1').val()
+                console.log($('#input1').val())
+                
+                // value값 바꾸기
+                $('#input1').val('출발')
+
+                // 체크 여부 확인
+                $('chk').prop('checked')
+                console.log( $('chk').prop('checked') )
+                
+                // check 상태 바꾸기
+                $('chk').prop('checked', true)  // 버튼 click했을 때 체크됨
+ 
+            })
+
+            $('.btn').on('click', function(event){
+                console.log('버튼?')
+                console.log(event.target)
+                console.log(this)
+            })
+
+            // 클릭이벤트 해제
+            // $('.btn').off('click')
+
+            $('.btn').off('click').on('click', function(){
+                console.log('버튼!')
+                bind()
+            })
+            $('.btn').off('click')
+            // 이벤트 종류.식별자로 bind 할 수 있다.
+            $('.btn').on('click.dom',function(){
+                console.log('버튼 dom')
+            })
+            $('.btn').off('click').on('click.ajax',function(){
+                console.log('버튼 ajax')
+            })
+            // 이벤트 종류.식별자로 특정 이벤트만 unbind할 수 있다.
+            $('.btn').off('click.ajax')
+
+
+            $('#parent10').on('click', function(event){
+                // event.stopPropagation()
+                console.log('this', this)
+                console.log('event.target', event.target)
+            })
+            $('.child10').on('click', function(event){
+                // jQuery에서 이렇게 쓸 수 있다.
+                // event.stopPropagation()
+                console.log('this', this)
+                return false    
+            })
+
+            $('#btn3').on('click', function(){
+
+                
+                // hide : display none이 됨
+                $('.child10').hide()
+
+                // show : display 삭제
+                $('.child10').show()
+                
+                // fadeToggle : 천천히 부드럽게 사라지고 나타남
+                $('.child10').fadeToggle()
+                // slideToggle : 슬라이드되면서 사라짐
+                $('.child10').slideToggle()
+
+                // animate({json쓰기})
+                $('.child10').animate({
+                    width : '300px',
+                    height : '+=100px'  // 상대값으로 인식하게 적용됨
+                })
+            })
+
+        }
+    </script>
+</head>
+<body>
+    <h1>첫번째</h1>
+    <h1>두번째</h1>
+    <h1>세번째</h1>
+
+    <div id="parent">
+        부모
+        <div class="child">자식</div>
+    </div>
+    
+    <input type="checkbox" id="chk" class="cb1" value="1" date-human="값" checked="checked"><br>
+    <input type="text" id="input1">
+    <input type="button" id="btn1" class="btn" value="버튼1">
+    <input type="button" id="btn2" class="btn" value="버튼2">
+    <input type="button" id="btn3" class="btn" value="버튼3">
+    
+    <div id="parent10">
+        부모10
+        <div class="child10" style="border:1px solid red; height: 100px; background: yellow;">자식10</div>
+    </div>
+</body>
+</html>
