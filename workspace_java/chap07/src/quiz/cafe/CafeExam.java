@@ -9,6 +9,7 @@ public class CafeExam {
 		Alba alba = new Alba();
 		
 		alba.work(paiks);
+		alba.order("아메리카노", 2);
 		System.out.println("------------");
 		alba.work(mega);
 		

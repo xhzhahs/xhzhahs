@@ -16,4 +16,16 @@ public class Mega extends Cafe{
 	}
 	
 
+	@Override
+	void order(String menu, int c) {
+		
+		System.out.println(menu + c + "개 주문받았습니다.");
+		
+		for(int i = 0; i < menuName.size(); i++) {
+			if(menuName.get(i)== menu) {
+			System.out.println(menuPrice.get(i)*c+ "원 입니다.");
+			}
+		}
+		
+	}
 }

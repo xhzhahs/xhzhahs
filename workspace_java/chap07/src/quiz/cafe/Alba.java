@@ -6,15 +6,17 @@ public class Alba {
 		cafe.hello();
 		cafe.menuList();
 		System.out.println("주문을 도와드릴까요?");
+		
 	}
 	
 	void order(String menu, int c) {
 		
 		System.out.println(menu + c + "개 주문받았습니다.");
+		
 	}
 	
 	String pay(String menu, int c, int p) {
-		System.out.println(menu + c + "개 주문받았습니다.");
+		System.out.println(menu+ " " + c + "개 주문받았습니다.");
 		return menu + c + "개는 총 "+ (c*p)+"원 입니다.";
 	}
 	
