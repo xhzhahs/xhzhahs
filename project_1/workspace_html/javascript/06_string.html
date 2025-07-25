@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let str = '오늘 저녁 때 저녁 뭐 먹지?';
+
+        console.log('str.length :', str.length);
+
+        // indexOf
+        // 전달인자와 동일한 글씨가 있는 경우
+        //      첫번째 만나는 요소의 첫 index를 돌려 줌
+        // 동일한 글씨가 없을 경우 -1
+        console.log( str.indexOf('저녁') );
+        console.log( str.indexOf('점심') );
+
+        // replace
+        // 첫번째 전달인자를 두번째 전달인자로 바꿔 줌
+        // 기본적으로 처음 만나는 것만 한번 바꿔 줌
+        let str2 = str.replace('저녁', '회식');
+        console.log(str);
+        console.log(str2);
+        
+        let str3 = str.replace(/저녁/g, '회식');
+        console.log(str);
+        console.log(str3);
+        
+        // 시작, 끝 바로 앞
+        let str4 = str.substring(2, 7);
+        console.log(str);
+        console.log(str4);
+        
+        // 시작, 몇 개
+        let str5 = str.substr(3, 4);
+        console.log(str);
+        console.log(str5);
+
+        // 어떤 이메일이라도 id를 출력하도록
+        let mail = "0420ara@naver.com";
+        // @를 찾는다 : indexOf
+        let idx = mail.indexOf('@');
+        let id = mail.substring(0, idx);
+        console.log(id);
+        // @로 나눈다 : split
+        let mails = mail.split('@');
+        console.log(mails[0]);
+
+        // 2번
+        // 메일 주소 앞 두자리를 제외한 id는 *처리
+        // 0420ara@naver.com >> 04*****@naver.com
+        let showCnt = 2;
+        let id2 = mail.substr(0,showCnt);
+        let count = id.length - showCnt;
+        
+        for(let i=0; i<count; i++) {
+            id2 += '*'
+        }
+        id2 += mail.substring(idx);
+        console.log(id2);
+
+        // 3번
+        // 인터넷 주소 중 2차 도메인 출력
+        // comic.naver.com 에서 naver
+        // human.or.kr에서 or
+
+        // indexOf 사용
+        let domain = "comic.naver.com";
+        let dot1 = domain.indexOf('.');
+        // console.log( dot1 );        
+        domain = domain.substring(dot1 + 1);
+        // console.log( domain );        
+        let dot2 = domain.indexOf('.');
+        domain = domain.substring(0, dot2);
+        console.log( domain );
+
+        // split 사용
+        let m = "comic.naver.com";
+        let sp = m.split('.');
+        console.log(sp[1]);
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

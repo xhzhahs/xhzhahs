@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="id" value="미리 적은 글"><br>
+    <input type="password" id="pw"><br>
+    <input type="date" id="date"><br>
+    <input type="radio" name="ai" value="1">chatGPT
+    <input type="radio" name="ai" value="2">gemini
+    <input type="radio" name="ai" value="3">bing
+    <input type="radio" name="ai" value="4" checked="checked">perplexity<br>
+
+    <input type="checkbox" class="room" value="에어컨">에어컨
+    <input type="checkbox" class="room" value="식세기">식세기
+    <input type="checkbox" class="room" value="로청">로청<br>
+
+    <select id="select">
+        <option value="1">javascript</option>
+        <option value="2">java</option>
+        <option value="3" selected="selected">CSS</option>
+        <option value="4">SQL</option>
+    </select>
+    <br>
+
+    <textarea id="textarea">초기값</textarea>
+    <div id="view"></div>
+
+    <script>
+        setTimeout( function(){
+            const text = document.querySelector('#id');
+            console.log('text :', text.value);
+            text.value = 1234;
+            
+            const pw = document.querySelector('#pw');
+            console.log('pw :', pw.value);
+            pw.value = 1234;
+            
+            const date = document.querySelector('#date');
+            console.log('date :', date.value);  //  YYYY-MM-DD 양식으로 나옴
+            date.value = '1997-04-20';
+
+            // const today = new Date();
+            // const y = today.getFullYear();
+            // const m = today.getMonth() + 1;
+            // const d = today.getDate();
+            // date.value = y + '-' + m + '-' + d;
+
+            date.value = new Date().toISOString().split('T')[0];
+
+
+            let radio = document.querySelector('[name=ai]:checked');
+            console.log(radio.value);
+            
+            let radios = document.querySelectorAll('[name=ai]');
+            radios[1].checked = true;
+
+            let checkboxes = document.querySelectorAll('.room');
+            for(let i=0; i<checkboxes.length; i++) {
+                console.log(checkboxes[i].value, checkboxes[i].checked);
+                if(checkboxes[i].checked) {
+                    console.log(checkboxes[i].value);
+                }
+            }
+            checkboxes[1].checked = true;
+            console.log('--------------');
+            let checkboxes2 = document.querySelectorAll('.room:checked');
+            for(let i=0; i<checkboxes2.length; i++) {
+                console.log(checkboxes2[i].value, checkboxes2[i].checked);
+            }
+
+            const select = document.querySelector('#select');
+            console.log('select :', select.value);
+
+            const option = document.querySelector( '#select option:checked' );
+            console.log(option, option.innerText);
+
+            select.value = 2;
+
+            const textarea = document.querySelector('#textarea');
+            console.log('textarea :', textarea.value);
+
+            // textarea.value = '바뀐 값\n다음줄';
+
+            const view = document.querySelector('#view');
+            view.innerText = textarea.value;    // enter 적용 됨
+            view.innerHTML = textarea.value;    // enter 적용 안됨
+            view.innerHTML = textarea.value.replace(/\n/g, '<br>');
+
+
+        }, 1000*4);
+    </script>
+    
+</body>
+</html>

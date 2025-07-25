@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- link rel="stylesheet" css파일과 연결해줌 -->
+    <link rel="stylesheet" href="asset/01_selector.css">
+    <style>
+        /* 여기에 css코드 적는다. */
+    </style>
+</head>
+<body>
+    <!-- title은 마우스를 올리면 말풍선처럼 나온다. -->
+    <h1 title="안녕?">hello world</h1>
+    <h2>부제목</h2>
+    <ul class="b">
+        <li class="c1 bigText">li 1</li>
+        <li id="a1" class="c1">li 2</li>
+        <li>li 3</li>
+    </ul>
+    <!-- div : 구역을 나누는 태그 -->
+    <div id="div1">
+        hover 연습
+    </div>
+    <input type="text" class="text1">
+    <hr>
+    <ul>
+        <li class="a b">1</li>
+        <li class="a">2</li>
+        <li>3</li>
+        <li>4
+            <ul>
+                <li>4-1</li>
+                <li>4-2</li>
+                <li>4-3</li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- table>tr*5>td -->
+    <table border="1">
+        <tr>
+            <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad, harum? Dolorem illo laboriosam consectetur voluptates. Ratione, nam tenetur. Ipsa nam deleniti, explicabo excepturi ea debitis asperiores veniam assumenda sit voluptates?</td>
+        </tr>
+        <tr>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+        </tr>
+    </table>
+
+    <h3>before after</h3>
+
+    <ol id="ol">
+        <li>1</li>
+        <li>2</li>
+        <li>
+            <ol>
+                <li data-seq="title_1">3-1</li>
+                <li data-seq="title_2">3-2</li>
+                <li data-seq="3_title">3-3</li>
+            </ol>
+        </li>
+    </ol>
+    
+    <a href="http://naver.com" id="naver">http://naver.com</a><br>
+    <a href="https://google.com">https://google.com</a><br>
+
+    <!-- div와 span 별 의미가 없다 -->
+    <input type="checkbox">
+    <span>체크</span>
+
+    <br>
+    <span id="s1">span</span>
+
+</body>
+</html>

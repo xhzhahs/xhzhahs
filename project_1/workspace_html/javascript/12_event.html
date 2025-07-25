@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./asset/js/12_event.js"></script>
+    <style>
+        body {
+            /* height: 200vh; */
+        }
+        #top {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+        }
+        #game {
+            width: 150px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<!-- <body onload="javascript:init()">   로딩이 끝나자마자 함수를 실행 시켜라 -->
+<body>
+    <div style="display: flex;">
+        <div>
+            <button type="button" id="btn1">버튼1</button><br>
+            <button type="button" id="btn2">버튼2</button><br>
+            <button type="button" id="btn3" onclick="btnClick();alert(1);">버튼3</button>
+            <div>
+                아이디 : <input type="text" id="id"><br>
+                비밀번호 : <input type="password" id="pw"><br>
+                <br>
+                <input type="button" id="login" value="로그인">
+            </div>
+            <div id="console"></div>
+        </div>
+        
+        <button type="button" id="top">맨 위로</button>
+
+        <img id="game" src="https://i.namu.wiki/i/QyfxOrFi-3UtJPaKQI_ZsrbI072EPxQd-v9oxQUURmS63s8jjskMH3E3aiPgP1jRGgL6fRhInntd-6Nubb6D7g.webp">
+    </div>
+</body>
+</html>

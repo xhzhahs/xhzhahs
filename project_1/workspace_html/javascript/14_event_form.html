@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./asset/js/14_event_form.js"></script>
+    <style>
+        #parent {
+            background-color: yellow;
+            padding: 10px;
+        }
+        #child1 {
+            background-color: orange;
+        }
+        #child2 {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <form id="form" method="get" action="https://search.naver.com/search.naver">
+        <input type="text" id="keyword" name="query" placeholder="검색어를 입력해주세요">
+        <select id="site">
+            <option value="1">네이버</option>
+            <option value="2">구글</option>
+        </select>
+        <button type="submit">검색</button>
+    </form>
+
+    <div>
+        피자 토핑
+        <hr>
+        <input type="checkbox" class="chk_all">전체선택<br>
+        
+        <input type="checkbox" class="chk" value="페퍼로니">페퍼로니
+        <input type="checkbox" class="chk" value="베이컨">베이컨
+        <input type="checkbox" class="chk" value="치즈">치즈
+        <input type="checkbox" class="chk" value="파인애플">파인애플
+        <input type="checkbox" class="chk" value="버섯">버섯
+        <input type="checkbox" class="chk" value="옥수수">옥수수
+        <br>
+        <input type="button" value="선택">
+    </div>
+
+    <div>
+        토핑 : <span></span>
+    </div>
+
+    <div id="parent">
+        부모
+        <div id="child1">자식1</div>
+        <div id="child2">자식2</div>
+    </div>
+</body>
+</html>

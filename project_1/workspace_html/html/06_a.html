@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#bottom">맨 아래로</a><!-- #은 id 위치를 찾아 이동 -->
+    <p id="top"><!-- id = top은 어디든 사용 가능하나 한군데만 써야한다. -->
+        id top 자리
+    </p>
+    <!-- a href = 링크 바로가기 -->
+    <a href="http://naver.com">네이버 바로가기</a>
+    <br>
+    <a href="http://google.com" target="_blank">구글 바로가기</a>
+    <br>
+    <a href="http://comic.naver.com" target="_blank">
+        <img alt="노곤하개" src="https://image-comic.pstatic.net/webtoon/834886/thumbnail/thumbnail_IMAG21_3a360149-06bd-4238-b9b6-5b4e6dc80420.jpg">
+    </a>
+    <br>
+    <a href="01_hello.html" target="_blank">hello.html</a>
+    <br>
+
+    <!-- 상대 주소 -->
+    <!-- 
+         /은 폴더를 의미 
+        ./은 내 폴더를 의미
+        ../은 내 상위폴더를 의미
+
+        가장 마지막의 / 이후의 주소를 갈아 치운다.
+    -->
+    <a href="test/sample.html" target="_blank">test/sample.html</a>
+    <br>
+    <a href="./test/sample.html" target="_blank">./test/sample.html</a>
+    <br>
+
+    <!-- 절대 주소 -->
+    <!-- 절대 주소는 주소가 어디에 있던 그 주소로 이동 -->
+    <!-- 
+        1. 프로토콜(http 등)로 시작하거나
+        2. //로 시작하거나 (http://)
+        3. /로 시작하거나
+        3-0. 주소체계란? ip:port/주소
+        3-1. ip:port 다음 나오는 /를 기준 주소로 한다.
+    -->
+    <a href="https://naver.com">네이버</a>
+    <br>
+    <a href="//naver.com">네이버</a>
+    <br>
+    <a href="/html/06_a.html">/html/06_a.html</a>
+    <br>
+    <a href="/html/test/sample.html">/html/test/sample.html</a>
+
+    <br>
+    <a href="tel:01049352280">전화걸기</a>
+
+    <p style="height: 1000px;">
+        첫문단 1000px
+    </p>
+    <a href="#top">맨 위로</a><!-- id = top 자리로 간다. -->
+    <br>
+    <strong id="bottom">
+        id botton 자리
+    </strong>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="asset/07_display.css">
+</head>
+<body>
+    <!-- 
+        div = block태그
+        block 태그 특징
+        기본 너비: width:100%. 즉 부모 만큼의 최대 너비를 가진다. 
+        기본 높이: 컨텐츠의 높이
+        새로운 줄에 표시되고 모든 너비를 차지하므로 다른것은 같은 줄에 올 수 없다.
+    -->
+    <div id="div">
+        a<br> 
+        b</div>
+    <div class="block">첫번째 block</div>
+    <div class="block">
+        두번째 block
+    </div>
+
+    <!-- 
+        span = inline태그
+        inline 태그 특징
+        너비와 높이가 고정이라 새로 적용시킬 수 없다.
+        margin은 좌우만 가능 상하는 불가능
+        padding도 좌우만 가능. 단, border는 밀어짐
+    -->
+    <span class="inline">첫번째 inline</span>
+    <span class="inline">두번째 inline</span>
+    <!-- inline 안에 block은 가능하지만 피하는게 좋다. -->
+    <span class="inline">
+        <div class="block">inline 안의 block</div>
+    </span>
+    <hr>
+    <!-- 줄바꿈 엔터치면서 띄어쓰기가 쳐짐 -->
+    <sapn class="bg_blue">span1</sapn>
+    <sapn class="bg_blue">span2</sapn>
+    <br>
+    <sapn class="bg_blue">span1</sapn><sapn class="bg_blue">span2</sapn>
+
+    <div class="parent">
+        <div class="child1">목록1</div>
+        <div class="child2">
+            목록2<br>
+            세부내용
+        </div>
+    </div>
+
+    <div class="hide">
+        숨겨질 div
+    </div>
+    글씨
+    <div class="table">
+        <div class="td">
+            첫번째 줄 첫번째 칸
+        </div>
+    </div>
+    <div class="table">
+        <div class="td">
+            첫번째 줄 첫번째 칸
+        </div>
+    </div>
+</body>
+</html>

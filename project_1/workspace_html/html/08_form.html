@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <!-- input은 항상 type을 써야한다.
+             input은 닫지 않아도 되는 태그 -->
+        text(기본값) <input type="text"><br>
+
+        <!-- value는 input안에 값이 써져있는 것 
+             써져있는 값을 수정하면 수정한 값으로 서버에 전송된다.-->
+        text(value) <input type="text" value="값"><br>
+
+        <!-- placeholder는 input에 글이 없을 때 흐린 글씨로 나왔다가 
+             한 글자라도 써지면 사라짐 -->
+        text(placeholder) <input type="text" placeholder="플레이스 홀더"><br>
+
+        <!-- readonly는 수정을 할 수 없게 한다.
+             readonly만 써도 되는데
+             readonly="readonly"로 써주는게 좋다 -->
+        text(readonly) <input type="text" value="값" readonly="readonly"><br>
+
+        <!-- disabled는 readonly보다 강력하게 수정할 수 없도록 한다. -->
+        text(disabled) <input type="text" value="값" disabled="desabled"><br>
+        <br>
+
+        <!-- password는 비밀번호처럼 가려져서 나온다. -->
+        password : <input type="password" placeholder="비밀번호를 입력하세요"><br>
+        password : <input type="password" name="pw" placeholder="비밀번호를 입력하세요"><br>
+        <br>
+        <!-- radio는 name이라는 속성을 같이 쓰는 것이 좋다.
+             선택할 수 있는 체크란이 생성됨 
+             name이 같은 애들끼리 묶인다. name이 같은 애들 중에서 한개만 선택가능이지만
+             name이 없으면 복수선택 가능이지만 name은 사용하는게 좋다.-->
+        radio :
+        <input type="radio" name="gender">남자
+        <input type="radio" name="gender">여자
+        <input type="radio" name="gender">비공개
+        <br> 
+        radio :
+        <input type="radio" name="meet">참석
+        <input type="radio" name="meet">미참석
+        <br> 
+        radio :
+        <input type="radio" >참석
+        <input type="radio" >미참석
+        <br>
+        <!-- checked는 선택이 된 상태로 나온다. 
+             모두 checked가 되어있는 경우 마지막꺼만 체크된다.
+             disabled는 선택하지 못하게 막아논다. -->
+        radio :
+        <input type="radio" name="meet">참석
+        <input type="radio" name="meet" checked="checked">미참석
+        <br>
+        <input type="radio" name="gender" value="male" disabled="disabled">남자
+        <input type="radio" name="gender" value="female">여자
+        <input type="radio" name="gender" value="null">비공개
+        <br>
+        <!-- sumit은 value값을 주소창에 보여줌
+            name이 있는 것만 전송함 -->
+        sumit : <input type="submit" value="전송">
+        <br>
+        <!-- checkbox가 생성됨
+             여러개 선택 가능 -->
+        checkbox :
+        <input type="checkbox" value="1"> 생크림
+        <input type="checkbox" value="2" checked="checked"> 초코칩
+        <input type="checkbox" value="3" disabled="disabled"> 샷추가
+        <input type="checkbox" value="4"> 시럽
+        <!-- 
+             label은 input에 id가 있어야 하고 for로 id와 연결된 것을 적는다. 
+             그냥 checkbox는 박스를 눌러야 체크가 되는데
+             label은 글씨를 눌러도 체크가 된다.-->
+        <input type="checkbox" value="5" id="pearl"><label for="pearl"> 펄추가label</label>
+        <!-- 보통 이런 형식으로 label을 사용한다. -->
+        <label for="corn">
+          <input type="checkbox" value="6" id="corn">팝콘추가
+        </label>
+        <br>
+        <!-- file은 파일을 보낼 수 있도록 함 -->
+        file : <input type="file" value="file">
+        <br>
+        <!-- reset은 처음 로딩되었던 상태로 돌아감 -->
+        reset : <input type="reset">
+        <br>
+        input button : <input type="button" value="버튼입니다">
+        <br>
+        <!-- button태그는 type에 꼭 button을 써줘야하고 
+             input이 아니기 때문에 닫는 태그를 사용해야한다. -->
+        button : <button type="button">버튼명</button>
+        <br>
+        <!-- hidden은 눈에 보이지는 않지만 서버로 전송됨 -->
+        hidden : <input type="hidden" name="secret" value="1234">
+        <hr>
+        <br>
+        <!-- 
+            date는 날짜
+            color는 색상
+            number는 숫자만 입력 가능 e도 숫자로 인식
+            range는 범위를 조절 ex) 볼륨키
+        -->
+        date : <input type="date" value="2025-06-19"><br><!-- value 값 입력한 대로 나옴 -->
+        color : <input type="color"><br>
+        number : <input type="number"><br>
+        range : <input
+                    type="range"
+                    min="10"
+                    max="100"
+                    step="10" 
+               ><br><!-- min은 최소값, max는 최대값 step은 한번에 이동할 값-->
+        <fieldset>
+               <!-- legend는 제목을 의미한다. 이쁘게 네모칸이 나옴 -->
+               <legend>제목</legend>
+               글씨들
+        </fieldset>
+        <br>
+        <!-- 
+             required는 필수 입력값
+             sumit을 누를 때 필수 입력값을 입력하지 않은 곳을 표시해줌 
+
+             autocomplete는 on했을 때는 입력하지 못하고
+                            off했을 때는 입력 가능
+        -->
+        required, autocomplete <input type="text" required="required" autocomplete="on">
+        <br>
+        <!-- 
+              textarea는 글씨를 쓸 수 있는 칸이 생성됨 
+              input은 엔터를 인식하지 못하지만 textarea는 인식가능
+              rows는 만약 10이라면 10줄 쓸 수 있는 정도로 칸이 커짐
+              clos는 100이라면 100글자를 쓸 수 있을 정도로 넓어짐
+        -->
+        <textarea rows="10" cols="100">
+          1줄
+          2줄
+        </textarea>
+        <br>
+        <!-- 
+             select는 아래 화살표를 누르면 선택할 수 있도록 해줌
+             name을 쓰고 value를 써주면 서버로 전송 가능.
+             보통 숫자로 전송한다.
+             selected는 그 목록을 맨 처음 고정으로 보이게 한다.
+             size는 정한 갯수만큼 보여주고 나머지는 스크롤
+             multiple은 여러개 선택 가능
+        -->
+        <select name="lunch" size="5" multiple="multiple">
+            <option value="한식">한식</option>
+            <option value="2">양식</option>
+            <option value="3" selected="selected">중식</option>
+            <option value="3">분식</option>
+            <option value="3">분식</option>
+            <option value="3">분식</option>
+            <option value="3">분식</option>
+            <option value="3">분식</option>
+            <option value="3">분식</option>
+        </select>
+    </form>
+     <br>
+     <hr>
+     <br>
+
+
+    <!-- 
+        form의 method 종류 : get, post
+        method의 기본값(쓰지 않았을 경우) : get
+        
+        action : 전송할 주소
+        action의 기본값 : 지금 내 주소
+    -->
+    <form method="get" action="https://search.naver.com/search.naver"> <!-- 검색창으로 바로 이동 -->
+        <input type="text" name="quary">
+        <input type="submit" value="네이버 검색"> <!-- method가 get일 때 a href 태그와 동일하게 작용-->
+    </form>
+
+    <form method="get" action="https://www.google.com/search"> <!-- 검색창으로 바로 이동 -->
+        <input type="text" name="quary">
+        <input type="submit" value="구글 검색"> <!-- method가 get일 때 a href 태그와 동일하게 작용-->
+    </form>
+
+    <form method="get">
+          <input type="text" name="query" value="1234">
+          <input type="submit" value="get 연습">
+    </form>
+
+    <form method="post">
+          <!-- post는 주소창에 보이지 않음 -->
+          <input type="text" name="query" value="1234">
+          <input type="submit" value="post 연습">
+    </form>
+</body>
+</html>

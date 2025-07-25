@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- table>tr*3>td*5 이렇게 쓰고 엔터치면 3줄 5칸짜리 표가 자동완성되어서 나온다. -->
+    <table border="1"><!-- 표 형식으로 만들어줌 
+                           위 아래 정렬을 자동으로 해줌-->
+        <tr><!-- table row 한 줄 -->
+            <th>내용1</th><!-- td는 한 칸 th는 굵은 글씨 가운데 정렬-->
+            <th>
+                내용2
+            </th>
+        </tr>
+        <tr>
+            <td>두번째 줄 내용1</td>
+            <td>내용2</td>
+        </tr>
+        <tr>
+            <td>세번째 줄 내용</td>
+            <td></td><!-- 내용 안쓰면 빈칸으로 나옴-->
+        </tr>
+    </table>
+    <hr>
+    <table border="1">
+        <tr>
+            <td>내용1</td>
+            <td>
+                내용2
+            </td>
+        </tr>
+        <tr>
+            <td>두번째 줄 내용1</td>
+            <td>내용2</td>
+        </tr>
+    </table>
+    <hr>
+    <table border="1">
+        <caption>테이블 설명</caption><!-- 캡션이나 요약 중 하나만 써도 됨 -->
+        <summary>제목1, 제목2</summary><!-- 요약이라는 뜻 컬럼 나열만 해도 됨 -->
+        <thead><!-- semantic요소로 별 차이 없지만 사용하는 것이 좋음
+                    한 줄이 모두 th일 때만 사용. 첫째줄 한칸, 둘째줄 한칸이 th일 경우는 사용하지 않음 
+                    억지로 감싸지 않도록 해야함-->
+        <tr>
+            <th>제목1</th>
+            <th>
+                제목2
+            </th>
+        </tr>
+        </thead>
+        <tbody><!-- senamtic요소로 써주는게 좋음 -->
+        <tr>
+            <td>두번째 줄 내용1</td>
+            <td>내용2</td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <table border="1">
+        <tr>
+            <td>내용1</td>
+            <td>
+                내용2
+            </td>
+        </tr>
+            <tr>
+            <td>두번째 줄 내용1</td>
+            <td>
+                    <table border="1">
+                        <tr>
+                            <td>내용1</td>
+                            <td>
+                                내용2
+                           </td>
+                        </tr>
+                        <tr>
+                            <td>두번째 줄 내용1</td>
+                            <td>내용2</td>
+                        </tr>
+                    </table>    
+            </tr>            
+    </table>
+    <hr>
+    <table border="1">
+        <tr>
+            <td>제목1 내용보다 긴 제목</td>
+            <td width="200" height="100"><!-- width는 너비, height는 높이 -->
+                내용2
+            </td>
+            <td>내용3</td>
+        </tr>
+        <tr>
+            <td colspan="3">두번째 줄 내용1</td><!-- colspan은 차지하는 칸을 지정-->
+            <!-- <td>내용2</td> -->
+            <!-- <td>내용3</td> --><!-- colspan으로 인해 표에서 튀어나가서 주석 -->
+        </tr>
+        <tr>
+            <td rowspan="2">세번째 줄 내용1</td><!-- rowspan은 차지하는 줄을 지정 -->
+            <td>내용2</td>
+            <td>내용3</td>
+        </tr>
+        <tr>
+            <!-- <td>네번째 줄 내용1</td> --><!-- rowspan으로 인해 밀려서 주석-->
+            <td>
+                 <img src="https://image-comic.pstatic.net/webtoon/834886/thumbnail/thumbnail_IMAG21_3a360149-06bd-4238-b9b6-5b4e6dc80420.jpg" width="200" height="200">
+            </td>
+            <td>내용3</td>
+        </tr>
+        <tr>
+            <td>내용1</td>
+            <td>
+               
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    </table>   
+    <hr>
+    <table border="1">
+        <tbody>
+        <tr>
+            <td><!-- alt = 대체텍스트 
+                    width와 height도 사용 가능 하지만 css에서 사용하는게 좋다 -->
+               <img 
+                    alt="울어 봐, 빌어도 좋고" 
+                    src="https://search.pstatic.net/common?type=f&size=206x268&quality=75&direct=true&src=https%3A%2F%2Fshared-comic.pstatic.net%2Fthumb%2Fwebtoon%2F814826%2Fthumbnail%2Fthumbnail_IMAG21_1de7535f-9088-4f21-8b16-413cb1e66307.jpg"> 
+            </td>
+            <td>
+               <img 
+                    alt="자기 자?"
+                    src="https://search.pstatic.net/common?type=f&size=206x268&quality=75&direct=true&src=https%3A%2F%2Fshared-comic.pstatic.net%2Fthumb%2Fwebtoon%2F835030%2Fthumbnail%2Fthumbnail_IMAG21_9556b5a5-f06e-40f2-af0a-9b9181783f76.jpg"> 
+            </td>
+            <td>
+               <img 
+                    alt="전지적 작가시점"
+                    src="https://search.pstatic.net/common?type=f&size=206x268&quality=75&direct=true&src=https%3A%2F%2Fshared-comic.pstatic.net%2Fthumb%2Fwebtoon%2F747269%2Fthumbnail%2Fthumbnail_IMAG21_aabd9952-ff45-47a2-a543-33f19a5c6708.jpg"> 
+            </td>
+            <td>
+               <img 
+                    alt="썰:관계주의"
+                    src="https://search.pstatic.net/common?type=f&size=206x268&quality=75&direct=true&src=https%3A%2F%2Fshared-comic.pstatic.net%2Fthumb%2Fwebtoon%2F834033%2Fthumbnail%2Fthumbnail_IMAG21_7c9585da-5f05-49f4-8922-7803630084fa.jpg"> 
+            </td>
+            <td>
+               <img 
+                    alt="쌉초의 난"
+                    src="https://search.pstatic.net/common?type=f&size=206x268&quality=75&direct=true&src=https%3A%2F%2Fshared-comic.pstatic.net%2Fthumb%2Fwebtoon%2F823195%2Fthumbnail%2Fthumbnail_IMAG21_4f4af171-b6c5-44f5-badb-0a8c9c45a12b.jpg"> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                울어 봐, 빌어도 좋고
+            </td>
+            <td>
+                자기 자?
+            </td>
+            <td>
+                전지적 독자 시점
+            </td>
+            <td>
+                썰:관계주의
+            </td>
+            <td>
+                쌉초의 난
+            </td>
+        </tr>
+        <tr>
+            <td>
+                반지
+            </td>
+            <td>
+                혜룡/영영
+            </td>
+            <td>
+                UMI/슬리피
+            </td>
+            <td>
+                이삼/장버들
+            </td>
+            <td>
+                쌉초
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <hr>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+
+    <table border="1">
+        <tbody>
+        <tr>
+            <td colspan="6">
+                추천 베스트도전 & 도전만화
+            </td>
+            <td colspan="2">
+                베스트도전 전체보기>
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="3">
+                <img 
+                    alt="육아의 계절"
+                    src="https://image-comic.pstatic.net/user_contents_data/challenge_comic/2023/06/27/332092/upload_7090134976656716596_202x164.jpeg">
+            </td>
+            <td colspan="2">
+                육아의 계절
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td rowspan="3">
+                <img 
+                    alt="아빠는 N살"
+                    src="https://image-comic.pstatic.net/user_contents_data/challenge_comic/2020/02/03/312881/thumbnail_202x1644a1ff785_5bae_4dfe_a1ae_53e3528d0836_00003656.JPEG">
+            </td>
+            <td colspan="2">
+                아빠는 N살
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                십짱생
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td colspan="2">
+                유영근
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                9.7
+            </td>
+            <td>
+                104만
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                9.90
+            </td>
+            <td>
+                5,567만
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td rowspan="3">
+                <img 
+                    alt="용사님 나가신다"
+                    src="https://image-comic.pstatic.net/user_contents_data/challenge_comic/2025/03/10/302882/upload_4120848855333102901_202x164.jpeg">
+            </td>
+            <td colspan="2">
+                용사님 나가신다
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td rowspan="3">
+                <img 
+                    alt="컬러리스트"
+                    src="https://image-comic.pstatic.net/user_contents_data/challenge_comic/2024/11/19/299469/upload_3919087578316300899_202x164.jpeg">
+            </td>
+            <td colspan="2">
+                컬러리스트
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                순디
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td colspan="2">
+                89line
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                9.07
+            </td>
+            <td>
+                2만
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                9.88
+            </td>
+            <td>
+                19만
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td rowspan="3">
+                <img 
+                    alt="우리는 다 다르기에!"
+                    src="https://image-comic.pstatic.net/user_contents_data/challenge_comic/2025/03/22/324892/title_thumbnail_3761684787189015137_202x164.jpg">
+            </td>
+            <td colspan="2">
+                우리는 다 다르기에!
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td rowspan="3">
+                <img 
+                    alt="우리의 학교는 안녕하십니까?"
+                    src="https://image-comic.pstatic.net/user_contents_data/challenge_comic/2024/12/23/384687/title_thumbnail_7220785558291101540_202x164.jpg">
+            </td>
+            <td colspan="2">
+                우리의 학교는 안녕하십니까?
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                rlfd****
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td colspan="2">
+                이락
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                7.72
+            </td>
+            <td>
+                7,996
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                9.26
+            </td> 
+            <td>
+                4,753
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </tbody>   
+    </table>
+
+
+    <table>
+        <tr>
+            <!-- lorem을 쓰고 엔터를 치면 의미없는 단어들이 나열된다. -->
+            <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia eligendi doloribus fugiat optio culpa? Aliquam aut, voluptas quod, cumque exercitationem facilis perspiciatis, vero quasi minima dolorem error. Saepe, reiciendis earum.</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,385 @@
+header {
+    /* border: 1px solid orange; */
+    margin: 0 0 20px 0;
+}
+header span{
+    /* border: 1px solid black; */
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 40px;
+    vertical-align: top;
+    display: inline-block;
+}
+.page1 {
+    /* border: 1px solid red; */
+    text-align: center;
+}
+.left {
+    /* border: 1px solid blue; */
+    display: inline-block;
+
+    width: 600px;
+    height: 600px;
+
+    padding: 50px 0;
+    margin: 0 40px;
+}
+.h1 {
+    /* border: 1px solid red; */
+    font-size: 34px;
+    text-align: left;
+}
+.content {
+    /* border: 1px solid rgb(255, 82, 111); */
+    font-size: 18px;
+    line-height: 30px;
+    text-align: left;
+
+    margin: 20px 0;
+}
+.button {
+    /* border: 1px solid purple; */
+    font-weight: bold;
+    text-align: left;
+}
+.button_1 {
+    background-color: orange;
+    border-radius: 50px;
+    display: inline-block;
+    
+    line-height: 50px;
+    text-align: center;
+    
+    width: 150px;
+    height: 55px;
+
+    margin: 0 20px 0 0;
+}
+.button_1 a {
+    text-decoration: none;
+    color: white;
+}
+.button_2 {
+    border: 2px solid orange;
+    border-radius: 50px;
+    vertical-align: top;
+    display: inline-block;
+    
+    line-height: 45px;
+    text-align: center;
+    
+    width: 150px;
+    height: 50px;
+}
+.button_2 a {
+    text-decoration: none;
+    color: orange;
+}
+.p1_content {
+    border-left: 3px solid orange;
+
+    text-align: left;
+    font-style: italic;
+
+    margin: 50px 0 0;
+    padding: 30px 10px;
+}
+.p1 {
+    text-align: left;
+    margin: 10px 0;
+}
+.p1 img {
+    /* border: 1px solid black; */
+
+    width: 60px;
+}
+.p1_info {
+    /* border: 1px solid red; */
+    vertical-align: top;
+    display: inline-block;
+
+    font-size: 12px;
+    text-align: left;
+
+    padding: 10px;
+}
+.right {
+    /* border: 1px solid green; */
+    vertical-align: top;
+    display: inline-block;
+    
+    text-align: center;
+    
+    width: 450px;
+    height: 650px;
+
+    margin: 0 40px;
+    position: relative;
+}
+.right img {
+    width: 450px;
+    height: 600px;
+}
+.new {
+    border-radius: 50%;
+    background-color: rgba(13, 167, 13, 0.9);
+    
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    height: 120px;
+    width: 120px;
+
+    position: absolute;
+    right: -15px;
+    top: -20px;
+
+    box-shadow: 0 5px 20px rgba(165, 165, 165, 0.5);
+}
+.review {
+    text-align: center;
+}
+.review a {
+    color: black;
+}
+.page2 {
+    background-color: rgba(239, 239, 239, 0.758);
+    background-image: linear-gradient(180deg, rgba(239, 239, 239, 0.758) 0%, #fff 70%);
+    margin: 50px 0;
+    padding: 70px 100px;
+}
+.p2_h2 {
+    /* border: 1px solid blue; */
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+}
+.p2_content {
+    text-align: center;
+
+    font-size: 18px;
+    line-height: 30px;
+
+    margin: 10px 0;
+}
+.p2 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+.p2_1 {
+    /* border: 1px solid black; */
+    text-align: center;
+    width: 330px;
+    height: 250px;
+    
+    margin: 60px 0 0 50px;
+}
+.p2_h3 {
+    /* border: 1px solid blue; */
+    font-size: 18px;
+    font-weight: bold;
+
+    margin: 10px 0;
+}
+.page3 {
+    /* border: 1px solid orange; */
+    text-align: center;
+}
+.p3_h2 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+.left {
+    /* border: 1px solid hotpink; */
+    text-align: center;
+    width: 400px;
+    height: 500px;
+}
+.p3.left img {
+    width: 350px;
+    height: 500px;
+}
+.right {
+    text-align: left;
+    width: 400px;
+    height: 500px;
+    padding: 50px 0;
+}
+.list {
+    line-height: 40px;
+    text-align: left;
+    margin: 40px 0;
+}
+.p3.button_1 {
+    width: 200px;
+
+    margin: 0 0 0 50px;
+}
+.page4 {
+    /* border: 1px solid purple; */
+    text-align: center;
+
+    padding: 50px;
+}
+.p4_h2 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+.p4_content {
+    font-size: 18px;
+    text-align: center;
+
+    width: 800px;
+
+    margin: 30px auto;
+}
+.p4_h3 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+
+    width: 500px;
+
+    margin: 10px auto;
+}
+.p4_h3_content {
+    text-align: left;
+
+    width: 500px;
+
+    margin: auto;
+}
+.page5 {
+    background-color: rgba(239, 239, 239, 0.758);
+    text-align: center;
+    width: 700px;
+    padding: 50px;
+    margin: 10px auto;
+}
+.p5_h2 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+.p5_content {
+    text-align: center;
+    margin: 20px 0;
+}
+.email {
+    border: 1px solid rgb(234, 234, 234);
+    width: 400px;
+    height: 40px;
+}
+.send {
+    border: 1px solid orange;
+    border-radius: 3px;
+    background-color: orange;
+    color: white;
+    width: 70px;
+    height: 40px;
+}
+.page6 {
+    /* border: 1px solid red; */
+    text-align: center;
+    padding: 70px 100px;
+}
+.p6_h2 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+.p6_h3 {
+    text-align: center;
+    margin: 10px 0;
+}
+.p6 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 0;
+}
+.p6_1 {
+    border-radius: 5px;
+    background-color: rgba(239, 239, 239, 0.758);
+    line-height: 25px;
+    text-align: left;
+    width: 300px;
+    height: 200px;
+    margin: 20px;
+    padding: 20px;
+}
+.p6_content {
+    font-style: italic;
+}
+.p6_1 img {
+    width: 70px;
+    margin: 20px 0;
+}
+.p6_info {
+    vertical-align: top;
+    display: inline-block;
+
+    font-size: 12px;
+    
+    padding: 10px;
+    margin: 20px 0;
+}
+.p6.button_1 {
+    width: 250px;
+    margin: 20px auto;
+}
+.page7 {
+    background-color: orange;
+    color: white;
+    text-align: center;
+    height: 500px;
+    padding: 70px;
+}
+.page7 img {
+    width: 150px;
+}
+.p7_h2 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+}
+.page7 p {
+    text-align: left;
+    width: 800px;
+    margin: 10px auto;
+}
+.follow {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+}
+footer {
+    /* border: 1px solid blue; */
+    height: 150px;
+    position: relative;
+    
+}
+.f_content {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+footer span {
+    text-decoration: underline;
+}

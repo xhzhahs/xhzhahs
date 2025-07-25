@@ -1,0 +1,74 @@
+#div {
+    border: 1px solid red;
+}
+
+.block {
+    border: 1px solid red;
+    width: 100px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.inline {
+    border: 1px solid red;
+    /* 너비 높이 줄 수 없다. */
+    width: 200px;
+    height: 50px;
+    /* 좌우만 가능 */
+    margin: 30px 50px;
+    /* 좌우만 가능. 단, border는 밀어짐 */
+    padding: 20px;
+    
+    /* display: block은 위아래로 나오게 해줌 */
+    /* display: block; */
+}
+
+.bg_blue {
+    background-color: blue;
+    color: #ffffff;
+}
+
+.parent {
+    border: 1px dotted rgb(50, 250, 250);
+    /* width: 400px; */
+    /* width: 200px; */
+    width: 400px;
+    /* 띄어쓰기로 인한 공백을 없애기 위해 */
+    font-size: 0;
+}
+
+.parent div {
+    border: 1px dashed rgb(77,5,220);
+    /* width: 150px; */
+    /* width: 40px; */
+    box-sizing: border-box;
+    width: 200px;
+    height: 50px;
+    /* inline-block은 공간이 있다면 옆으로 나란히 나오게 해준다. */
+    display: inline-block;
+    /* 
+        inline 블럭들은 기본적으로 폰트 베이스라인에 맞춰주기 때문에 틀어질 경우
+        vertical-align으로 기준점을 맞춘다.
+        inline과 inlin-block에만 적용
+     */
+    vertical-align: top;
+
+    font-size: 16px;
+}
+
+.hide {
+    display: none;
+}
+
+/* div를 talble처럼 사용하기 */
+.table {
+    display: table;
+}
+.table .td {
+    display: table-cell;
+    border: 1px solid red;
+    width: 200px;
+    height: 100px;
+    /* display: table-cell일 때는 적용가능 */
+    vertical-align: middle;
+}

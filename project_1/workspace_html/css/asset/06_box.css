@@ -1,0 +1,150 @@
+body {
+    border: 1px solid black;
+    margin: 0px;
+}
+
+/* 
+    block은 한 줄을 전부 차지한다.
+
+    inline은 내 공간만큼만 차지한다.
+    하지만 inline은 width, height가 적용이 되지 않는다.
+    margin, padding은 좌우만 적용된다.
+    이미지는 inline처럼 적용된다. 
+*/
+
+.first {
+    border: 1px solid red;
+    /* margin은 border를 기준으로 바깥공간 */
+    /* margin-top: 50px;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    margin-left: 20px; */
+
+    /* margin 축약형 */
+    /* 4개 일 때 : top right bottom left 순으로 */
+    margin: 50px 40px 30px 20px;
+    /* 3개일 때 : top 좌우 bottom */
+    margin: 50px 30px 20px;
+    /* 2개일 때 : 위아래 좌우 */
+    margin: 50px 30px;
+    /* 1개일 때 : 상하좌우 */
+    margin: 30px;
+
+
+    border-top-width: 3px;
+    border-top-style: dotted;/*dotted는 점선 dashed는 절취선*/
+    border-top-color: blue;
+    /* 축약형 사용법 */
+    border-right: 2px dashed green;
+    /* 전체 축약형 */
+    border: 2px solid red;
+    
+    /* 
+    border-radius는 모서리 둥글게
+    축약형 : 왼쪽위모서리 오른쪽위모서리 오른쪽아래모서리 왼쪽아래모서리
+    */
+    border-radius: 10px;
+
+    padding-top: 20px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    /* padding도 margin처럼 4방향 축약 가능 */
+
+    padding: 30px;
+    
+    /* width, height는 내용물(컨텐츠)의 너비와 높이 */
+    width: 50vw;
+    height: 200px;
+
+    /* padding+컨텐츠까지만 칠해짐 */
+    background-color: aqua;
+}
+.second {
+    /* 
+        box-sizing은 padding + border까지가 너비로 됨 
+    */
+    box-sizing: border-box;
+    /* 아래부분은 .first를 복사 해옴 */
+    border: 1px solid red;
+
+    margin: 30px;
+
+    border: 2px solid red;
+    
+    border-radius: 10px;
+
+    padding: 30px;
+    
+    width: 50vw;
+    height: 200px;
+
+    background-color: aqua;
+}
+
+.profile img {
+    border: 1px solid black;
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+    margin-left: -20px;
+    /* padding: 30px; */
+}
+
+.chat-left {
+    border: 1px solid black;
+    background-color: yellow;
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+
+    border-radius: 0 10px 10px 10px;
+}
+
+.third {
+    border: 1px solid red;
+    width: 70%;
+    /* 
+        min-third는 최소너비 max-width는 최대너비
+        height도 동일하게 가능
+    */
+    min-width: 500px;
+    max-width: 700px;
+}
+
+#div1, #div2, #div3 {
+    /* border: 1px solid red; */
+    padding: 1px;
+}
+
+#div2, #div3 {
+    /* 
+        margin 중첩
+        margin-top과 위 요소의 margin-bottom이 겹치는 현상
+        세로 방향으로 붙어 있을 때 또는 부모와 첫번째 자식 간에
+        margin이 더해 지지 않고 큰 값 하나만 적용되는 현상
+    */
+    /* 
+        margin 중첩 해결방법
+        border, padding 등 적용하여 해결
+        컨텐츠 적어서 해결 ex) <br> - 하지만 유지보수에 좋지 않음
+        부모에 overflow: hidden 주기 - 부모와 첫번째 자식의 중첩 해소
+    */
+    margin: 20px;
+}
+#div3 {
+    margin: 50px;
+}
+#div1 {
+    margin: 30px
+}
+
+
+#auto {
+    width: 100px;
+    border: 1px solid red;
+    /* margin: auto; 이렇게 써도 됨*/
+    margin: 0 auto;
+}

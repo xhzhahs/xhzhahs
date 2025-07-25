@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .p {
+            border: 1px solid red;
+            width: 100px;
+            height: 87px;
+            margin: 10px;
+        }
+        .hidden {
+            overflow: hidden;
+        }
+
+        .scroll {
+            overflow: scroll;
+        }
+
+        .auto {
+            /* scroll의 오토 */
+            /* overflow: auto; */
+            overflow: scroll;
+        }
+
+        .parent {
+            border: 1px solid red;
+            width: 300px;
+            /* block을 벗어나도 한줄로 만들어줌 */
+            white-space: nowrap;
+            overflow: auto;
+        }
+        .parent div {
+            border: 1px solid blue;
+            display: inline-block;
+            width: 100px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="p hidden">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, expedita autem similique minima cupiditate eaque molestiae delectus maiores et neque laudantium suscipit temporibus fuga voluptas vero tempora dolores nesciunt dolorem.
+    </div>
+    <div class="p scroll">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, expedita autem similique minima cupiditate eaque molestiae delectus maiores et neque laudantium suscipit temporibus fuga voluptas vero tempora dolores nesciunt dolorem.
+    </div>
+    <div class="p auto">
+        Lorem
+    </div>
+    <div class="parent">
+        <div>항목1</div>
+        <div>항목2</div>
+        <div>항목3</div>
+        <div>항목4</div>
+        <div>항목5</div>
+    </div>
+</body>
+</html>

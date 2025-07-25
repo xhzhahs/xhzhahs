@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // function 키워드로 함수를 선언
+    // 양식
+    // function 함수명(전달인자들){ }
+    // 전달인자에는 타입을 적지않는다.
+
+    function plus(x,y) {
+        console.log('x :', x);
+        console.log('y :', y);
+
+        let z = x + y;
+        return z;
+    }
+    let a = plus(2,3);
+    console.log('a :', a);
+    
+    plus(2, plus(1,2));
+    
+    console.log('-----------');
+    let b = plus();
+    console.log('b :', b);
+    console.log('-----------');
+    let c = plus(4);
+    console.log('c :', c);
+    console.log('-----------');
+    let d = plus(2,3,4,5,6);
+    console.log('d :', d);
+    
+    function plus2(x, y) {
+        if(x == undefined) {
+            x = 0;
+        }
+        if(y == undefined) {
+            y = 0;
+        }
+
+        if(!x) {
+            x = 0;
+        }
+        if(!y) {
+            y = 0;
+        }
+        return x + y;
+    }
+
+    // 전달인자가 없는 경우 초기값 적용
+    // 있으면 전달인자 사용
+    function plus3(x=0, y=1) {
+        return x + y;
+    }
+
+    console.log(1,2,3,4,5,6);
+
+    // spread 연산자
+
+    // 전달인자에서 사용
+    function log( ...obj ) {
+        console.log( typeof obj );  // 배열
+        console.log( obj[1] );
+        console.log( obj );
+    }
+    log(1,2);
+
+    // 전달인자로 사용
+    let f = [10, 20];
+    console.log(...f);
+    console.log(f[0], f[1]);  // console.log(...f);와 같음
+
+    // 문자를 javascript로 해석해 줌
+    let g = "console.log(123)";
+    eval(g);    // string을 javascript로 변환
+    
+
+
+    function print() {
+        console.log('print 실행')
+    }
+    let p = print;
+    console.log('typeof p :', typeof p);
+    p();
+
+    let p2 = print();
+    console.log('p2: ', p2);
+
+    console.log('typeof print: ', typeof print);
+
+    function print2() {
+        console.log('print2 실행')
+    }
+    
+    function print2() {
+        console.log('print3(거짓말) 실행')
+    }
+    print2();   // 함수명이 같으면 덮어쓰기 된다.
+
+    function over(x) {
+        console.log('x: ', x);
+    }
+    function over(x, y) {
+        console.log('x,y : ', x, y); // 자바스크립트는 오버로딩을 지원하지 않는다.
+    }
+    over(1);
+    console.log( 1, typeof over);
+    
+    over = 1;
+    console.log( 2, typeof over);
+    // over(); // over = 1;로 변수에 넣었으므로 더이상 함수가 아닌 숫자가 됨.
+
+
+    // 콜백 함수 (callback)
+    // 보통 비동기함수에 사용됨
+    // 원-달러 환율 계산 함수
+    function change_en_ko( dollar ) {
+        return dollar * 1354.75;
+    }
+    
+    // 달러-원 환율 계산 함수
+    function change_ko_en( won ) {
+        return won / 1354.75;
+    }
+
+    // 환전 함수
+    // 전달인자 : 금액, 환율 계산 함수
+    function change( money, callback ) {
+        console.log('환전을 시작합니다');
+
+        //  방어코딩
+        if( typeof callback == 'function' ) {
+
+            let result = callback( money )
+            return result;
+        } else {
+            console.log('콜백 함수 없음')
+        }
+    } 
+    const money = change( 100, change_en_ko );
+    console.log('환전된 금액은', money);
+    change( 100 ); // 전달인자 계산 함수가 정의되지 않았으므로 undefined로 정의되는데 방어코딩으로 해결
+
+
+    // 익명 함수. 이름이 없는 함수
+    // 변수에 바로 담거나 전달 인자로 주는 목적으로 사용
+    let noName = function () {
+        console.log('익명함수');
+    }
+    noName();
+    
+    // 위 익명함수와 동일한 함수. 일반적인 함수
+    // function noName() {
+    //     console.log('익명함수');
+    // }
+
+    const m = 100;
+    change(m, noName);
+
+    // 익명함수를 사용하는 이유
+    // 함수이름을 정의하지 않으려고
+    change(100, function () {
+        console.log('익명함수');
+    });
+
+    console.log('--------------');
+
+    /*  setTimeout
+        전달인자가 2개
+        첫번째 전달인자 : 실행할 함수(콜백함수)
+        두번째 전달인자 : 지연 시간 (1/1000초)
+        지연시간이후 가장 빠른 때에 콜백함수를 !한번! 실행해줌
+        */
+   // setTimeout(noName, 1000 * 3);
+    let st1 = setTimeout(
+        function () {
+            console.log('3초뒤 실행됨');
+        }
+        , 1000 * 3
+    );
+    // 예약 고유번호가 출력됨
+    console.log('st1 :', st1);
+
+    // 예약 고유 번호에 해당하는 setTimeout 취소
+    clearTimeout(st1); // 예약을 취소해서 실행되지 않게 함
+
+    console.log('콘솔 출력');
+    let time = 30;
+    setTimeout(
+        function () {
+            console.log('3초뒤 실행됨2', time);
+        }
+        , 1000 * 1
+    );
+
+    /*
+        setInterval
+        지연 시간마다 계속 콜백 함수를 실행해줌
+    */
+
+    let si = setInterval(function() {
+        console.log('setInterval 실행')
+        console.log('.')
+    },1000 * 2 );
+    
+    // 예약 고유 번호에 해당하는 setInterval을 취소
+    // clearInterval(si); // 예약취소
+
+    setTimeout(function() {
+        clearInterval(si)
+    }, 5000);
+
+    
+    // 화살표 함수 arrow function
+    // function 글씨를 안쓸수 있다.
+    let test0 = function(a, b) {
+        console.log(a, b)
+        return a;
+    }
+
+    // 익명 함수일 경우 화살표 함수로 변경할 수 있다.
+    let test1 = (a, b) => {
+        console.log(a, b)
+        return a;
+    }
+
+    // 전달인자가 하나일 때만
+    // 전달인자의 괄호를 생략할 수 있다.
+    let test2 = (a) => {
+        console.log(a)
+        return a;
+    }
+    
+    let test3 = a => {
+        console.log(a)
+        return a;
+    }
+
+    // 전달인자가 없을 때 () 생략 불가능
+    let test4 = () => {
+    }
+
+    let test5 = (a, b) => {
+        return a + b;
+    }
+
+    // 실행문 안의 내용이  return문 "만" 있는 경우
+    // return과  { } 생략 가능
+    let test6 = (a, b) => a + b;
+
+    let test7 = a => a * 3;
+    console.log(test7(9));
+
+
+</script>
+<body>
+    
+</body>
+</html>
