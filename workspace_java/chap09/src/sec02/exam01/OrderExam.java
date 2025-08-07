@@ -13,6 +13,8 @@ public class OrderExam {
 		MemberDTO m2 = new MemberDTO();
 		MemberDTO m3 = new MemberDTO();
 		
+		System.out.println(m1);
+		System.out.println(m1.toString());
 		
 		m1.name = "이름1";
 		m1.age = 25;
@@ -30,6 +32,9 @@ public class OrderExam {
 		list.add(m1);
 		list.add(m2);
 		list.add(m3);
+		
+		
+		
 		
 		
 		// 클래스로 구현한 경우
