@@ -87,26 +87,67 @@ public class StringExam {
 		// "ello world H"
 		// "llo world He"
 		String hello = "Hello world";
+		// 방법 1. 첫 글자를 공백으로 대체
+		String h1 = hello.replace("H",""); // ello world
+//		System.out.println(h1);
+		// 맨 뒤에 첫 글자 더하기 
+		System.out.println(h1 + " " + hello.charAt(0));
 		
-		String h1 = hello.replace("H","");
-		System.out.println(h1);
-		System.out.println(h1 + hello.charAt(0));
 		
+		// 방법 2. 첫 글자를 제외하고 뒤에만 출력
+		String hh1 = hello.substring(1);
+//		System.out.println(hh1);
+		// 맨 뒤에 첫 글자 더하기 
+//		System.out.println(hh1 + " " + hello.charAt(0));
+		String hh2 = hh1 + " " + hello.charAt(0);
+		System.out.println(hh2);
+		
+		String hh3 = hh2.substring(1) + hello.charAt(1);
+		System.out.println(hh3);
+		
+		String hh4 = hh3.substring(1) + hello.charAt(2);
+		System.out.println(hh4);
+
+		String hh5 = hh4.substring(1) + hello.charAt(3);
+		System.out.println(hh5);
+		
+		System.out.println("------------- 문제 2 ------------------");
+		for(int i = 0; i < hello.length()-1; i++) {
+			hello = hello.substring(1) + hello.charAt(i);
+			System.out.println(hello);
+		}
+		
+		System.out.println("----------- 문제 3 --------------");
 		// 문제 3 마스킹
 		// humanec@naver.com 이걸
 		// hu*****@naver.com 이렇게
 		// love@naver.com 이걸
 		// lo**@naver.com 이렇게
+		
 		String human = "humanec@naver.com";
-		String love = "love@naver.com";
+		
 		// @가 몇번째인지
-		int end2 = human.indexOf("@");
+		int end2 = human.indexOf("@"); // 7
 		System.out.println("end2 : "+ end2);
+		
 		// substring으로 (시작: 3번째)부터 (끝:@ 앞)까지 replace *
-		String h2 = human.substring(2, end2);
-		System.out.println("h2 : "+ h2);
-		String h3 = human.replace(h2,"*");
+		String h2 = human.substring(2, end2); // manec
+		System.out.println(h2);
+		
+		String h3 = human.replace(h2,"*"); // hu*naver.com --> *여러개 나오게 하려면..?
 		System.out.println(h3);
+
+		int star = end2 -2;
+
+		for(int i= 0; i < h2.length(); i++) {
+			char c2 = h2.charAt(i);
+			System.out.println(c2); // m // a // n // e // c
+		}
+		
+		String love = "love@naver.com";
+
+		
+		
 		// 문제 4 검색어 찾기
 		// https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=1234&ackey=1oiioasi
 		// 키 query의 값이 검색어
