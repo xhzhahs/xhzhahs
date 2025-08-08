@@ -3,6 +3,12 @@ package sec01.exam08;
 public class StringExam {
 
 	public static void main(String[] args) {
+		
+		// 임의적으로 호출가능
+		// 하지만 바로 실행되지는 않는다.
+		// 시간이 나면 실행됨
+		System.gc(); // 가비지콜렉터 호출
+		
 
 		String s1 = "영일이삼사오육칠팔구삼사";
 		
@@ -73,48 +79,43 @@ public class StringExam {
 		
 		// 문제 1
 		// blog.naver.co.kr에서 naver만 추출하기
-		String a = "blog.naver.com";
+		String urll = "blog.naver.com";
 		
-		int start1 = a.indexOf(".") + 1;
-		int end1 = a.lastIndexOf(".");
+		int start1 = urll.indexOf(".") + 1;
+		int end1 = urll.lastIndexOf(".");
 		
 		System.out.println("start1 :"+ start1 + " end1 :" + end1);
-		System.out.println(a.substring(start1,end1));
+		System.out.println(urll.substring(start1,end1));
 		
 		
 		// 문제 2 흘러가는 전광판
 		// "Hello world"
 		// "ello world H"
 		// "llo world He"
-		String hello = "Hello world";
-		// 방법 1. 첫 글자를 공백으로 대체
-		String h1 = hello.replace("H",""); // ello world
-//		System.out.println(h1);
+		
+		String hello = "Hello world ";
+		
+		// 첫 글자를 제외하고 뒤에만 출력
+		String hello1 = hello.substring(1);
 		// 맨 뒤에 첫 글자 더하기 
-		System.out.println(h1 + " " + hello.charAt(0));
+//		System.out.println(hello1 + " " + hello.charAt(0));
+		String hello2 = hello1 + hello.charAt(0);
+		System.out.println(hello2);
 		
+		String hello3 = hello2.substring(1) + hello.charAt(1);
+		System.out.println(hello3);
 		
-		// 방법 2. 첫 글자를 제외하고 뒤에만 출력
-		String hh1 = hello.substring(1);
-//		System.out.println(hh1);
-		// 맨 뒤에 첫 글자 더하기 
-//		System.out.println(hh1 + " " + hello.charAt(0));
-		String hh2 = hh1 + " " + hello.charAt(0);
-		System.out.println(hh2);
-		
-		String hh3 = hh2.substring(1) + hello.charAt(1);
-		System.out.println(hh3);
-		
-		String hh4 = hh3.substring(1) + hello.charAt(2);
-		System.out.println(hh4);
+		String hello4 = hello3.substring(1) + hello.charAt(2);
+		System.out.println(hello4);
 
-		String hh5 = hh4.substring(1) + hello.charAt(3);
-		System.out.println(hh5);
+		String hello5 = hello4.substring(1) + hello.charAt(3);
+		System.out.println(hello5);
 		
 		System.out.println("------------- 문제 2 ------------------");
-		for(int i = 0; i < hello.length()-1; i++) {
-			hello = hello.substring(1) + hello.charAt(i);
-			System.out.println(hello);
+		System.out.println(hello2);
+		for(int i = 1; i < hello.length(); i++) {
+			hello2 = hello2.substring(1) + hello.charAt(i);
+			System.out.println(hello2);
 		}
 		
 		System.out.println("----------- 문제 3 --------------");
@@ -152,6 +153,68 @@ public class StringExam {
 		// https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=1234&ackey=1oiioasi
 		// 키 query의 값이 검색어
 		// 검색어만 출력
+		
+		
+		// trim
+		// 앞뒤 공백 제거
+		String s5 = "  글씨   중간 공백    ";
+		System.out.println("[" + s5 + "]");
+		System.out.println("[" + s5.trim() + "]");
+		
+		
+		// split
+		// 문자를 다시 배열로 만듬
+		// 정규 표현식을 사용(String 아님에 주의)
+		// .은 정규 표현식에서 사용하는 의미있는 예약어라서
+		// 문자.으로 인식하지 않는다.
+		String menu = "김밥,라면,돈까스,제육덮밥";
+		String[] menus = menu.split(",");
+		for(String m : menus) {
+			System.out.println(m);
+		}
+		
+		String url = "blog.naver.com";
+//		String[] urls = url.split("."); // 역슬래시 사용하지 않아서 안됨
+		
+		// .을 표현하는 방법 1
+		String[] urls1 = url.split("\\."); 
+		// .을 표현하는 방법 2 
+		String[] urls2 = url.split("[.]"); 
+		
+		System.out.println(urls1.length);
+		System.out.println(urls2.length);
+		
+		
+		String a = "a";
+		a += "b";
+		a = a + "c";
+		
+		// StringBuffer
+		// 메모리를 효율적으로 사용한다.
+		// StringBuilder 보다 아주 조금 느리다.
+		// 스레드에 안전하다(Thread-safe)
+		StringBuffer sb = new StringBuffer("a");
+		sb.append("b");
+		sb.append("c");
+		String d = sb.toString();
+		System.out.println(d);
+		
+		
+		// StringBuilder
+		// 스레드에 안전하지 않다.
+		StringBuilder sbb = new StringBuilder("a");
+		sbb.append("b");
+		String d2 = sbb.toString();
+		System.out.println(d2);
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }
