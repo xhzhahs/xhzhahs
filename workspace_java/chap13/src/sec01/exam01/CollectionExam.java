@@ -8,6 +8,9 @@ import java.util.Map;
 public class CollectionExam {
 
 	public static void main(String[] args) {
+		
+		
+		// List
 
 		List list = new ArrayList();
 		System.out.println(list.isEmpty());
@@ -26,13 +29,16 @@ public class CollectionExam {
 		String a = (String)list.get(1);
 		String b = list.get(1).toString();	// 형 변환하지 않을시
 		
+		// remove 제거
 		list.remove(1);
 		System.out.println(list);
 		
+		
+		// clear 빈배열로 만들기
 		list.clear();
 		System.out.println(list);
-		System.out.println(list.size());
-		System.out.println(list.isEmpty());
+		System.out.println(list.size()); // 몇 개 들어있는지
+		System.out.println(list.isEmpty()); // 비었는지
 		list = new ArrayList();
 		
 		System.out.println("------------------------------");

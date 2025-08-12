@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajaxExam</title>
+</head>
+<body>
+
+	<button id="get">get</button><br>
+	<button id="post">post</button><br>
+
+	<script>
+		document.querySelector("#get").addEventListener("click", function(){
+			const xhr = new XMLHttpRequest();
+			
+			xhr.open('get', 'req?num1-100&pw=abcd')
+			xhr.send();
+			xhr.onload = function(){
+				console.log(xhr.responseText);
+				
+				const data = JSON.parse(xhr.responseText);
+				console.log(data.k);
+				console.log(data["k"]);
+				
+			}
+		})
+		document.querySelector("#post").addEventListener("click", function(){
+			const xhr = new XMLHttpRequest();
+			
+			xhr.open('post', 'req')
+			
+			// 한글자도 틀리면 안됨
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+			xhr.send("num2=12345");
+			
+			xhr.onload = function(){
+				console.log(xhr.responseText);
+				
+				const data = JSON.parse(xhr.responseText);
+				console.log(data.k);
+				console.log(data["k"]);
+				
+			}
+		})
+	</script>
+</body>
+</html>

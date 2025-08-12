@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form</title>
+</head>
+<body>
+<h1>parameter 연습</h1>
+<!-- 주석 ctrl + shift + c -->
+<!-- <form method="get" action="http://192.168.0.43:8080/proj2_request/req"> -->
+<!-- <form method="get" action="/proj2_request/req"> -->
+<form method="get" action="req">
+	num1 : <input type="text" name="num1" value="abcd"><br>
+	pw : <input type="password" name="pw"><br>
+	<input type="checkbox" name="check" value="check1">체크1
+	<input type="checkbox" name="check" value="check2">체크2
+	<input type="checkbox" name="check" value="check3">체크3<br>
+	
+	<input type="hidden" name="hidden1" value="hhh">
+	
+    <!-- 버튼은 전송 안됨 -->
+	<input type="button" name="btn1" value="btn11">
+	<button type="button" name="btn2" value="btn22">button</button><br>
+		
+	<input type="radio" name="radio1" value="r1" checked>라디오1
+	<input type="radio" name="radio1" value="r2">라디오2
+	<input type="radio" name="radio1" value="r3">라디오3
+	<input type="radio" name="radio1" value="r4">라디오4<br>
+	
+	<input type="date" name="date1" value="2025-08-12"><br>
+	
+    <!-- display none이어도 전송됨 -->
+	<input type="number" name="number1" value="123" style="display: none;"><br>
+	
+	<div name="div1" value="div11">form 요소 아님</div>
+	
+	<select name="select1" value="selec11">
+		<option value="op1">옵션1</option>
+		<option value="op2">옵션2</option>
+		<option value="op3">옵션3</option>
+		<option value="op4">옵션4</option>
+		<option value="op5">옵션5</option>
+	</select><br>
+	
+	<textarea name="textarea1" value="t1">초기값
+	엔터
+	</textarea><br>
+
+	<input type="submit" value="get 전송">
+	
+</form>
+
+<form method="post" action="req">
+		<input type="text" name="num2">
+		<input type="submit" value="post 전송">
+		
+</form>
+	
+
+</body>
+</html>
