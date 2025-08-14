@@ -6,6 +6,7 @@
 </head>
 <body>
 <h1>parameter 연습</h1>
+
 <!-- 주석 ctrl + shift + c -->
 <!-- <form method="get" action="http://192.168.0.43:8080/proj2_request/req"> -->
 <!-- <form method="get" action="/proj2_request/req"> -->
@@ -51,11 +52,22 @@
 </form>
 
 <form method="post" action="req">
-		<input type="text" name="num2">
-		<input type="submit" value="post 전송">
+	<input type="text" name="num2">
+	<input type="submit" value="post 전송">
 		
 </form>
-	
+<hr>	
+<form method="post" action="forward">
+	<input type="text" name="text">
+	<input type="submit" value="foward로 post 전송">
+		
+</form>
+<hr>
+<form method="post" action="redirect">
+	<input type="text" name="text">
+	<input type="submit" value="redirect로 post 전송">
+		
+</form>
 
 </body>
 </html>
