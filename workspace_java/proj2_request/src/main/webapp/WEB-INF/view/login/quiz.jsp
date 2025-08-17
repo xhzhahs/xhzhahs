@@ -35,9 +35,9 @@
 	
 </form>
 <h1>피자</h1>
-<form method="get" action="">
+<form method="post" action="pizza">
 	피자종류
-	<select>
+	<select name="type" value="종류">
 		<option value="불고기">불고기피자</option>
 		<option value="페퍼로니">페퍼로니피자</option>
 		<option value="치즈">치즈피자</option>
@@ -48,15 +48,15 @@
 	<input type="radio" name="size" value="라지">라지
 	<br>
 	토핑
-	<input type="checkbox" value="치즈">치즈
-	<input type="checkbox" value="토마토">토마토
-	<input type="checkbox" value="고구마">고구마
-	<input type="checkbox" value="감자">감자
-	<input type="checkbox" value="선택안함" checked>선택 안함
+	<input type="checkbox" name="check" value="치즈">치즈
+	<input type="checkbox" name="check" value="토마토">토마토
+	<input type="checkbox" name="check" value="고구마">고구마
+	<input type="checkbox" name="check" value="감자">감자
+	<input type="checkbox" name="check" value="선택안함" checked>선택 안함
 	<br>
 	요청사항
 	<br>
-	<textarea>
+	<textarea name="text">
 	</textarea>
 	<input type="submit" value="주문">
 </form>

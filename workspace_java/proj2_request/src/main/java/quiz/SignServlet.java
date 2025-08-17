@@ -17,8 +17,8 @@ public class SignServlet extends HttpServlet {
 		String s_pw = request.getParameter("sign_pw");
 		String c_pw = request.getParameter("confirm_pw");
 		
-		String signMessage = null;
 		try {
+			String signMessage = null;
 			if(s_id == null || s_pw == null || c_pw == null) {
 				signMessage = "빈칸 입력하세요";
 				
