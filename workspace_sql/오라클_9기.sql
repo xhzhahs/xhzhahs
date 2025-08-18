@@ -1349,3 +1349,32 @@ order by empno desc;
 select e.empno, e.ename, d.dname, d.loc
 from emp e join dept d on(e.deptno = d.deptno)
 order by dname desc;
+
+ drop table tbl_todo; 
+ drop sequence seq_tbl_todo;
+ 
+-- ddl은 자동으로 커밋됨
+create table tbl_todo (
+    tno number(4) primary key,
+    title varchar2(4000) not null,
+    dueDate date,
+    finished number(1)
+--    finished number(1) default 0 디폴트 적으면 인서트 안해도 됨
+);
+
+select * from tbl_todo;
+
+create sequence seq_tbl_todo;
+
+insert into tbl_todo (tno, title, duedate, finished)
+--values (seq_tbl_todo.nextval, '연습1', to_date('2025-08-20', 'yyyy-mm-dd'), 0);
+values (seq_tbl_todo.nextval, '연습1',null, 0);
+
+-- 커밋을 해야 DB를 옮길 수 있음
+commit;
+
+
+
+
+
+
