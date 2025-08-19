@@ -1373,21 +1373,8 @@ values (seq_tbl_todo.nextval, '연습1',null, 0);
 -- 커밋을 해야 DB를 옮길 수 있음
 commit;
 
--- delete 행삭제
-delete tbl_todo
-where tno = 2;
 
-commit;
 
--- 한줄만 뽑기
-select * from tbl_todo
-where tno = 20;
 
-update tbl_todo
-set title = '바꾸기',
-    duedate = '2025-01-01',
-    finished = 1
-where tno = 25;
 
-commit;
 
