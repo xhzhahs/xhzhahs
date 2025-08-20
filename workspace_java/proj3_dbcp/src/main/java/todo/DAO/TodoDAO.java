@@ -48,7 +48,8 @@ public class TodoDAO {
 			// SQL 실행 및 결과 확보
 			ResultSet rs = ps.executeQuery();
 			
-			// 결과 활용						
+			// 결과 활용			
+				// rs.next()는 다음줄로 커서 이동시킴
 			while(rs.next()) {
 				// 전달인자로 컬럼명(대소문자 구분없음)
 				int tno = rs.getInt("tno");

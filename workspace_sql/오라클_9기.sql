@@ -1391,3 +1391,8 @@ where tno = 25;
 
 commit;
 
+
+select * from emp2;
+
+
+
