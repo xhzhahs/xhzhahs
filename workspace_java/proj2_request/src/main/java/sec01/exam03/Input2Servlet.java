@@ -36,7 +36,7 @@ public class Input2Servlet extends HttpServlet {
 			System.out.println("n3 : " + n3);
 			
 			// request.setAttribute()
-			// request에 value를 담아서 전달
+			// request에 value를 담는다. forward로 전달할때 사용
 			request.setAttribute("number3", n3);
 			
 			// request.getAttribute()

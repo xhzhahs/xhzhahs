@@ -1391,8 +1391,30 @@ where tno = 25;
 
 commit;
 
+create table emp3
+as select * from emp;
+
+drop table emp3;
+
 
 select * from emp2;
 
+create table movie (
+    movie_id number primary key,
+    title varchar2(4000),
+    img_url varchar2(4000),
+    open_date date
+);
 
+select * from movie;
 
+insert into movie (movie_id, title, img_url, open_date)
+values (3, '악마가 이사왔다','89826%2F89826_320.jpg', '2025-08-13');
+
+update movie
+set movie_id = '89826'
+where title = '악마가 이사왔다';
+
+commit;
+
+ALTER TABLE movie MODIFY (movie_id NUMBER(7,2));

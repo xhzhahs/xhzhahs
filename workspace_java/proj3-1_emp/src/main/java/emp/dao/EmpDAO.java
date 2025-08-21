@@ -133,6 +133,7 @@ public class EmpDAO {
 		return resultDTO;
 	}
 	
+	// delete
 	public int deleteEmp(EmpDTO empDTO) {
 		
 		int result = -1;
@@ -152,6 +153,81 @@ public class EmpDAO {
 			// SQL 실행
 			result = ps.executeUpdate();
 		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	// insert
+	public int insertEmp(EmpDTO empDTO) {
+		
+		int result = -1;
+		
+		try {
+			
+			// DB 접속
+			Connection conn = getConn();
+			
+			// SQL 준비
+			String query = " insert into emp2 (empno,ename, job, mgr, hiredate, sal, comm, deptno)";
+				   query += " values(?, ?, ?, ?, ?, ?, ?, ?)";
+			
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setInt(1, empDTO.getEmpno());
+			ps.setString(2, empDTO.getEname());
+			ps.setString(3, empDTO.getJob());
+			ps.setInt(4, empDTO.getMgr());
+			ps.setDate(5, empDTO.getHiredate());
+			ps.setInt(6, empDTO.getSal());
+			ps.setInt(7, empDTO.getComm());
+			ps.setInt(8, empDTO.getDeptno());
+			
+			// SQL 실행
+			result = ps.executeUpdate();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	// update
+	public int updateEmp(EmpDTO empDTO) {
+		
+		int result = -1;
+		
+		try {
+			
+			// DB 접속
+			Connection conn = getConn();
+			
+			// SQL 준비
+			String query = " update emp2";
+			query += " set ename = ?, ";
+			query += "     job = ?, ";
+			query += "     mgr = ?, ";
+			query += "     hiredate = ?, ";
+			query += "     sal = ?, ";
+			query += "     comm = ?, ";
+			query += "     deptno = ?";
+			query += " where empno = ?";
+			
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, empDTO.getEname());
+			ps.setString(2, empDTO.getJob());
+			ps.setInt(3, empDTO.getMgr());
+			ps.setDate(4, empDTO.getHiredate());
+			ps.setInt(5, empDTO.getSal());
+			ps.setInt(6, empDTO.getComm());
+			ps.setInt(7, empDTO.getDeptno());
+			ps.setInt(8, empDTO.getEmpno());
+			
+			// SQL 실행
+			result = ps.executeUpdate();
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

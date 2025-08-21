@@ -25,4 +25,12 @@ public class EmpService {
 		return empDAO.deleteEmp(empDTO);
 	}
 	
+	public int addEmp(EmpDTO empDTO) {
+		return empDAO.insertEmp(empDTO);
+	}
+	
+	public int editEmp(EmpDTO empDTO) {
+		return empDAO.updateEmp(empDTO);
+	}
+	
 }

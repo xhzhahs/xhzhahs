@@ -17,6 +17,10 @@ public class EmpRemoveController extends HttpServlet {
 	
 		System.out.println("/remove doPost 실행");
 		
+		// 한글 깨짐 방지
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		
 		// 0. 언제 : detail 페이지에서 삭제버튼을 눌렀을 때
 		// 어떻게?
 		// 1. 사원번호로 값 뽑아서

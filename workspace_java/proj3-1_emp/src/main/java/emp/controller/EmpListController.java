@@ -31,6 +31,7 @@ public class EmpListController extends HttpServlet {
 		// 컬럼명만 출력됨
 		PrintWriter out = response.getWriter();
 		
+		out.println("<a href = 'signup.html'>회원가입</a>");
 		out.println("<table border=1>");
 		out.println("	<tr>");
 		out.println("		<th>empno</th>");
