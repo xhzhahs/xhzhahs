@@ -11,6 +11,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import emp.service.EmpService;
 import movie.dto.MovieDTO;
 
 public class MovieDAO {
@@ -86,31 +87,66 @@ public class MovieDAO {
 		MovieDTO result = null;
 		
 		try {
-		// DB 접속
-		Connection con = getCon();
-		
-		// SQL 준비
-		String query = " select * from movie";
-			  query += " where movie_id = ?";
-		PreparedStatement ps = con.prepareStatement(query);
-		ps.setInt(1,dto.getMovie_id());
-		
-		// SQL 실행 및 결과 확보
-		ResultSet rs = ps.executeQuery();
-		
-		// 결과 활용
-		if(rs.next()) {
-			result = new MovieDTO();
+			// DB 접속
+			Connection con = getCon();
 			
-			result.setMovie_id(rs.getInt("movie_id"));
-			result.setTitle(rs.getString("title"));
-			result.setImg_url(rs.getString("img_url"));
-			result.setOpen_date(rs.getDate("open_date"));
-		}
+			// SQL 준비
+			String query = " select * from movie";
+				  query += " where movie_id = ?";
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1,dto.getMovie_id());
+			
+			// SQL 실행 및 결과 확보
+			ResultSet rs = ps.executeQuery();
+			
+			// 결과 활용
+			if(rs.next()) {
+				result = new MovieDTO();
+				
+				result.setMovie_id(rs.getInt("movie_id"));
+				result.setTitle(rs.getString("title"));
+				result.setImg_url(rs.getString("img_url"));
+				result.setOpen_date(rs.getDate("open_date"));
+			}
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return result;
+	}
+	
+	// insert
+	
+	public int insert(MovieDTO dto) {
+		int result = -1;
+		
+		try {
+			
+			// DB 접속
+			Connection con = getCon();
+			
+			// SQL 준비
+			String query = " insert into movie (movie_id, title, img_url, open_date)";
+			       query += " values(?, ?, ?, ?)";
+			       
+	        PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, dto.getMovie_id());
+			ps.setString(2, dto.getTitle());
+			ps.setString(3, dto.getImg_url());
+			ps.setDate(4, dto.getOpen_date());
+			
+			// SQL 실행 및 결과확보
+			result = ps.executeUpdate();
+			
+			
+			
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 		return result;
 	}
 	

@@ -51,6 +51,8 @@ public class MovieListController extends HttpServlet {
 				out.println("</tr>");
 			}
 			out.println("</table>");
+			out.println("<a href = 'add'><button type='button'>추가</button></a>");
+			
 			
 		}catch (Exception e) {
 			e.printStackTrace();

@@ -19,4 +19,7 @@ public class MovieService {
 		return dao.selectOne(dto);
 	}
 	
+	public int addMovie(MovieDTO dto) {
+		return dao.insert(dto);
+	}
 }
