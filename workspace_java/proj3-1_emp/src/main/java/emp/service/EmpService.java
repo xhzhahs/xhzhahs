@@ -33,4 +33,8 @@ public class EmpService {
 		return empDAO.updateEmp(empDTO);
 	}
 	
+	public EmpDTO loginEmp(EmpDTO empDTO) {
+		return empDAO.login(empDTO);
+	}
+	
 }

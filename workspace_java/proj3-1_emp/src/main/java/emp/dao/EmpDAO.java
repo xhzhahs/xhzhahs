@@ -51,7 +51,7 @@ public class EmpDAO {
 			Connection conn = getConn();
 			
 			// SQL 준비
-			String query = " select * from emp2";
+			String query = " select * from emp3";
 			PreparedStatement ps = conn.prepareStatement(query);
 			
 			// SQL 실행
@@ -69,6 +69,8 @@ public class EmpDAO {
 				
 				dto.setEname(rs.getString("ename"));
 				dto.setSal(rs.getInt("sal"));
+				dto.setJob(rs.getString("job"));
+				dto.setMgr(rs.getInt("mgr"));
 			
 				
 				// 만들어진 DTO를 list에 담기
@@ -94,7 +96,7 @@ public class EmpDAO {
 			Connection conn = getConn();
 			
 			// SQL 준비
-			String query = " select * from emp2";
+			String query = " select * from emp3";
 				   query += " where empno = ?";
 				   
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -144,7 +146,7 @@ public class EmpDAO {
 			Connection conn = getConn();
 			
 			// SQL 준비
-			String query = " delete emp2";
+			String query = " delete emp3";
 				   query += " where empno = ?";
 		   
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -171,7 +173,7 @@ public class EmpDAO {
 			Connection conn = getConn();
 			
 			// SQL 준비
-			String query = " insert into emp2 (empno,ename, job, mgr, hiredate, sal, comm, deptno)";
+			String query = " insert into emp3 (empno,ename, job, mgr, hiredate, sal, comm, deptno)";
 				   query += " values(?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -205,7 +207,7 @@ public class EmpDAO {
 			Connection conn = getConn();
 			
 			// SQL 준비
-			String query = " update emp2";
+			String query = " update emp3";
 			query += " set ename = ?, ";
 			query += "     job = ?, ";
 			query += "     mgr = ?, ";
@@ -234,4 +236,46 @@ public class EmpDAO {
 		
 		return result;
 	}
+	
+	
+	public EmpDTO login(EmpDTO empDTO) {
+		
+		EmpDTO resultDTO = null;
+		
+		try {
+			
+			// DB 접속
+			Connection conn = getConn();
+			
+			// SQL 준비
+			String query = " select ename, empno, mgr from emp3";
+				   query += " where ename = ? and empno= ?";
+				   
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, empDTO.getEname());
+			ps.setInt(2, empDTO.getEmpno());
+			
+			// SQL 실행
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+
+				// resultDTO가 null로 되어있어서 new 해줘야함
+				resultDTO = new EmpDTO();
+				
+				int empno = rs.getInt("empno");
+				resultDTO.setEmpno(empno);
+				
+				resultDTO.setEname(rs.getString("ename"));
+				resultDTO.setMgr(rs.getInt("mgr"));
+			
+			}
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return resultDTO;
+	}
 }
+	

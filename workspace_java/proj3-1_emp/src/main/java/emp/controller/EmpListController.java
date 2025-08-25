@@ -37,6 +37,8 @@ public class EmpListController extends HttpServlet {
 		out.println("		<th>empno</th>");
 		out.println("		<th>ename</th>");
 		out.println("		<th>sal</th>");
+		out.println("		<th>job</th>");
+		out.println("		<th>mgr</th>");
 		out.println("</tr>");
 		
 		// for문 돌면서 list에 담겨있는 목록 모두 조회
@@ -47,6 +49,8 @@ public class EmpListController extends HttpServlet {
 			out.println("	<td>"+ dto.getEmpno()+"</td>");
 			out.println("	<td><a href = 'detail?empno="+ dto.getEmpno() +"'>"+ dto.getEname()+"</a></td>");
 			out.println("	<td>"+ dto.getSal()+"</td>");
+			out.println("	<td>"+ dto.getJob()+"</td>");
+			out.println("	<td>"+ dto.getMgr()+"</td>");
 			out.println("</tr>");
 		}
 		out.println("</table>");

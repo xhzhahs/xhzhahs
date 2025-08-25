@@ -1395,6 +1395,7 @@ create table emp3
 as select * from emp;
 
 drop table emp3;
+select * from emp3;
 
 
 select * from emp2;

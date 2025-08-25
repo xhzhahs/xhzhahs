@@ -77,7 +77,7 @@ step<br>
 	${ i },${ list2[i].title }<br>
 </c:forEach>
 <hr>
-varStatus<br>
+varStatus : 내부변수명<br>
 <c:forEach var="i" begin="0" end="8" step="2" varStatus="loop">
 	${i}<br>
 	loop.index : ${loop.index}<br>

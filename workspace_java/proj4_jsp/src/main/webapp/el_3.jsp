@@ -77,9 +77,12 @@ a&nbsp;&nbsp;&nbsp;&nbsp;a<br>
 
 <hr>
 request.getParameter("a") : <%= request.getParameter("a") %><br>
+의 축약형 param
 /${ param.a } : #${ param.a }#<br>
 /${ param.b } : #${ param.b }#<br> <!-- 없으면 null이기 때문에 출력안됨 -->
 
+request.getParameterValues("a")[0] : <%= request.getParameterValues("a")[0] %><br>
+의 축약형 paramValues.a[0]
 \${ paramValues.a } : ${ paramValues.a }<br>
 \${ paramValues.a[0] } : ${ paramValues.a[0] }<br>
 \${ paramValues.a[1] } : ${ paramValues.a[1] }<br>
