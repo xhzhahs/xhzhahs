@@ -10,6 +10,7 @@
 		border: 1px solid black;
 		width: 300px;
 		height: 450px;
+		text-align: center;
 	}
 	.hide {
 		display: none;
@@ -34,8 +35,11 @@
 			if( isCheck ) {
 				// 10초 뒤 시간 가져오기
 				const now = new Date() // 현재 시간
-				const after_10s = now.getSeconds()+10
-				now.setSeconds(after_10s) // 초 단위로 재설정해주는 것
+// 				const after_10s = now.getSeconds()+10
+// 				now.setSeconds(after_10s) // 초 단위로 재설정해주는 것
+
+				const after_60s = now.getSeconds()+60
+				now.setSeconds(after_60s)
 				
 				document.cookie = 'noShow=true;expires='+ now.toGMTString()
 				
@@ -66,7 +70,7 @@
 
 	공지입니다. <br>꼭 보세요 <br><br>
 	
-	<input type="checkbox" id="noShow"> 10초동안 보지 않기
+	<input type="checkbox" id="noShow"> 1분동안 보지 않기
 
 </div>
 

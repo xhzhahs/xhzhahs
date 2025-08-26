@@ -22,30 +22,6 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		
-		String id = request.getParameter("ename");
-		
-		EmpDTO empDTO = new EmpDTO();
-		HttpSession session = request.getSession();
-		
-		// DB 다녀와서 출력하기
-		try {
-	
-			EmpService empService = new EmpService();
-			EmpDTO user = empService.loginEmp(empDTO);
-			
-			PrintWriter out = response.getWriter();
-		
-			if(user != null) {
-				session.setAttribute("user", user);
-			}
-			
-			if("KING".equals(id)) {
-				out.println("관리자 KING님 환영합니다.");
-			}
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		
 		
 		
 		
@@ -57,46 +33,44 @@ public class LoginServlet extends HttpServlet {
 		// 한글 깨짐 방지
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-	
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
 		
-		int empno = 0;
-	    if (pw != null && !pw.isEmpty()) {
-	        empno = Integer.parseInt(pw);
-	    }
+		String user_id = request.getParameter("id");
+		String user_pw = request.getParameter("pw");
+		String job = request.getParameter("job");
 		
-		EmpDTO empDTO = new EmpDTO();
-		empDTO.setEname(id);
-		empDTO.setEmpno(empno);
+		EmpDTO dto = new EmpDTO();
 		
-		
-		// DB 다녀와서 출력하기
 		try {
-	
-			EmpService empService = new EmpService();
-			EmpDTO user = empService.loginEmp(empDTO);
+
+			dto.setEname(user_id);
 			
-			PrintWriter out = response.getWriter();
-		
-			if(user != null) {
-				System.out.println(id);
-				if("KING".equals(id)) {
-					out.println(id + " 관리자님 안녕하세요");
-					
-				} else {
-					
-					out.println(id +" 일반회원님 안녕하세요");
-				}
+			int pw = Integer.parseInt(user_pw);
+			dto.setEmpno(pw);
+			
+			dto.setJob(job);
+			
+			// DB 삽입
+			EmpService empService = new EmpService();
+			EmpDTO login = empService.loginEmp(dto);
+			System.out.println("로그인 결과 : "+ login);
+			
+			// 삽입 후 이동할 곳
+			if (login == null) {
+				PrintWriter out = response.getWriter();
 				
-			} else {
-				out.println("다시 입력하세요.");
-			}
+				out.println("<script>");
+				out.println("alert('아이디/비밀번호를 확인하세요.');");
+				out.println("</script>");
 				
+		    } else {
+		    	
+		    	response.sendRedirect("/proj3-1_emp/list");
+		    }
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+	
 		
 	}
 

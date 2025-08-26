@@ -248,7 +248,7 @@ public class EmpDAO {
 			Connection conn = getConn();
 			
 			// SQL 준비
-			String query = " select ename, empno, mgr from emp3";
+			String query = " select ename, empno, job from emp3";
 				   query += " where ename = ? and empno= ?";
 				   
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -267,7 +267,7 @@ public class EmpDAO {
 				resultDTO.setEmpno(empno);
 				
 				resultDTO.setEname(rs.getString("ename"));
-				resultDTO.setMgr(rs.getInt("mgr"));
+				resultDTO.setJob(rs.getString("job"));
 			
 			}
 			

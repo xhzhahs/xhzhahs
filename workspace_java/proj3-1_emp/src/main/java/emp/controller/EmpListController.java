@@ -27,33 +27,37 @@ public class EmpListController extends HttpServlet {
 		EmpService empService = new EmpService();
 		List<EmpDTO> list = empService.getAllEmp();
 		
+			// jstl로 목록 출력 하기
+			request.setAttribute("list", list);
+			request.getRequestDispatcher("list.jsp").forward(request, response);
+		
 		// 화면에 출력(응답 정적 자원 만들기)
 		// 컬럼명만 출력됨
-		PrintWriter out = response.getWriter();
-		
-		out.println("<a href = 'signup.html'>회원가입</a>");
-		out.println("<table border=1>");
-		out.println("	<tr>");
-		out.println("		<th>empno</th>");
-		out.println("		<th>ename</th>");
-		out.println("		<th>sal</th>");
-		out.println("		<th>job</th>");
-		out.println("		<th>mgr</th>");
-		out.println("</tr>");
+//		PrintWriter out = response.getWriter();
+//		
+//		out.println("<a href = 'signup.html'>회원가입</a>");
+//		out.println("<table border=1>");
+//		out.println("	<tr>");
+//		out.println("		<th>empno</th>");
+//		out.println("		<th>ename</th>");
+//		out.println("		<th>sal</th>");
+//		out.println("		<th>job</th>");
+//		out.println("		<th>mgr</th>");
+//		out.println("</tr>");
 		
 		// for문 돌면서 list에 담겨있는 목록 모두 조회
-		for( EmpDTO dto : list ) {
-			System.out.println(dto);
-			
-			out.println("<tr>");
-			out.println("	<td>"+ dto.getEmpno()+"</td>");
-			out.println("	<td><a href = 'detail?empno="+ dto.getEmpno() +"'>"+ dto.getEname()+"</a></td>");
-			out.println("	<td>"+ dto.getSal()+"</td>");
-			out.println("	<td>"+ dto.getJob()+"</td>");
-			out.println("	<td>"+ dto.getMgr()+"</td>");
-			out.println("</tr>");
-		}
-		out.println("</table>");
+//		for( EmpDTO dto : list ) {
+//			System.out.println(dto);
+//			
+//			out.println("<tr>");
+//			out.println("	<td>"+ dto.getEmpno()+"</td>");
+//			out.println("	<td><a href = 'detail?empno="+ dto.getEmpno() +"'>"+ dto.getEname()+"</a></td>");
+//			out.println("	<td>"+ dto.getSal()+"</td>");
+//			out.println("	<td>"+ dto.getJob()+"</td>");
+//			out.println("	<td>"+ dto.getMgr()+"</td>");
+//			out.println("</tr>");
+//		}
+//		out.println("</table>");
 	}
 
 
