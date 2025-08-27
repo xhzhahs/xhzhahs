@@ -36,6 +36,7 @@ public class IpServlet extends HttpServlet {
 		System.out.println("getRequestURI : "+ request.getRequestURI());
 		
 		// 프로젝트를 구분하는 주소
+		// /proj6_filter
 		System.out.println("getContextPath : "+ request.getContextPath());
 		
 		// 서블릿 주소만 나옴

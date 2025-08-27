@@ -1394,7 +1394,7 @@ commit;
 create table emp3
 as select * from emp;
 
-drop table emp3;
+drop table emp2;
 select * from emp3;
 
 
@@ -1419,3 +1419,74 @@ where title = '악마가 이사왔다';
 commit;
 
 ALTER TABLE movie MODIFY (movie_id NUMBER(7,2));
+
+insert into emp2
+select * from emp;
+
+select * from emp2;
+
+-- 1. 입사일 기준으로 내림차순
+select * from emp2
+order by hiredate desc;
+
+-- 각자 번호 붙이기
+select rownum, emp2.* from emp2
+order by hiredate desc;
+
+
+/*5*/select job, count(*) as cnt
+/*1*/from emp2
+/*2*/where sal > 1000
+/*3*/group by job
+/*4*/having count(*) >= 3
+/*6*/order by cnt;
+
+select rownum, t1.* from (
+    select emp2.* from emp2
+    order by hiredate desc
+) t1;    
+
+--셀렉트가 마지막에 실행되므로 감싸줌
+select * from (
+    select rownum rnum, t1.* from (
+        select emp2.* from emp2
+        order by hiredate desc
+    ) t1
+) t2    
+where rnum >= 3 and rnum <= 6; 
+
+truncate table emp2;
+
+INSERT INTO emp2 (empno, ename, job, mgr, hiredate, sal, comm, deptno)
+SELECT 
+    e.empno + lvl AS empno,                                 -- empno 증가
+    lvl || '_' ||  e.ename AS ename,                         -- 이름 앞 숫자
+    e.job, 
+    e.mgr,
+    e.hiredate + lvl AS hiredate,                           -- 하루씩 증가
+    e.sal + lvl AS sal,                                     -- sal 1씩 증가
+    e.comm, 
+    e.deptno
+FROM emp e
+JOIN (
+    SELECT LEVEL AS lvl 
+    FROM dual 
+    CONNECT BY LEVEL <= 21
+) l
+ON 1=1;
+
+select * from emp2;
+
+truncate table emp2;
+commit;
+delete emp2;
+
+select count(*) from emp2;
+
+select * from (
+    select rownum rnum, t1.* from (
+        select emp2.* from emp2
+        where lower(ename) like lower('%a%')
+        order by hiredate desc
+    ) t1
+) t2;
