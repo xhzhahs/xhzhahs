@@ -7,9 +7,19 @@
     <style>
         .top {
             display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
         }
         .box{
             display: flex;
+            align-items: center;
+            gap: 5px;
         }
         .period {
             border: 1px solid grey;
@@ -19,12 +29,19 @@
             border: 1px solid black;
         }
         .table {
-            border: 1px solid grey;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        .center {
+            text-align: center;
+        }
+        .bottom {
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="top box">
+    <div class="top">
         <div class="date box">
             <div class="period"> 기간 </div>
             <div class="month"> 월별 </div>
@@ -46,37 +63,57 @@
         </div>
         <button type="submit"> 조회 </button>
     </div>
-    <table class="table">
-        <th>
-            <input type="checkbox">
-        </th>
-        <th>NO</th>
-        <th>날짜</th>
-        <th>발주번호</th>
-        <th>부서</th>
-        <th>사원이름</th>
-        <th>총 수량</th>
-        <th>총 금액</th>
-        <th>진행상태</th>
-        <th></th>
-        <tr>
-            <td>
+    <div class="center">
+        <table border="1" class="table">
+            <th>
                 <input type="checkbox">
-            </td>
-            <td>1</td>
-            <td>2025-08-20</td>
-            <td>PSF156322254</td>
-            <td>생산2팀</td>
-            <td>홍길동</td>
-            <td>5</td>
-            <td>100,000</td>
-            <td>승인대기</td>
-            <td>
-                <button type="button">회수</button>
-            </td>
-        </tr>
-    </table>
-    <button type="submit">삭제</button>
-    <button type="submit">추가</button>
+            </th>
+            <th>NO</th>
+            <th>날짜</th>
+            <th>발주번호</th>
+            <th>부서</th>
+            <th>사원이름</th>
+            <th>총 수량</th>
+            <th>총 금액</th>
+            <th>진행상태</th>
+            <th></th>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>1</td>
+                <td>20250820</td>
+                <td>PSF156322254</td>
+                <td>생산2팀</td>
+                <td>홍길동</td>
+                <td>5</td>
+                <td>100,000</td>
+                <td>승인대기</td>
+                <td>
+                    <button type="button">회수</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>1</td>
+                <td>2025-08-20</td>
+                <td>PSF156322254</td>
+                <td>생산2팀</td>
+                <td>홍길동</td>
+                <td>5</td>
+                <td>100,000</td>
+                <td>승인대기</td>
+                <td>
+                    <button type="button">회수</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="bottom">
+        <button type="submit">삭제</button>
+        <button type="submit">추가</button>
+    </div>
 </body>
 </html>

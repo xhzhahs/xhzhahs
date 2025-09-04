@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .main {
+        border: 1px solid black;
+        margin: 0 auto;
+    }
+    .list {
+        text-align: center;
+    }
+    .table {
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+    .bottom {
+        text-align: center;
+    }
+    .modal {
+        border: 1px solid black;
+    }
+    .search {
+        text-align: center;
+    }
+</style>
+<body>
+    <div class="main">
+        <div class="box">
+            <div>발주 기본정보</div>
+            <div class="box hide">
+                <span>진행상태</span>
+                <div>승인대기</div>
+            </div>
+            <button type="button hide">임시저장</button>
+            <button type="submit">승인 요청</button>
+            <button type="button">회수</button>
+        </div>
+        <div class="box">
+            <div>
+                <div>발주 번호</div>
+                <input type="text">
+            </div>
+            <div>
+                <div>발주 날짜</div>
+                <input type="date">
+            </div>
+            <div>
+                <div>부서</div>
+                <input type="text" placeholder="부서를 선택하세요">
+            </div>
+            <div>
+                <div>담당자</div>
+                <input type="text">
+            </div>
+        </div>
+        <div class="box">
+            <div>
+                <div>거래처</div>
+                <input type="text" placeholder="거래처를 선택하세요">
+            </div>
+            <div>
+                <div>거래처 사업자번호</div>
+                <input type="text">
+            </div>
+            <div>
+                <div>거래처 연락번호</div>
+                <input type="text">
+            </div>
+            <div>
+                <div>납기일</div>
+                <input type="date">
+            </div>
+        </div>
+        <div>
+            <div class="box">
+                <div>비고</div>
+                <input type="text">
+            </div>
+        </div>
+    </div>
+    <div class="list">
+        <div class="box">
+            <div>발주 상세(품목)</div>
+            <button type="button">삭제</button>
+            <button type="submit">추가</button>
+        </div>
+        <table border="1" class="table">
+            <th>
+                <input type="checkbox">
+            </th>
+            <th>NO</th>
+            <th>품목</th>
+            <th>규격</th>
+            <th>수량</th>
+            <th>단가</th>
+            <th>합계</th>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>1</td>
+                <td>휴먼 유리</td>
+                <td>0.3mm</td>
+                <td>5</td>
+                <td>100,000</td>
+                <td>500,000</td>
+            </tr>
+            <tr>
+                <td colspan="4">Total</td>
+                <td>5</td>
+                <td>100,000</td>
+                <td>500,000</td>
+            </tr>
+        </table>
+    </div>
+    <div class="bottom">
+        <button type="button">목록</button>
+    </div>
+    <div class="modal hide">
+        <div class="search">
+            <input type="text" placeholder="검색내용을 입력하세요">
+            <button type="button">검색</button>
+        </div>
+        <table border="1" class="table">
+            <th></th>
+            <th>부서번호</th>
+            <th>부서명</th>
+            <th>사원번호</th>
+            <th>이름</th>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>DFF5555</td>
+                <td>생산5팀</td>
+                <td>FF4561</td>
+                <td>나사원</td>
+            </tr>
+        </table>
+        <div class="bottom">
+            <button type="button">취소</button>
+            <button type="submit">확인</button>
+        </div>
+    </div>
+    <div class="modal hide">
+        <div class="search">
+            <input type="text" placeholder="검색내용을 입력하세요">
+            <button type="button">검색</button>
+        </div>
+        <table border="1" class="table">
+            <th></th>
+            <th>거래처 코드</th>
+            <th>거래처명</th>
+            <th>사업자번호</th>
+            <th>연락처</th>
+            <th>담당자</th>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>SDF4435</td>
+                <td>휴먼유리</td>
+                <td>12-345-67890</td>
+                <td>010-1234-5678</td>
+                <td>나사원</td>
+            </tr>
+        </table>
+        <div class="bottom">
+            <button type="button">취소</button>
+            <button type="submit">확인</button>
+        </div>
+    </div>
+</body>
+</html>

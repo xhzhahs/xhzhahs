@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .top {
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .box{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .period {
+            border: 1px solid grey;
+            background-color: grey;
+        }
+        .month {
+            border: 1px solid black;
+        }
+        .table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        .center {
+            text-align: center;
+        }
+        .bottom {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div class="box">
+            <div class="box">
+                <div> 입/출고 </div>
+                <select>
+                    <option>전체</option>
+                    <option>입고</option>
+                    <option>출고</option>
+                </select>
+            </div>
+            <div class="box">
+                <div> 대분류 </div>
+                <select>
+                    <option>전체</option>
+                    <option>유리</option>
+                    <option>화학 강화제</option>
+                    <option>코팅</option>
+                    <option>완제품</option>
+                    <option>소모품</option>
+                </select>
+            </div>
+            <div class="box">
+                <div> 중분류 </div>
+                <select>
+                    <option>전체</option>
+                    <option>LCD</option>
+                    <option>OLED</option>
+                    <option>AMOLED</option>
+                    <option>질산칼륨</option>
+                    <option>질산나트륨</option>
+                    <option>불소중합체</option>
+                    <option>산화티타늄</option>
+                    <option>산화지르코늄</option>
+                    <option>핸드폰</option>
+                    <option>닌텐도</option>
+                    <option>네비게이션</option>
+                    <option>스티로폼</option>
+                    <option>비닐</option>
+                </select>
+            </div>
+            <div class="box">
+                <div> 소분류 </div>
+                <select>
+                    <option>전체</option>
+                    <option>0.3mm</option>
+                    <option>0.5mm</option>
+                    <option>0.7mm</option>
+                    <option>50kg</option>
+                    <option>70kg</option>
+                    <option>갤럭시S23</option>
+                    <option>아이폰17</option>
+                    <option>닌텐도3D</option>
+                    <option>닌텐도Lite</option>
+                    <option>5인치</option>
+                    <option>7인치</option>
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>10M</option>
+                    <option>30M</option>
+                </select>
+            </div>
+            <div class="box">
+                <div> 구분 </div>
+                <select>
+                    <option>전체</option>
+                    <option>양품</option>
+                    <option>불량</option>
+                    <option>보류</option>
+                </select>
+            </div>
+        </div>
+        <div class="box">
+            <div class="date box">
+                <div class="period"> 기간 </div>
+                <div class="month"> 월별 </div>
+            </div>
+            <div>
+                <input type="date">
+                <span>~</span>
+                <input type="date">
+            </div>
+            <button type="submit"> 조회 </button>
+        </div>
+    </div>
+    <div class="center">
+        <table border="1" class="table">
+            <th>NO</th>
+            <th>등록날짜</th>
+            <th>품목코드</th>
+            <th>품목명/모델명</th>
+            <th>입/출고</th>
+            <th>위치</th>
+            <th>LOT번호</th>
+            <th>구분</th>
+            <th>수량</th>
+            <th>단가</th>
+            <tr>
+                <td>1</td>
+                <td>20250820</td>
+                <td>PSF156322254</td>
+                <td>아이폰17</td>
+                <td>입고</td>
+                <td>TA-1</td>
+                <td>AAA1564</td>
+                <td>양품</td>
+                <td>500</td>
+                <td>1,000,000</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>20250820</td>
+                <td>PSF156322254</td>
+                <td>아이폰17</td>
+                <td>입고</td>
+                <td>TA-1</td>
+                <td>AAA1580</td>
+                <td>불량</td>
+                <td>500</td>
+                <td>1,000,000</td>
+            </tr>
+            <tr>
+                <td colspan="8">Total</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="bottom">
+        <button type="submit">추가</button>
+    </div>
+</body>
+</html>
