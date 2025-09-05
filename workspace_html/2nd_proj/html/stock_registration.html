@@ -19,16 +19,43 @@
     }
     .table {
         border-collapse: collapse;
-        margin: 0 auto;
+        width: 900px;
+        text-align: center;
+        margin: 50px auto;
     }
     .bottom {
+        position: absolute;
         text-align: center;
+        transform: translateX(-50%);
+        bottom: 20px;
+        left: 50%;
+        display: flex;
+        gap: 10px;
     }
     .modal {
         border: 1px solid black;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 500px;
+        height: 400px;
+        margin: 0 auto;
+    }
+    .modal table{
+        border: 1px solid black;
+        border-collapse: collapse;
+        position: relative;
+        max-height: 80vh;
+        overflow-y: auto;
+        width: 90%;
     }
     .search {
         text-align: center;
+        margin: 60px auto 0;
     }
     </style>
 </head>
@@ -155,16 +182,22 @@
     <div class="list hide">
         <div>재고 이동현황</div>
         <table border="1" class="table">
-            <th>LOT번호</th>
-            <th>이전 위치</th>
-            <th>현 위치</th>
-            <th>이동사유</th>
-            <tr>
-                <td>AAA1564</td>
-                <td>TA-1</td>
-                <td>TA-2</td>
-                <td>출고</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>LOT번호</th>
+                    <th>이전 위치</th>
+                    <th>현 위치</th>
+                    <th>이동사유</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>AAA1564</td>
+                    <td>TA-1</td>
+                    <td>TA-2</td>
+                    <td>출고</td>
+                </tr>
+            </tbody>
         </table>
     </div>
     <div class="bottom">
@@ -176,20 +209,26 @@
             <button type="button">검색</button>
         </div>
         <table border="1" class="table">
-            <th></th>
-            <th>LOT번호</th>
-            <th>품목코드</th>
-            <th>품목명/모델명</th>
-            <th>단가</th>
-            <tr>
-                <td>
-                    <input type="checkbox">
-                </td>
-                <td>AAA1564</td>
-                <td>PSF156322254</td>
-                <td>아이폰17</td>
-                <td>1,000,000</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>LOT번호</th>
+                    <th>품목코드</th>
+                    <th>품목명/모델명</th>
+                    <th>단가</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>AAA1564</td>
+                    <td>PSF156322254</td>
+                    <td>아이폰17</td>
+                    <td>1,000,000</td>
+                </tr>
+            </tbody>
         </table>
         <div class="bottom">
             <button type="button">취소</button>
@@ -202,22 +241,28 @@
             <button type="button">검색</button>
         </div>
         <table border="1" class="table">
-            <th></th>
-            <th>거래처 코드</th>
-            <th>거래처명</th>
-            <th>사업자번호</th>
-            <th>연락처</th>
-            <th>담당자</th>
-            <tr>
-                <td>
-                    <input type="checkbox">
-                </td>
-                <td>SDF4435</td>
-                <td>휴먼유리</td>
-                <td>12-345-67890</td>
-                <td>010-1234-5678</td>
-                <td>나사원</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>거래처 코드</th>
+                    <th>거래처명</th>
+                    <th>사업자번호</th>
+                    <th>연락처</th>
+                    <th>담당자</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>SDF4435</td>
+                    <td>휴먼유리</td>
+                    <td>12-345-67890</td>
+                    <td>010-1234-5678</td>
+                    <td>나사원</td>
+                </tr>
+            </tbody>
         </table>
         <div class="bottom">
             <button type="button">취소</button>
