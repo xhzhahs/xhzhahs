@@ -1,13 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="asset/list.css">
+<meta charset="UTF-8">
+<title>발주목록</title>
+<link rel="stylesheet" href="asset/list.css">
 </head>
 <body>
-    <div class="top">
+	<div class="top">
         <div class="date box">
             <div class="period"> 기간 </div>
             <div class="month"> 월별 </div>
@@ -28,10 +33,6 @@
             </select>
         </div>
         <button type="submit"> 조회 </button>
-    </div>
-    <div class="bottom">
-        <button type="submit">삭제</button>
-        <button type="submit">추가</button>
     </div>
     <div class="center">
         <table border="1" class="table">
@@ -87,5 +88,10 @@
             </tbody>
         </table>
     </div>
+    <div class="bottom">
+        <button type="submit">삭제</button>
+        <button type="submit">추가</button>
+    </div>
+
 </body>
 </html>

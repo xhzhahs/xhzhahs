@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="asset/registration.css">
-    <script src="/2nd_proj/html/asset/order_resistration.js"></script>
+    <script src="/2nd_proj/html/asset/07_order_resistration.js"></script>
 </head>
 <body>
     <div class="main">
@@ -100,8 +100,8 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="4">Total</td>
-                    <td>4</td>
+                    <td colspan="3">Total</td>
+                    <td>5</td>
                     <td>100,000</td>
                     <td>500,000</td>
                 </tr>
@@ -255,7 +255,7 @@
             <button class="confirm m_button" type="button">확인</button>
         </div>
     </div>
-    <div id="item_modal" class="modal">
+    <div id="item_modal" class="modal hide">
         <div class="search">
             <input type="text" class="m_search" placeholder="검색내용을 입력하세요">
             <button class="m_button" type="button">검색</button>
@@ -268,7 +268,6 @@
                     <th>품목명</th>
                     <th>유형</th>
                     <th>단가</th>
-                    <th>수량</th>
                 </tr>
             </thead>
             <tbody class="list">
@@ -280,7 +279,24 @@
                     <td>휴먼유리</td>
                     <td>원재료</td>
                     <td>50,000</td>
-                    <td><input class="m_input" type="text"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="item">
+                    </td>
+                    <td>SDF4435</td>
+                    <td>교육유리</td>
+                    <td>원재료</td>
+                    <td>50,000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="item">
+                    </td>
+                    <td>SDF4435</td>
+                    <td>아이폰17</td>
+                    <td>완제품</td>
+                    <td>1,000,000</td>
                 </tr>
             </tbody>
         </table>

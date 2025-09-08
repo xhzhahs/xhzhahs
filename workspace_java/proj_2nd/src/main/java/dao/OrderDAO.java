@@ -1,4 +1,4 @@
-package Dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import emp.dto.EmpDTO;
+import dto.OrderDTO;
 
 public class OrderDAO {
 
@@ -46,7 +46,7 @@ public class OrderDAO {
 			Connection con = getCon();
 			
 			// SQL 준비
-			String query = " select * from ";
+			String query = " select * from orders";
 			PreparedStatement ps = con.prepareStatement(query);
 			
 			// SQL 실행
@@ -54,7 +54,18 @@ public class OrderDAO {
 			
 			// 결과 활용
 			while(rs.next()) {
+				OrderDTO dto = new OrderDTO();
 				
+				dto.setOrder_key(rs.getString("order_key"));
+				dto.setOrder_number(rs.getString("order_number"));
+				dto.setOrder_date(rs.getDate("order_date"));
+				dto.setOrder_pay(rs.getDate("order_pay"));
+				dto.setOrder_state(rs.getInt("order_state"));
+				dto.setClient_id(rs.getString("client_id"));
+				dto.setWorker_id(rs.getString("worker_id"));
+				dto.setDapart_ID2(rs.getString("dapart_ID2"));
+				
+				list.add(dto);
 			}
 			
 		}catch (Exception e) {
@@ -65,9 +76,9 @@ public class OrderDAO {
 	}
 	
 	// 상세페이지 하나만 조회
-	public DTO selectOneOrder(DTP DTO) {
+	public OrderDTO selectOneOrder(OrderDTO orderDTO) {
 		
-		DTO resultDTO = null;
+		OrderDTO resultDTO = null;
 		
 		try {
 				
@@ -75,11 +86,11 @@ public class OrderDAO {
 			Connection conn = getCon();
 			
 			// SQL 준비
-			String query = " select * from ";
-				   query += " where date = ?";
+			String query = " select * from orders";
+				   query += " where order_number = ?";
 				   
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setDate(1, DTO.getEmpno());
+			ps.setString(1, orderDTO.getOrder_number());
 			
 			// SQL 실행
 			ResultSet rs = ps.executeQuery();
@@ -88,18 +99,16 @@ public class OrderDAO {
 			if(rs.next()) {
 
 				// resultDTO가 null로 되어있어서 new 해줘야함
-				resultDTO = new DTO();
+				resultDTO = new OrderDTO();
 				
-				int empno = rs.getInt("empno");
-				resultDTO.setEmpno(empno);
-				
-				resultDTO.setEname(rs.getString("ename"));
-				resultDTO.setJob(rs.getString("job"));
-				resultDTO.setMgr(rs.getInt("mgr"));
-				resultDTO.setHiredate(rs.getDate("hiredate"));
-				resultDTO.setSal(rs.getInt("sal"));
-				resultDTO.setComm(rs.getInt("comm"));
-				resultDTO.setDeptno(rs.getInt("deptno"));
+				resultDTO.setOrder_key(rs.getString("order_key"));
+				resultDTO.setOrder_number(rs.getString("order_number"));
+				resultDTO.setOrder_date(rs.getDate("order_date"));
+				resultDTO.setOrder_pay(rs.getDate("order_pay"));
+				resultDTO.setOrder_state(rs.getInt("order_state"));
+				resultDTO.setClient_id(rs.getString("client_id"));
+				resultDTO.setWorker_id(rs.getString("worker_id"));
+				resultDTO.setDapart_ID2(rs.getString("dapart_ID2"));
 			
 			}
 				
