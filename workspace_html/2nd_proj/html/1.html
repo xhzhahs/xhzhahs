@@ -5,185 +5,188 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>발주 목록</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      margin: 0;
-      padding: 20px;
-    }
+   /* ---------- 기본 리셋 & 폰트 ---------- */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif;color:#222}
 
-    /* 상단 검색 영역 */
-    .top {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      padding: 15px;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      margin-bottom: 20px;
-    }
+/* ---------- 유틸 ---------- */
+.hide{display:none !important}
 
-    .box {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
+/* ---------- 메인 카드 ---------- */
+.main{
+  width:90%;
+  max-width: 1200px;        /* 너무 길어지는 것 방지 */
+  margin:24px auto;
+  border:1.5px solid #d9d9d9;
+  border-radius:12px;
+  background:#fff;
+  padding:20px 22px;
+  position:relative;
+}
 
-    .period, .month {
-      padding: 5px 10px;
-      border: 1px solid #ccc;
-      background: #eee;
-      font-size: 14px;
-    }
+/* 타이틀 라인 */
+.main > .box:first-child{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding-bottom:8px; border-bottom:1px dashed #e5e5e5; margin-bottom:16px;
+}
+.main > .box:first-child > div{font-weight:700}
 
-    .top input[type="date"],
-    .top select {
-      padding: 5px 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 14px;
-    }
+/* ---------- 폼 레이아웃 (flex만 사용) ---------- */
+.row{                /* 한 줄 단위 */
+  display:flex; flex-wrap:wrap; gap:16px 24px; margin-bottom:12px;
+}
+.field{             /* 라벨+인풋 묶음 */
+  display:flex; flex-direction:column; gap:6px;
+  flex:1 1 280px;   /* 3열 기준, 화면 좁아지면 2/1열로 */
+  min-width:220px;  /* 너무 좁아지지 않게 */
+}
+.field > label{font-size:14px; color:#333}
 
-    .top button {
-      padding: 6px 14px;
-      background: #4CAF50;
-      border: none;
-      border-radius: 4px;
-      color: white;
-      font-size: 14px;
-      cursor: pointer;
-    }
+/* 입력요소 통일 */
+input[type="text"], input[type="date"], .table input[type="text"]{
+  height:40px; padding:8px 12px; width:100%;
+  border:1px solid #d0d5dd; border-radius:8px; background:#fff;
+  outline:0; transition: border-color .15s, box-shadow .15s;
+}
+input::placeholder{color:#9aa3af}
+input:focus{border-color:#4f46e5; box-shadow:0 0 0 3px rgba(79,70,229,.12)}
 
-    .top button:hover {
-      background: #45a049;
-    }
+/* 비고: 한 줄 전체 사용 */
+.row.note .field{flex: 1 1 100%}
+.row.note .field input{width:100%}
 
-    /* 테이블 */
-    .center {
-      text-align: center;
-    }
+/* ---------- 목록/버튼 하단 바 ---------- */
+.bottom{
+  position:sticky; bottom:0; left:0; right:0;
+  display:flex; justify-content:center; gap:10px;
+  padding:10px; margin-top:12px;
+  background:linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,255,255,0));
+}
 
-    .table {
-      margin: 0 auto;
-      border-collapse: collapse;
-      width: 90%;
-      background: #fff;
-      border: 1px solid #ccc;
-    }
+/* 버튼 공통 */
+button{cursor:pointer; height:36px; padding:0 14px;
+  border:1px solid #d0d5dd; border-radius:8px; background:#fff;
+  transition:all .15s; font-weight:600;
+}
+button:hover{background:#f8fafc}
+button[type="submit"]{background:#4f46e5; color:#fff; border-color:#4f46e5}
+button[type="submit"]:hover{background:#4338ca}
 
-    .table th,
-    .table td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      font-size: 14px;
-    }
+/* ---------- 테이블 ---------- */
+.table{
+  width:90%; max-width:1200px; margin:24px auto; border-collapse:collapse; text-align:center;
+  background:#fff; box-shadow:0 1px 0 #eee inset;
+}
+.table th,.table td{border:1px solid #e5e7eb; padding:10px}
+.table thead th{background:#f9fafb; font-weight:700}
+.table tfoot td{background:#fafafa; font-weight:700}
 
-    .table th {
-      background: #f0f0f0;
-      font-weight: bold;
-    }
+/* 체크박스 정렬 */
+.table input[type="checkbox"]{width:16px; height:16px}
 
-    /* 행 hover 효과 */
-    .table tr:hover {
-      background: #f9f9f9;
-    }
+/* ---------- 모달 ---------- */
+.modal{
+  position:fixed; inset:0; margin:auto;
+  width:min(540px, 92vw); height:420px;
+  border:1.5px solid #111827; border-radius:12px; background:#fff;
+  display:flex; flex-direction:column; gap:16px; padding:16px;
+  box-shadow:0 20px 40px rgba(0,0,0,.18);
+  top:50%; left:50%; transform:translate(-50%, -50%);
+}
 
-    /* 아래쪽 버튼 */
-    .bottom-buttons {
-      margin-top: 10px;
-      text-align: center;
-      gap: 10px;
-    }
+/* 모달 상단 검색 영역 */
+.modal .search{width:100%; margin:4px auto 0; text-align:center}
+.m_search{width:78%; height:36px; padding:8px 10px; border:1px solid #d0d5dd; border-radius:8px}
+.m_button{height:36px; padding:0 12px; border:1px solid #d0d5dd; border-radius:8px; background:#fff}
+.m_button:hover{background:#f3f4f6}
 
-    .bottom-buttons button {
-      padding: 6px 14px;
-      background: #007BFF;
-      border: none;
-      border-radius: 4px;
-      color: white;
-      font-size: 14px;
-      cursor: pointer;
-    }
+/* 모달 내부 테이블 */
+.modal .table{width:100%; margin:8px auto}
+.modal .bottom{
+  position:absolute; left:0; right:0; bottom:12px;
+  display:flex; justify-content:center; gap:10px; padding:0; background:transparent;
+}
 
-    .bottom-buttons button:hover {
-      background: #0056b3;
-    }
+/* ---------- 보조: 리스트 헤더 라인 ---------- */
+.list > .box{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; width:90%; max-width:1200px; margin:18px auto 0;
+}
+
+/* ---------- 반응형 미세 조정 ---------- */
+@media (max-width: 860px){
+  .field{min-width: 260px}
+}
+@media (max-width: 600px){
+  .field{min-width: 100%}
+  .list > .box{width: 94%}
+}
+
   </style>
 </head>
 <body>
-  <div class="top">
-    <div class="date box">
-      <div class="period">기간</div>
-      <div class="month">월별</div>
+  <div class="main">
+  <div class="box">
+    <div>발주 기본정보</div>
+    <div class="box hide">
+      <span>진행상태</span><div>승인대기</div>
     </div>
-    <div>
-      <input type="date">
-      <span>~</span>
-      <input type="date">
-    </div>
-    <div class="state box">
-      <div>진행상태</div>
-      <select>
-        <option>전체</option>
-        <option>임시저장</option>
-        <option>승인</option>
-        <option>승인 대기</option>
-        <option>반려</option>
-      </select>
-    </div>
-    <button type="submit">조회</button>
-  </div>
-
-  <div class="center">
-    <table class="table">
-      <thead>
-        <tr>
-          <th><input type="checkbox"></th>
-          <th>NO</th>
-          <th>날짜</th>
-          <th>발주번호</th>
-          <th>부서</th>
-          <th>사원이름</th>
-          <th>총 수량</th>
-          <th>총 금액</th>
-          <th>진행상태</th>
-          <th>작업</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><input type="checkbox"></td>
-          <td>1</td>
-          <td>2025-08-20</td>
-          <td>PSF156322254</td>
-          <td>생산2팀</td>
-          <td>홍길동</td>
-          <td>5</td>
-          <td>100,000</td>
-          <td>승인대기</td>
-          <td><button type="button">회수</button></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox"></td>
-          <td>2</td>
-          <td>2025-08-21</td>
-          <td>PSF156322255</td>
-          <td>생산3팀</td>
-          <td>이몽룡</td>
-          <td>10</td>
-          <td>200,000</td>
-          <td>승인</td>
-          <td><button type="button">회수</button></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="bottom-buttons">
-      <button type="submit">삭제</button>
-      <button type="submit">추가</button>
+    <div style="display:flex; gap:8px;">
+      <button class="hide" type="button">임시저장</button>
+      <button class="hide" type="submit">승인 요청</button>
+      <button class="hide" type="button">회수</button>
     </div>
   </div>
+
+  <!-- 1행 -->
+  <div class="row">
+    <div class="field">
+      <label>발주 번호</label>
+      <input type="text">
+    </div>
+    <div class="field">
+      <label>발주 날짜</label>
+      <input type="date">
+    </div>
+    <div class="field">
+      <label>부서</label>
+      <input type="text" placeholder="부서를 선택하세요">
+    </div>
+    <div class="field">
+      <label>담당자</label>
+      <input type="text">
+    </div>
+  </div>
+
+  <!-- 2행 -->
+  <div class="row">
+    <div class="field">
+      <label>거래처</label>
+      <input type="text" placeholder="거래처를 선택하세요">
+    </div>
+    <div class="field">
+      <label>거래처 사업자번호</label>
+      <input type="text">
+    </div>
+    <div class="field">
+      <label>거래처 연락번호</label>
+      <input type="text">
+    </div>
+    <div class="field">
+      <label>납기일</label>
+      <input type="date">
+    </div>
+  </div>
+
+  <!-- 비고: 한 줄 전체 (컨테이너 max-width로 과도한 길이 방지) -->
+  <div class="row note">
+    <div class="field">
+      <label>비고</label>
+      <input type="text">
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

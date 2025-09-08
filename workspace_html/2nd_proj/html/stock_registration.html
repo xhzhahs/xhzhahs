@@ -4,76 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-    .box {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
-    .main {
-        border: 1px solid black;
-        margin: 0 auto;
-    }
-    .list {
-        text-align: center;
-    }
-    .table {
-        border-collapse: collapse;
-        width: 900px;
-        text-align: center;
-        margin: 50px auto;
-    }
-    .bottom {
-        position: absolute;
-        text-align: center;
-        transform: translateX(-50%);
-        bottom: 20px;
-        left: 50%;
-        display: flex;
-        gap: 10px;
-    }
-    .modal {
-        border: 1px solid black;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        width: 500px;
-        height: 400px;
-        margin: 0 auto;
-    }
-    .modal table{
-        border: 1px solid black;
-        border-collapse: collapse;
-        position: relative;
-        max-height: 80vh;
-        overflow-y: auto;
-        width: 90%;
-    }
-    .search {
-        text-align: center;
-        margin: 60px auto 0;
-    }
-    </style>
+    <link rel="stylesheet" href="asset/registration.css">
 </head>
 <body>
     <div class="main">
-        <div>
+        <div class="action">
             <button type="submit">승인 요청</button>
         </div>
         <div class="box">
-            <div>
-                <div> 입/출고 </div>
-                <select>
-                    <option>전체</option>
-                    <option>입고</option>
-                    <option>출고</option>
-                </select>
-            </div>
-            <div>
+            <div class="item">
                 <div> 대분류 </div>
                 <select>
                     <option>전체</option>
@@ -84,7 +23,7 @@
                     <option>소모품</option>
                 </select>
             </div>
-            <div>
+            <div class="item">
                 <div> 중분류 </div>
                 <select>
                     <option>전체</option>
@@ -103,7 +42,7 @@
                     <option>비닐</option>
                 </select>
             </div>
-            <div>
+            <div class="item">
                 <div> 소분류 </div>
                 <select>
                     <option>전체</option>
@@ -125,63 +64,71 @@
                     <option>30M</option>
                 </select>
             </div>
+            <div class="item">
+                <div>등록날짜</div>
+                <input class="main_input" type="date">
+            </div>
         </div>
         <div class="box">
-            <div>
-                <div>등록날짜</div>
-                <input type="date">
-            </div>
-            <div>
+            <div class="item_5">
                 <div>품목코드</div>
-                <input type="text" placeholder="품목을 선택하세요">
+                <input class="main_input" type="text" placeholder="품목을 선택하세요">
             </div>
-            <div>
+            <div class="item_5">
                 <div>품목명/모델명</div>
-                <input type="text">
+                <input class="main_input" type="text">
             </div>
-            <div>
+            <div class="item_5">
                 <div> 구분 </div>
                 <select>
                     <option>전체</option>
-                    <option>양품</option>
-                    <option>불량</option>
-                    <option>보류</option>
+                    <option>완제품</option>
+                    <option>원재료</option>
+                    <option>소모품</option>
+                    <option>폐기</option>
                 </select>
             </div>
-            
+            <div class="item_5">
+                <div> 상태 </div>
+                <select>
+                    <option>전체</option>
+                    <option>검사 전</option>
+                    <option>검사 후</option>
+                </select>
+            </div>
+            <div class="item_5">
+                <div>위치</div>
+                <input class="main_input" type="text">
+            </div>
         </div>
         <div class="box">
-            <div>
-                <div>위치</div>
-                <input type="text">
-            </div>
-            <div>
+            <div class="item">
                 <div>LOT번호</div>
-                <input type="date">
+                <input class="main_input" type="text">
             </div>
-            <div>
+            <div class="item">
                 <div>수량</div>
-                <input type="text" placeholder="부서를 선택하세요">
+                <input class="main_input" type="text">
             </div>
-            <div>
+            <div class="item">
                 <div>단가</div>
-                <input type="text">
+                <input class="main_input" type="text">
             </div>
-            <div>
+            <div class="item">
                 <div>합계</div>
-                <input type="text">
+                <input class="main_input" type="text">
             </div>
         </div>
-        <div>
-            <div>
+        <div class="note box">
+            <div class="item">
                 <div>비고</div>
-                <input type="text">
+                <input class="note_input" type="text">
             </div>
         </div>
     </div>
     <div class="list hide">
-        <div>재고 이동현황</div>
-        <table border="1" class="table">
+        <div class="header_list">재고 이동현황</div>
+        <table class="table">
             <thead>
                 <tr>
                     <th>LOT번호</th>
@@ -205,10 +152,10 @@
     </div>
     <div class="modal hide">
         <div class="search">
-            <input type="text" placeholder="검색내용을 입력하세요">
-            <button type="button">검색</button>
+            <input type="text" class="m_search" placeholder="검색내용을 입력하세요">
+            <button class="m_button" type="button">검색</button>
         </div>
-        <table border="1" class="table">
+        <table class="table">
             <thead>
                 <tr>
                     <th></th>
@@ -237,10 +184,10 @@
     </div>
     <div class="modal hide">
         <div class="search">
-            <input type="text" placeholder="검색내용을 입력하세요">
-            <button type="button">검색</button>
+            <input type="text" class="m_search" placeholder="검색내용을 입력하세요">
+            <button class="m_button" type="button">검색</button>
         </div>
-        <table border="1" class="table">
+        <table class="table">
             <thead>
                 <tr>
                     <th></th>
@@ -265,8 +212,8 @@
             </tbody>
         </table>
         <div class="bottom">
-            <button type="button">취소</button>
-            <button type="submit">확인</button>
+            <button class="m_button" type="button">취소</button>
+            <button class="m_button" type="submit">확인</button>
         </div>
     </div>
 </body>
