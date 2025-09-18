@@ -146,7 +146,7 @@ public class EmpDAO {
 			Connection conn = getConn();
 			
 			// SQL 준비
-			String query = " delete emp3";
+			String query = " delete * from emp3";
 				   query += " where empno = ?";
 		   
 			PreparedStatement ps = conn.prepareStatement(query);
