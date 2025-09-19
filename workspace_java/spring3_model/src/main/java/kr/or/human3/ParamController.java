@@ -8,8 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -235,6 +238,123 @@ public class ParamController {
 	@RequestMapping("/join7")
 	public void join7(String id, MemberDTO dto) {
 		
+	}
+	
+	// cal/1 입력시
+	// 1과 {month}중에 더 구체적인 1이 출력됨
+	@RequestMapping("/cal/1")
+	public void cal() {
+		System.out.println("1월! 달력");
+	}
+	// "{}"의 영역을 변수에 넣어줘야함.
+	@RequestMapping("/cal/{month}")
+	public void cal2(
+			// PathVariable은 생략불가능
+			// 생략하면 RequestParam이 되어버리기때문
+			@PathVariable("month")
+			int mon
+			
+			) {
+		System.out.println(mon+"월 달력");
+	}
+	
+	// {}가 여러개 들어갈 수 있다.
+	// 대신 여러개 들어간 만큼 변수에 포함시켜야한다.
+	@RequestMapping("/lunch/{store}/order/{menu}/start")
+	public void lunch(
+			// PathVariable은 생략불가능
+			// 생략하면 RequestParam이 되어버리기때문
+			@PathVariable("store")
+			String store,
+			
+			@PathVariable("menu")
+			String menu
+			
+			) {
+		System.out.println(store + "에서 "+menu+"(을)를 준비합니다.");
+	}
+	
+	// jsp로만 갈 수 있음
+	// forward 방식으로 넘어감
+	@RequestMapping("/join8")
+	public String join8() {
+		
+		// String만 작성해도 jsp를 찾고
+		// join.jsp로 넘어감
+		return "join";
+	}
+	
+	// forward 방식으로 가지만 
+	// jsp가 아닌 다시 Controller로 보내서
+	// 해당 주소로 보냄
+	@RequestMapping("/join10")
+	public String join10() {
+		
+//		joinForm3();	// 메소드이기 때문에 호출 가능
+		return "forward:join3.do";
+	}
+	
+	// sendRedirect로 넘어감
+	@RequestMapping("/join9")
+	public String join9() {
+		
+		return "redirect:join3.do";
+	}
+	
+	
+	///////////////// 이것이 최종 현업 소스 /////////////////////////
+	@RequestMapping("/join11")
+	// Model이 request역할을 해줌
+	// request와 생명 주기가 같다.
+	// model은 얕은복사로 넘어간다.
+	public String join11(Model model, String id) {
+		System.out.println("/join11 실행, id :"+ id);
+		
+		model.addAttribute("id",id);
+		
+		return "result";
+	}
+	
+	// method없이 value만 있다면
+	// value= 는 생략가능
+	@RequestMapping(value="/join12")
+	public String join12() {
+		
+		return "join";
+	}
+	
+	// 주소를 2개 쓸 수 있다.
+	// 대신 {} 안에 써야함.
+	@RequestMapping({"/join13","/join14"})
+	public String join13() {
+		
+		return "join";
+	}
+	
+	// method 안쓰면 모두 허용
+	// 쓰면 그것만 허용
+	@RequestMapping(value="/join15", method=RequestMethod.POST)
+	public String doPost() {
+		
+		System.out.println("join15 doPost 실행");
+		return "join";
+	}
+	
+	// method가 다르면 주소가 같아도 가능
+	@RequestMapping(value="/join15", method=RequestMethod.GET)
+	public String doGet() {
+		
+		System.out.println("join15 doGet 실행");
+		return "join";
+	}
+	
+	// method에 둘 다 사용할 수 있음.
+	// 이것도 동일하게 {} 안에 써야함.
+	@RequestMapping(value="/join15", method= {RequestMethod.GET, RequestMethod.POST})
+	public String join16() {
+		
+		System.out.println("join15 doGet 실행");
+		return "join";
 	}
 	
 }
