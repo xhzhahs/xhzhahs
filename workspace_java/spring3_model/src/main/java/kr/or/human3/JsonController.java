@@ -44,4 +44,13 @@ public class JsonController {
 		return "ajax";
 	}
 	
+	@RequestMapping("ajax3")
+	@ResponseBody
+	public String ajax3() {
+		
+		MemberDTO dto = new MemberDTO();
+		
+		return "ajax";
+	}
+	
 }

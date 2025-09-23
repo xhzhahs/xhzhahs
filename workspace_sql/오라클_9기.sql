@@ -1490,3 +1490,10 @@ select * from (
         order by hiredate desc
     ) t1
 ) t2;
+
+
+-------------------------------------------------------------------
+
+create sequence seq_emp2;
+
+select seq_emp2.nextval from dual;

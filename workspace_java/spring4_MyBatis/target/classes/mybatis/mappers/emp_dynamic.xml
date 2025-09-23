@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.emp.dynamic">
+
+	<select id="selectEmpAll" resultType="empDTO" parameterType="empDTO">
+		select * from emp2
+	</select>
+	<select id="selectEmpEname" resultType="empDTO" parameterType="empDTO">
+		select * from emp2
+		where ename = #{ename}
+	</select>
+	<select id="selectEmpJob" resultType="empDTO" parameterType="empDTO">
+		select * from emp2
+		where job = #{job}
+	</select>
+	
+	<!-- myBatis 동적 사용법 -->
+	<select id="selectEmp" resultType="empDTO" parameterType="empDTO">
+<!-- 		select * from emp2 -->
+<!-- 		<if test=" ename != null and ename != '' "> -->
+<!-- 			where ename = #{ename} -->
+<!-- 		</if> -->
+<!-- 		<if test=" job != null and job != '' "> -->
+<!-- 			where job = #{job} -->
+<!-- 		</if> -->
+
+		<!-- where가 겹칠 수 있으니 따로 뺀다. 1=1은 true를 의미 -->
+		select * from emp2
+<!-- 		where 1=1 -->
+		<!-- 
+			1=1은 업데이트시 꼬일수 있으니
+			where태그를 사용한다.
+			and 나 or를 where로 바꿔준다.
+		 -->
+		<where>
+			<if test=" ename != null and ename != '' ">
+				and lower(ename) like lower( '%' || #{ename} || '%')
+			</if>
+			<if test=" job != null and job != '' ">
+				and lower(job) like lower( '%' || #{job} || '%')
+			</if>
+			<if test=" type != null and type = '1' and keyword != '' ">
+				and lower(ename) like lower( '%' || #{ename} || '%')
+			</if>
+			<if test=" sal != -1 ">
+				and sal <![CDATA[ <= ]]> #{sal}
+			</if>
+		</where>
+	</select>
+
+
+	<select id="choose" resultType="empDTO" parameterType="empDTO">
+		select * from emp2
+		
+		<where>
+			<choose>
+			
+				<when test=" ename != null and ename != '' ">
+					and lower(ename) like lower( '%' || #{ename} || '%')
+				</when>
+				<when test=" job != null and job != '' ">
+					and lower(job) like lower( '%' || #{job} || '%')
+				</when>
+				
+				<otherwise>
+					and mgr is null
+				</otherwise>
+				
+			</choose>
+		</where>
+	</select>
+
+
+
+
+
+
+</mapper>
+
+
+
+
