@@ -6,13 +6,48 @@
 	<appender name="console" class="org.apache.log4j.ConsoleAppender">
 		<param name="Target" value="System.out" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+			<!-- 
+				% p는 레벨을 의미  %-5p는 5자리로 맞춰라
+				%c는 클래스 정보를 의미
+				%m은 메세지를 의미
+				%n은 엔터를 의미
+			-->
+<!-- 			<param name="ConversionPattern" value="%-5p: %c - %m%n" /> -->
+			<param name="ConversionPattern" value="[%-5p]:[%d{yy-MM-dd HH:mm:ss}][%c(%L)] - %m%n" />
 		</layout>
 	</appender>
 	
+<!-- 	데일리 롤링 파일 appender : 로그가 파일로 저장됨 -->
+	<appender name="daily" class="org.apache.log4j.DailyRollingFileAppender">
+	      <param name="file" value="C:/tmp/log/proj.log"/>
+	      <param name="Append" value="true"/>
+	      <param name="DatePattern" value="'.'yyMMdd"/>
+	      <layout class="org.apache.log4j.PatternLayout">
+	          <param name="ConversionPattern" value="[%-5p]:[%d{yy-MM-dd HH:mm:ss}][%c(%L)] - %m%n"/>
+	      </layout>
+	  </appender>
+	
+<!-- 	용량으로 파일을 구분하는 appender -->
+	<appender name="rolling" class="org.apache.log4j.RollingFileAppender">
+        <param name="file" value="C:/tmp/log/proj_size.log"/>
+        <param name="Append" value="true"/>
+<!--         최대용량이 1KB다. -->
+        <param name="MaxFileSize" value="1KB"/>
+<!--         10개까지만 쌓인다. -->
+        <param name="MaxBackupIndex" value="10"/> 
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%-5p]:[%d{yy-MM-dd HH:mm:ss}][%c(%L)] - %m%n"/>
+        </layout>
+    </appender> 
+	
+	
 	<!-- Application Loggers -->
 	<logger name="kr.or.human4">
+<!-- 	여기서 level을 정할 수 있음 -->
 		<level value="info" />
+<!-- 		<level value="warn" /> -->
+		<appender-ref ref="daily" />
+		<appender-ref ref="rolling" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
@@ -32,9 +67,21 @@
 		<level value="info" />
 	</logger>
 
+	<!-- log4j sql 관련 코드 -->
+	<logger name="jdbc.sqlonly" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="console"/>
+    </logger>
+
+    <logger name="jdbc.resultsettable" additivity="false">
+         <level value="INFO"/>
+         <appender-ref ref="console"/>
+     </logger>
+
 	<!-- Root Logger -->
 	<root>
 		<priority value="warn" />
+<!-- 		맨 위쪽 appender name과 같아야함. 현재 console로 console창에 로그가 나옴 -->
 		<appender-ref ref="console" />
 	</root>
 	

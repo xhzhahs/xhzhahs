@@ -58,7 +58,9 @@ public class FileUpload extends HttpServlet {
 						// 파일명 추출
 						String fileName = fileItem.getName();
 						
-//						fileName = System.currentTimeMillis() +"_"+ fileName;
+						// 파일명 동일시 덮어쓰기 하므로 앞에 시간을 추가
+						// DB에는 원본파일명과 시간추가한 파일명 둘다 저장하기
+						fileName = System.currentTimeMillis() +"_"+ fileName;
 						
 						File uploadFile = new File(currentDirPath + "\\" + fileName);
 //						File uploadFile = new File(currentDirPath + File.separator + fileName);

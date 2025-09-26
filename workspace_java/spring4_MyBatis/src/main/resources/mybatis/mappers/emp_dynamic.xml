@@ -72,8 +72,18 @@
 		</where>
 	</select>
 
-
-
+	<!-- foreach 연습 -->
+	<select id="foreach" resultType="empDTO" parameterType="empDTO">
+		select * from emp2
+<!-- 		where empno in (1,2,3,4) -->
+		<where>
+			empno in <!-- open 안에 쓸 수도 있지만 복붙이 불편하므로 따로 뺀다. -->
+		<!-- 배열을 쓸때는 array, list에 담으면 list, DTO에 담으면 담은 필드명 -->
+			<foreach item="item" collection="empnos" open="(" separator=", " close=")">
+				#{item}
+			</foreach>
+		</where>
+	</select>
 
 
 

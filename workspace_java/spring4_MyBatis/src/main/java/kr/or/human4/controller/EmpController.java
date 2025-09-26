@@ -3,17 +3,24 @@ package kr.or.human4.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.or.human4.HomeController;
 import kr.or.human4.dto.EmpDTO;
 import kr.or.human4.service.EmpService;
 
 @Controller
 public class EmpController {
 
+	private static final Logger logger = LoggerFactory.getLogger(EmpController.class);
+	
 	@Autowired
 	EmpService empService;
 	
@@ -145,5 +152,71 @@ public class EmpController {
 		
 		return "emp";
 	}
+	
+	// 선택 조회
+	@RequestMapping("/choice")
+	public String choice( Model model,
+			
+//			@RequestParam("empnos")
+//			String[] empnos1,
+//			
+//			@RequestParam("empnos")
+//			List empnos2,
+//		
+//			@ModelAttribute
+			EmpDTO empDTO
+			) {
+//		System.out.println("String[] : ");
+//		for(String empno : empnos1) {
+//			System.out.println(empno);
+//		}
+////		System.out.println("String[]: "+ empnos1);
+//		System.out.println("List: "+ empnos2);
+		System.out.println("EmpDTO: "+ empDTO);
+		
+		List<EmpDTO> list = empService.foreach(empDTO);
+		
+		model.addAttribute("list",list);
+		
+		return "emp";
+	}
+	
+	
+	////////////////// log4j ////////////////////////////
+	
+	// 상단에 아래 한줄 추가
+	// private static final Logger logger = LoggerFactory.getLogger(EmpController.class);
+	
+	static final int isDebug = 3;
+	
+	@RequestMapping("/log4j")
+	public String log4j() {
+		
+		// logger를 다른 값으로 바꾸는건 불가능
+		// logger.으로 사용하는건 가능
+		logger.info("info 입니다.");
+		logger.warn("warning 입니다.");
+		logger.error("error 입니다.");
+	
+		
+		if(isDebug >= 2 ) {
+//			System.out.println(list.size());
+		}
+		if(isDebug >= 4 ) {
+//			System.out.println(list.size());
+		}
+		
+		return "emp";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

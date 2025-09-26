@@ -20,4 +20,5 @@ public interface EmpService {
 	
 	
 	public List<EmpDTO> selectEmp(EmpDTO dto);
+	public List<EmpDTO> foreach(EmpDTO dto);
 }

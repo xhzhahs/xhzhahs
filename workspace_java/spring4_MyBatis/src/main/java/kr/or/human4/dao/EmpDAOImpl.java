@@ -142,6 +142,15 @@ public class EmpDAOImpl implements EmpDAO{
 		
 		return resultList;
 	}
+
+	// 체크박스 선택조회
+	@Override
+	public List<EmpDTO> foreach(EmpDTO empDTO) {
+		List<EmpDTO> resultList = null;
+		
+		return sqlSession.selectList("mapper.emp.dynamic.foreach", empDTO);
+		
+	}
 	
 
 }

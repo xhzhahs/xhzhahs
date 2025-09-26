@@ -19,4 +19,5 @@ public interface EmpDAO {
 	public EmpDTO selectOneEmpno(int empno);
 	
 	public List<EmpDTO> selectEmp(EmpDTO empDTO);
+	public List<EmpDTO> foreach(EmpDTO empDTO);
 }
