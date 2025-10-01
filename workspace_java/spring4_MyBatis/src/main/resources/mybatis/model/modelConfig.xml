@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!-- 
+	tag(또는 node)의 순서에 주의 
+	
+	순서 :
+	 	(properties?, settings?, typeAliases?, typeHandlers?, objectFactory?, objectWrapperFactory?, 
+ 		reflectorFactory?, plugins?, environments?, databaseIdProvider?, mappers?)
+-->
+
+	<!-- DB에 전달인자로 null 줄 수 있음 -->
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL" />
+    </settings>
+    
+    <!-- 별칭 설정 -->
+    <typeAliases>
+    	<typeAlias type= "kr.or.human4.dto.EmpDTO" alias="empDTO" />
+    </typeAliases>
+
+</configuration>

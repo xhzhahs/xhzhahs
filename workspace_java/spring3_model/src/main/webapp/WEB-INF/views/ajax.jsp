@@ -26,7 +26,8 @@
 			
 			const xhr = new XMLHttpRequest()
 // 			xhr.open('post','ajax1')
-			xhr.open('post','ajax2')
+// 			xhr.open('post','ajax2')
+			xhr.open('post','ajax3')
 			xhr.setRequestHeader('Content-Type', 'application/json')
 			xhr.send(JSON.stringify(data))
 			xhr.onload = function(){

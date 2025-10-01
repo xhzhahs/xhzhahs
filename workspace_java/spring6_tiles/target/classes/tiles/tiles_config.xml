@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<!-- 첫번째 레이아웃 -->
+	<definition name="baseLayout" template="/WEB-INF/views/layout/layout.jsp">
+		<!-- put-attribute에서 name이 jsp tiles:insertAttribute name이다. -->
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/side.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+		<put-attribute name="title" value="오락실" />
+	</definition>
+	
+	<!-- 두번째 레이아웃 -->
+	<definition name="baseLayout2" template="/WEB-INF/views/layout/layout2.jsp">
+	</definition>
+
+	<!-- 위 템플릿을 쓰면서 contents만 바꿔씀 -->
+	<definition name="seven" extends="baseLayout">
+		<put-attribute name="content" value="/WEB-INF/views/content/sevenKnights.jsp" />
+	</definition>
+
+	<definition name="mabi" extends="baseLayout">
+		<put-attribute name="content" value="/WEB-INF/views/content/mabinogi.jsp" />
+	</definition>
+	
+	<!-- 변수로 받는 방법 -->
+	<definition name="*.tiles" extends="baseLayout">
+		<put-attribute name="content" value="/WEB-INF/views/content/{1}.jsp" />
+	</definition>
+	<!-- 다른폴더에 있을 시 -->
+	<definition name="*/*.tiles" extends="baseLayout">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+	
+	<!-- 두번째 레이아웃 적용한 템플릿 -->
+	<definition name="login" extends="baseLayout2">
+		<put-attribute name="content" value="/WEB-INF/views/content/sevenKnights.jsp" />
+	</definition>
+	
+</tiles-definitions>

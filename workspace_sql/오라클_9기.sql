@@ -1490,3 +1490,33 @@ select * from (
         order by hiredate desc
     ) t1
 ) t2;
+
+
+-------------------------------------------------------------------
+
+create sequence seq_emp2;
+
+select seq_emp2.nextval from dual;
+
+-- 원하는 사람만 골라보기 ( where __ in ( , , , ) )
+select * from emp2
+where empno in (7500, 7567, 7699);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

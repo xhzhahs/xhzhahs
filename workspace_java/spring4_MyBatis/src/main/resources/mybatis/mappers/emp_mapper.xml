@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<!-- 인터페이스와 연결하기 위해 패기지명과 인터페이스 파일 풀네임을 적어줌 -->
+<mapper namespace="kr.or.human4.dao.mapper.EmpMapperDAO">
+	
+	<select id="selectEmp" resultType="empDTO">
+		select * from emp2
+	</select>
+
+
+</mapper>
+
+
+
+

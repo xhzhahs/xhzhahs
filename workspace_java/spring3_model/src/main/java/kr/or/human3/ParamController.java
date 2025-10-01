@@ -350,11 +350,19 @@ public class ParamController {
 	
 	// method에 둘 다 사용할 수 있음.
 	// 이것도 동일하게 {} 안에 써야함.
-	@RequestMapping(value="/join15", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/join16", method= {RequestMethod.GET, RequestMethod.POST})
 	public String join16() {
 		
 		System.out.println("join15 doGet 실행");
 		return "join";
 	}
+	
+	@RequestMapping("/join17")
+	// return type이 void일때 return 생략가능
+	// 자동으로 Mapping 주소로 이동
+	public void join17() {
+		System.out.println("join17 실행");
+	}
+	
 	
 }
