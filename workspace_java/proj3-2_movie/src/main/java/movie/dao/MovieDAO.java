@@ -11,7 +11,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import emp.service.EmpService;
 import movie.dto.MovieDTO;
 
 public class MovieDAO {
