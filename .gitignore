@@ -1,0 +1,284 @@
+최아라
+xhzhahs5801
+방해 금지
+
+최아라 — 2025-08-01 오후 9:19
+메인페이지 js 에 추가하기
+
+const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    const loginBlock = document.querySelector('.login-block');
+    const loginDone = document.querySelector('.login-done');
+    const logoutBtn = document.querySelector('.logout');
+
+    if (currentUser && currentUser.id) {
+
+        // 로그인 상태 UI
+        if (loginBlock) loginBlock.style.display = 'none';
+        if (loginDone) loginDone.style.display = 'block';
+
+        if (logoutBtn) {
+
+        logoutBtn.addEventListener('click', function () {
+
+            localStorage.removeItem('currentUser');
+            location.reload();
+
+        });
+        }
+    } else {
+
+        // 비로그인 상태 UI
+        if (loginDone) loginDone.style.display = 'none';
+        if (loginBlock) loginBlock.style.display = 'block';
+
+    }
+
+메인페이지 js 마지막에 이코드도 추가해주시면 감사합니다!
+제가 하면 충돌날까봐...ㅎ
+김재은 — 2025-08-01 오후 11:06
+확인했습니다! 내일 낮 중으로 진행해둘게요!!
+김재은 — 2025-08-02 오후 3:14
+방금 올린 거에 얘기해주신 코드랑 display: none 반영해뒀어요!
+혹시 몰라서 기존 코드는 주석으로 넣어둬서 원상복귀 시키려면 주석 상태 변경... 해도 되긴 하는데 하는 김에 js 클릭 이벤트 추가해서 그쪽 주석 처리해야 하니까  좀 애매하긴 하네요
+최아라 — 2025-08-02 오후 3:35
+감사해요~ 일단 복사본 하나 만들어볼게요
+이제 연동 잘됩니다!
+로그인 안된 상태로 마이페이지가면 로그인 페이지로 이동까지 해놨어요
+커밋할게요
+김재은 — 2025-08-02 오후 3:39
+좋아요 그럼 저도 당기고 나서 만약 안 되면 따로 말씀 드릴게요
+최아라 — 2025-08-02 오후 3:40
+네 방금 커밋했어요. 복사본은 따로 빼놔서 커밋은 안했습니다.
+김재은 — 어제 오후 3:22
+알잘딱 편집본으로 만들었습니다
+이미지
+최아라 — 어제 오후 3:26
+오 글씨체 ㅋㅋㅋㅋㅋㅋ
+김재은 — 어제 오후 3:27
+그때의 감성 글씨체죠
+휴 오랜만에 찾아보느라 애썼다
+최아라 — 어제 오후 3:30
+ㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+바로 넣어드릴게요
+이미지
+완료
+ㅋㅋㅋㅋ
+김재은 — 어제 오후 3:31
+ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+아 왜 부자가 된 건지 알 것 같은 할 일 목록들
+최아라 — 어제 오후 3:31
+ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+아주 찰떡입니다
+최아라 — 오전 1:48
+이미지
+여기 보면 번호가 ID같은데 완제하나당 하나의 bom 아닐까요?
+김재은 — 오전 1:49
+잠시만요... 읽는 중.
+최아라 — 오전 1:50
+등록페이지는 완제품 상품 선택하면 bom이 나타나는 방식이던데
+김재은 — 오전 1:51
+완제품을 선택하면 bom이... 여러 개가 나오나요???
+최아라 — 오전 1:52
+https://www.youtube.com/watch?v=G12zG7g7bLc&t=1023s
+YouTube
+dev.mminsu
+2차 프로젝트 최종발표회 - 2팀 SoAPI
+이미지
+김재은 — 오전 1:52
+지금 애초에 이렇게 보면 재료 BOM이 없고 완제, 반제만 있는 것 같은데
+이건 오히려 저쪽에서 쫌 잘못 나온 거 아닌가 하는 의문이
+정 안 되면 쌤한테 DM 찔러서 해결하겠습니다
+최아라 — 오전 1:52
+15분 부터 한번 봐ㅏ보시겠어요?
+3조는 bom 안보여줬네여...
+김재은 — 오전 1:54
+아 ㅇㅋ 확인하고 왔습니다
+그러니까 목표 제품 등록하면 아래에 재료들 여러 개 등록할 수 있게 나오는 느낌인 거 같거든요 15:45 언저리 보면
+일단 뭐가 됐든 재료용 품목2 속성은 필요한 게 맞는데...
+얘를 2조에서는 한 번에 여러 개 insert 되도록 해서
+BOM 하나에 재료 여러 개 있는 것처럼 보이게 한 것 같아요
+최아라 — 오전 1:56
+위에 필요 재료들이 뜨고 아래에서 사용량을 배치? 하는 느낌
+근데 재은씨가 말씀하신대로 하면 품목 테이블을 나누는거 아닌가요?
+김재은 — 오전 1:57
+? 아뇨아뇨
+최아라 — 오전 1:57
+완제랑 재료랑
+김재은 — 오전 1:57
+나눌 필요 없이 그냥 기존에 품목에 구분 속성 있던 것만 쓰면 돼요
+최아라 — 오전 1:57
+구분 속성은 조인해서 가져오면 되는거 아닌가요?
+김재은 — 오전 1:58
+네 그래서 완제는 품목2(재료) 영역에 안 뜨게 한다든지... 하는 식으로 조정 가능한? 느낌으로 구상중 
+최아라 — 오전 1:58
+아아 그게 맞긴하죠
+일단 내일 더 이야기 해봅시다
+김재은 — 오전 1:59
+ㅇㅋ...
+정 안 되면 비 와도 가서 대면토론이라도 벌이겠습니다
+최아라 — 오전 1:59
+ㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+알겠습니다
+전 이만....
+내일 코.노를 위해
+김재은 — 오전 2:00
+저도 BOM 이슈 빼곤 다 끝나서
+ㅇㄴㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ
+낮에 봅시다......
+김재은 — 오후 7:24
+# Compiled class files
+*.class
+
+# Log files
+*.log
+확장
+gitignore.txt
+2KB
+﻿
+김재은
+kaa___
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Build outputs
+target/
+build/
+bin/
+
+# Tomcat files
+Servers/
+wtpwebapps/
+work/
+temp/
+logs/
+
+# Eclipse/STS
+.metadata/
+.settings/
+.project
+.classpath
+.springBeans
+.factorypath
+.apt_generated/
+.apt_generated_test/
+.recommenders/
+.loadpath
+.ajdt/
+.buildpath
+*.launch
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+# OS junk / editor swap
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# Visual Studio temporary files
+.vs/
+
+# Binaries and Debug build outputs
+obj/
+*.exe
+*.pdb
+
+# User-specific files
+*.suo
+*.user
+
+# Rider (e.g.) configuration files
+.idea/
+
+# Test runner output
+TestResults/
+
+# Local user-specific configurations
+*.local
+
+# NuGet packages
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+
+# Unreal/Unity or game asset packages
+*.pak
+*.unitypackage
+*.asset
+*.meta
+
+# C# DLL files (ignore all, except specific folders)
+*.dll
+
+# Include only necessary DLLs (e.g., third-party or hand-crafted)
+!Libs/*.dll
+!Plugins/*.dll
+
+# VS Code project settings (optional)
+.vscode/
+
+# Node.js
+
+# Node modules - 필수: 외부 패키지 저장소
+node_modules/
+
+# 환경 변수 파일 - 민감 정보 포함
+.env
+.env.*.local
+
+# npm 로그 파일
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Node.js 빌드 결과
+dist/
+build/
+
+# 테스트 커버리지 결과
+coverage/
+
+# PM2 로그 및 설정
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# 바이너리/캐시/임시 파일
+.cache/
+.next/
+out/
+
+# TypeScript 컴파일 출력
+*.tsbuildinfo
