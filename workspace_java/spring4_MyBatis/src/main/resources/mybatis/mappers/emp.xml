@@ -8,7 +8,7 @@
 	<!-- id는 겹치면 안된다. -->
 
 
-	<select id="selectEmp" resultType="kr.or.human4.dto.EmpDTO">
+	<select id="selectEmp" resultType="empDTO">
 		select * from emp2
 	</select>
 	

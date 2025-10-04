@@ -94,7 +94,14 @@ CREATE SEQUENCE stock_seq
 -- GRANT SELECT ON J2P4.stock_seq TO <APP_USER>;
 -- CREATE SYNONYM <APP_USER>.stock_seq FOR J2P4.stock_seq;
     
+-------------------------------------    
+-----------------3차 프로젝트----------    
     
-    
-    
-    
+alter table "V3_worker"
+rename column woker_email2 to woker_email;
+
+commit;
+
+
+
+select * from "V3_worker";
